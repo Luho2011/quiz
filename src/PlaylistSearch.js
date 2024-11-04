@@ -34,7 +34,7 @@ import {useState} from "react";
               </button>
         
               <div>
-                <h4>Suchergebnisse:</h4>
+                <h4>Suchergebnis:</h4>
                 <ul>
                   {playlists.map((playlist) => (
                     <li key={playlist.id}>
