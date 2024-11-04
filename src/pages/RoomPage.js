@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, doc, getDoc, updateDoc, onSnapshot } from "firebase/firestore";
+import PlaylistSearch from '../PlaylistSearch';
 
 function RoomPage() {
   const { roomId } = useParams();
@@ -69,9 +70,12 @@ function RoomPage() {
             ) : (
               <div>
                 <h2>Raum ID: {roomId}</h2>
-                
+                 
               </div>
             )}
+          </div>
+          <div className='playlist'>
+             <PlaylistSearch />
           </div>
         </div>
       );
