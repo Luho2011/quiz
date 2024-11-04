@@ -16,6 +16,8 @@ import History from './pages/History';
 import MusicTrivia from './pages/MusicTrivia';
 import Association from './pages/Association';
 import RoomPage from "./pages/RoomPage";
+import Auth from './Auth';
+import Callback from './Callback';
 import { Route, Routes } from "react-router-dom"; 
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend"
@@ -37,9 +39,11 @@ function App() {
             <Route path="/:id" element={<MovieDetails />} />
             <Route path="/claim" element={<Claim />} />
             <Route path="/whoKnowsMore" element={<WhoKnowsMore />} />
-            <Route path="/musicTrivia" element={<MusicTrivia />} />
+            <Route path="/musicTriviaPlay" element={<MusicTrivia />} />
             <Route path="/association" element={<Association />} />
             <Route path="/room/:roomId" element={<RoomPage />} />
+            <Route path="/musicTrivia" element={<Auth />} />
+            <Route path="/callback" element={<Callback />} />
           </Routes>
         </div>
        
