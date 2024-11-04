@@ -1,0 +1,53 @@
+.Association {
+    background-color: rgb(41, 41, 41);
+    height: 100vh;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.Association > h1 {
+    color: white;
+    font-size: 75px;
+}
+
+.Association__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 250px;
+}
+
+.Association__button {
+    cursor: pointer;
+    height: 35px;
+    width: 80px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(128, 128, 128);
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.Association__button:hover {
+    background-color: rgb(83, 83, 83);
+}
+
+.currentWord {
+    background-color: rgb(235, 235, 81);
+    margin-bottom: 30px;
+    border: solid;
+    border-radius: 10px;
+    border-color: rgb(26, 26, 26);
+    height: 80px;
+    width: 750px;
+    margin-top: 20px;
+}
+
+.currentWord > h1 {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 40px;
+ }
+

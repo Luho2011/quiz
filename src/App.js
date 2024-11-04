@@ -13,6 +13,9 @@ import Claim from './pages/Claim';
 import WhoKnowsMore from './pages/WhoKnowsMore';
 import Nav from './Nav';
 import History from './pages/History';
+import MusicTrivia from './pages/MusicTrivia';
+import Association from './pages/Association';
+import RoomPage from "./pages/RoomPage";
 import { Route, Routes } from "react-router-dom"; 
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend"
@@ -34,6 +37,9 @@ function App() {
             <Route path="/:id" element={<MovieDetails />} />
             <Route path="/claim" element={<Claim />} />
             <Route path="/whoKnowsMore" element={<WhoKnowsMore />} />
+            <Route path="/musicTrivia" element={<MusicTrivia />} />
+            <Route path="/association" element={<Association />} />
+            <Route path="/room/:roomId" element={<RoomPage />} />
           </Routes>
         </div>
        

@@ -12,6 +12,8 @@ import theme from "./img/theme.png";
 import Movie2 from "./img/movie2.png";
 import Claim from "./img/claim.png";
 import WhoKnowsMore from "./img/whoknowsmore.png";
+import musicTrivia from "./img/audioIcon.png";
+import WordsAssociation from "./img/wordsAssociation.png";
 
 
 function Content() {
@@ -47,6 +49,12 @@ function Content() {
         </Link>
         <Link to='/WhoKnowsMore' target="_blank">
           <button className='game_button'><img className='whoknowsmore' src={WhoKnowsMore} alt="" onClick={""}/></button>
+        </Link>
+        <Link to='/musicTrivia' target="_blank">
+          <button className='game_button'><img className='musicTrivia' src={musicTrivia} alt="" onClick={""}/></button>
+        </Link>
+        <Link to='/association' target="_blank">
+          <button className='game_button'><img className='musicTrivia' src={WordsAssociation} alt="" onClick={""}/></button>
         </Link>
        </div>
     </div>
