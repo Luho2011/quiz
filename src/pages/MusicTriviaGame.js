@@ -2,13 +2,15 @@ import React from 'react'
 import {useState, useEffect} from "react";
 import { useLocation } from 'react-router-dom';
 
-function MusicTriviaGame({ location }) {
+function MusicTriviaGame() {
+  const location = useLocation();
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [audio, setAudio] = useState(null);
   
-  const { selectedPlaylists } = location.state || {}; // Die Playlists aus RoomPage
+  // Fallback auf leeres Array, falls `location.state` oder `selectedPlaylists` nicht verfügbar sind
+  const selectedPlaylists = location.state?.selectedPlaylists || [];
 
   useEffect(() => {
       if (currentSong && audio) {
@@ -20,7 +22,6 @@ function MusicTriviaGame({ location }) {
   }, [currentSong, audio, isPlaying]);
 
   useEffect(() => {
-      // Audio-Element für den Song-Player
       const newAudio = new Audio();
       setAudio(newAudio);
 
@@ -50,15 +51,17 @@ function MusicTriviaGame({ location }) {
       setShowSolution(false);
 
       // Wähle einen zufälligen Song aus den Playlists
-      const randomPlaylist = selectedPlaylists[Math.floor(Math.random() * selectedPlaylists.length)];
-      const randomSong = randomPlaylist.tracks.items[Math.floor(Math.random() * randomPlaylist.tracks.items.length)].track;
-      
-      setCurrentSong({
-          name: randomSong.name,
-          artist: randomSong.artists[0].name,
-          release_date: randomSong.album.release_date,
-          preview_url: randomSong.preview_url,
-      });
+      if (selectedPlaylists.length > 0) {
+          const randomPlaylist = selectedPlaylists[Math.floor(Math.random() * selectedPlaylists.length)];
+          const randomSong = randomPlaylist.tracks.items[Math.floor(Math.random() * randomPlaylist.tracks.items.length)].track;
+          
+          setCurrentSong({
+              name: randomSong.name,
+              artist: randomSong.artists[0].name,
+              release_date: randomSong.album.release_date,
+              preview_url: randomSong.preview_url,
+          });
+      }
   };
 
   return (
