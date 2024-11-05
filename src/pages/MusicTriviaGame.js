@@ -1,105 +1,87 @@
 import React from 'react'
 import {useState, useEffect} from "react";
-import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function MusicTriviaGame() {
-  const location = useLocation();
-  const [currentSong, setCurrentSong] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showSolution, setShowSolution] = useState(false);
-  const [audio, setAudio] = useState(null);
-  
-  // Fallback auf leeres Array, falls `location.state` oder `selectedPlaylists` nicht verfügbar sind
-  const selectedPlaylists = location.state?.selectedPlaylists || [];
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [songs, setSongs] = useState([]);
+    const [currentSong, setCurrentSong] = useState(null);
+    const [guessPhase, setGuessPhase] = useState(true);
+    const [cards, setCards] = useState([]);
+    const [sortedCards, setSortedCards] = useState([]);
+    const selectedPlaylists = location.state?.selectedPlaylists || [];
 
-  useEffect(() => {
-      if (currentSong && audio) {
-          audio.src = currentSong.preview_url; // Preview-URL des Songs
-          if (isPlaying) {
-              audio.play();
-          }
-      }
-  }, [currentSong, audio, isPlaying]);
+    // Lade Songs aus Playlists
+    useEffect(() => {
+        const loadSongs = async () => {
+            let songData = [];
+            for (let playlist of selectedPlaylists) {
+                const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('spotifyAccessToken')}`,
+                    }
+                });
+                songData = [...songData, ...response.data.items.map(item => item.track)];
+            }
+            setSongs(songData);
+            setCurrentSong(songData[Math.floor(Math.random() * songData.length)]);
+        };
+        loadSongs();
+    }, [selectedPlaylists]);
 
-  useEffect(() => {
-      const newAudio = new Audio();
-      setAudio(newAudio);
+    // Timer für das Abspielen
+    useEffect(() => {
+        if (currentSong) {
+            const timer = setTimeout(() => setGuessPhase(false), 30000);
+            return () => clearTimeout(timer);
+        }
+    }, [currentSong]);
 
-      return () => {
-          if (audio) {
-              audio.pause();
-              audio.currentTime = 0;
-          }
-      };
-  }, []);
+    const revealSolution = () => setGuessPhase(false);
 
-  const startSong = () => {
-      if (currentSong) {
-          setIsPlaying(true);
-      }
-  };
+    const addCardToSorted = (position) => {
+        const newCard = {
+            ...currentSong,
+            position
+        };
+        setSortedCards([...sortedCards, newCard]);
+        setCards(cards.filter(card => card.id !== currentSong.id));
+        // Neues zufälliges Lied auswählen
+        const remainingSongs = songs.filter(song => song.id !== currentSong.id);
+        setSongs(remainingSongs);
+        setCurrentSong(remainingSongs[Math.floor(Math.random() * remainingSongs.length)]);
+    };
 
-  const pauseSong = () => {
-      if (audio) {
-          audio.pause();
-          setIsPlaying(false);
-      }
-  };
-
-  const showNextSong = () => {
-      pauseSong();
-      setShowSolution(false);
-
-      // Wähle einen zufälligen Song aus den Playlists
-      if (selectedPlaylists.length > 0) {
-          const randomPlaylist = selectedPlaylists[Math.floor(Math.random() * selectedPlaylists.length)];
-          const randomSong = randomPlaylist.tracks.items[Math.floor(Math.random() * randomPlaylist.tracks.items.length)].track;
-          
-          setCurrentSong({
-              name: randomSong.name,
-              artist: randomSong.artists[0].name,
-              release_date: randomSong.album.release_date,
-              preview_url: randomSong.preview_url,
-          });
-      }
-  };
-
-  return (
-      <div style={{ padding: "20px" }}>
-          <h2>Music Trivia Game</h2>
-          
-          <div style={{
-              border: "1px solid #ccc",
-              padding: "20px",
-              borderRadius: "8px",
-              maxWidth: "400px",
-              textAlign: "center",
-              margin: "20px auto"
-          }}>
-              <h3>Interpret: {showSolution ? currentSong?.artist : "?"}</h3>
-              <h3>Song: {showSolution ? currentSong?.name : "?"}</h3>
-              <h3>Releasedatum: {showSolution ? currentSong?.release_date : "?"}</h3>
-              
-              <div style={{ marginTop: "20px" }}>
-                  <button onClick={startSong} disabled={isPlaying || !currentSong}>
-                      {isPlaying ? "Wird abgespielt..." : "Play"}
-                  </button>
-                  <button onClick={pauseSong} disabled={!isPlaying}>
-                      Pause
-                  </button>
-              </div>
-          </div>
-
-          <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginTop: "20px" }}>
-              <button onClick={() => setShowSolution(true)}>
-                  Lösung anzeigen
-              </button>
-              <button onClick={showNextSong}>
-                  Nächstes Lied
-              </button>
-          </div>
-      </div>
-  );
+    return (
+        <div>
+            <h1>Spielseite</h1>
+            {currentSong ? (
+                <div>
+                    <h2>Errate den Song</h2>
+                    <audio src={currentSong.preview_url} controls autoPlay={!guessPhase} />
+                    {guessPhase ? (
+                        <button onClick={revealSolution}>Lösung anzeigen</button>
+                    ) : (
+                        <div>
+                            <p>{currentSong.name} - {currentSong.artists[0].name} ({currentSong.album.release_date})</p>
+                            <button onClick={() => addCardToSorted('left')}>Vorheriges Jahr</button>
+                            <button onClick={() => addCardToSorted('right')}>Späteres Jahr</button>
+                        </div>
+                    )}
+                </div>
+            ) : (
+                <p>Keine weiteren Songs verfügbar</p>
+            )}
+            <h3>Sortierte Karten</h3>
+            <div>
+                {sortedCards.map((card, index) => (
+                    <div key={index}>{card.name} - {card.artists[0].name}</div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default MusicTriviaGame;
