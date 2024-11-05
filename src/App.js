@@ -14,6 +14,7 @@ import WhoKnowsMore from './pages/WhoKnowsMore';
 import Nav from './Nav';
 import History from './pages/History';
 import MusicTrivia from './pages/MusicTrivia';
+import MusicTriviaGame from './pages/MusicTriviaGame';
 import Association from './pages/Association';
 import RoomPage from "./pages/RoomPage";
 import Auth from './Auth';
@@ -44,6 +45,7 @@ function App() {
             <Route path="/room/:roomId" element={<RoomPage />} />
             <Route path="/musicTrivia" element={<Auth />} />
             <Route path="/callback" element={<Callback />} />
+            <Route path="/musicTriviaGame" element={<MusicTriviaGame />} />
           </Routes>
         </div>
        

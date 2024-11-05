@@ -45,7 +45,7 @@ function RoomPage() {
       // Funktion zum Spielstart und Navigation zur Spielseite
     const startGame = () => {
      if (selectedPlaylists.length > 0) {
-        navigate('/game', { state: { selectedPlaylists } });
+        navigate('/musicTriviaGame', { state: { selectedPlaylists } });
      } else {
         alert("Bitte wähle mindestens eine Playlist aus, um das Spiel zu starten.");
       }
