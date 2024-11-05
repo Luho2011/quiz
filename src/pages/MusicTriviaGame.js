@@ -8,9 +8,8 @@ function MusicTriviaGame() {
     const navigate = useNavigate();
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [player, setPlayer] = useState(null);
     const [showSolution, setShowSolution] = useState(false);
-    const [sortedCards, setSortedCards] = useState([]);
     const selectedPlaylists = location.state?.selectedPlaylists || [];
 
     // Lade Songs aus den ausgewählten Playlists
@@ -31,15 +30,58 @@ function MusicTriviaGame() {
         loadSongs();
     }, [selectedPlaylists]);
 
+    // Spotify Player initialisieren
+    useEffect(() => {
+        if (!window.Spotify) {
+            console.error('Spotify SDK not loaded');
+            return;
+        }
+
+        const player = new window.Spotify.Player({
+            name: 'Web Playback SDK',
+            getOAuthToken: cb => { cb(localStorage.getItem('spotifyAccessToken')); },
+            volume: 0.5
+        });
+
+        player.addListener('ready', ({ device_id }) => {
+            console.log('Ready to play with Device ID', device_id);
+        });
+
+        player.addListener('not_ready', ({ device_id }) => {
+            console.log('Device ID has gone offline', device_id);
+        });
+
+        player.connect().then(success => {
+            if (success) {
+                console.log('The Web Playback SDK successfully connected to Spotify!');
+                setPlayer(player);
+            }
+        });
+
+        return () => {
+            player.disconnect();
+        };
+    }, []);
+
     // Funktion zum Abspielen des nächsten zufälligen Songs
     const selectRandomSong = (availableSongs) => {
         if (availableSongs.length > 0) {
             const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
             setCurrentSong(randomSong);
-            setIsPlaying(false);
             setShowSolution(false);
+            playSong(randomSong.uri); // Play the selected song
         } else {
             setCurrentSong(null);
+        }
+    };
+
+    const playSong = (uri) => {
+        if (player) {
+            player.play({
+                uris: [uri]
+            }).then(() => {
+                console.log('Playing!');
+            }).catch(err => console.error(err));
         }
     };
 
@@ -58,13 +100,7 @@ function MusicTriviaGame() {
             {currentSong ? (
                 <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
                     <h2>Errate den Song</h2>
-                    <audio 
-                        src={currentSong.preview_url} 
-                        controls 
-                        autoPlay={isPlaying} 
-                        onPlay={() => setIsPlaying(true)} 
-                        onPause={() => setIsPlaying(false)} 
-                    />
+                    <audio src={currentSong.preview_url} controls />
                     
                     {showSolution ? (
                         <div>
