@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CLIENT_ID = 'e8fb5d297ba44a52bea015f0d38f5ce8';
+const CLIENT_ID = 'dc7167f21f264a89aafe40360bc1e358';
 const REDIRECT_URI = 'https://celeb-quiz.vercel.app/callback'; // oder die URI, die du in Spotify registriert hast
 const SCOPES = 'user-read-private user-read-email'; // Erforderliche Scopes
 
@@ -35,7 +35,7 @@ function Auth() {
         code: code,
         redirect_uri: REDIRECT_URI,
         client_id: CLIENT_ID,
-        client_secret: '30774b70f85b4dc1b300bc6a5af98425', // Dein Client Secret
+        client_secret: '76e872298f364d4b9de3d5e0691da5bd', // Dein Client Secret
       }),
     });
 

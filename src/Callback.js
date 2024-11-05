@@ -26,8 +26,8 @@ const Callback = () => {
         grant_type: 'authorization_code',
         code: code,
         redirect_uri: 'https://celeb-quiz.vercel.app/callback',
-        client_id: 'e8fb5d297ba44a52bea015f0d38f5ce8',
-        client_secret: '30774b70f85b4dc1b300bc6a5af98425',
+        client_id: 'dc7167f21f264a89aafe40360bc1e358',
+        client_secret: '76e872298f364d4b9de3d5e0691da5bd',
       }),
     });
 
