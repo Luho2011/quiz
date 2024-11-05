@@ -51,6 +51,7 @@ function MusicTriviaGame() {
         selectRandomSong(remainingSongs);
     };
 
+
     return (
         <div style={{ padding: '20px' }}>
             <h1>Music Trivia Game</h1>
@@ -58,13 +59,7 @@ function MusicTriviaGame() {
             {currentSong ? (
                 <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
                     <h2>Errate den Song</h2>
-                    <audio 
-                        src={currentSong.preview_url} 
-                        controls 
-                        autoPlay={isPlaying} 
-                        onPlay={() => setIsPlaying(true)} 
-                        onPause={() => setIsPlaying(false)} 
-                    />
+                    <audio src={currentSong.preview_url} controls autoPlay={isPlaying} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
                     
                     {showSolution ? (
                         <div>
@@ -85,6 +80,7 @@ function MusicTriviaGame() {
             ) : (
                 <p>Keine weiteren Songs verfügbar</p>
             )}
+
         </div>
     );
 }
