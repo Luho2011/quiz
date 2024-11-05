@@ -61,7 +61,7 @@ function MusicTriviaGame() {
         {currentSong && (
           <div style={{ marginTop: "10px" }}>
             <SpotifyPlayer
-              token="YOUR_SPOTIFY_ACCESS_TOKEN" // Spotify Token hier einfügen
+              token="BQDzP2eDIhDT8tw94RKNfsWrHic6FMIvkhqu7r1AAyW8TFyZNyZv-Rnh3TJRztMIQqnpADnQE1iH8bHFF_M-uW9wNSY0pGc6ESAFXSi8stkpZUqtjbQb854GJRACG4d7hAjS6g9Ic8_1zD0Pxbz2vnTY-K5w76UB80ZENrZzY_looTLqKfBEEFD20g" // Spotify Token hier einfügen
               uris={[currentSong.uri]}
               autoPlay={false}
               play={isPlaying}

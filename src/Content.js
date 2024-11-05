@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState, useEffect } from "react";
 import './Content.css'
 import { Link } from "react-router-dom";
 import questionmark from "./img/question.png";
@@ -18,23 +17,7 @@ import WordsAssociation from "./img/wordsAssociation.png";
 
 
 function Content() {
-  const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=dc7167f21f264a89aafe40360bc1e358&response_type=token&redirect_uri=https://celeb-quiz.vercel.app/callback&scope=streaming user-read-playback-state user-modify-playback-state`;
 
-
-useEffect(() => {
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
-    const accessToken = hashParams.get('access_token');
-
-    if (accessToken) {
-        localStorage.setItem('spotifyAccessToken', accessToken);
-        // Optional: URL-Hash leeren, um Token aus der URL zu entfernen
-        window.location.hash = '';
-    }
-}, []);
-
-const handleLogin = () => {
-  window.location.href = AUTH_URL;
-};
 
   return (
     <div className='content'>
@@ -76,10 +59,6 @@ const handleLogin = () => {
           <button className='game_button'><img className='musicTrivia' src={WordsAssociation} alt="" onClick={""}/></button>
         </Link>
        </div>
-       <div>
-            <h1>Willkommen zu meiner Spotify App</h1>
-            <button onClick={handleLogin}>Mit Spotify anmelden</button>
-        </div>
     </div>
   )
 }
