@@ -9,8 +9,8 @@ function MusicTriviaGame() {
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
     const [showSolution, setShowSolution] = useState(false);
-    const playerRef = useRef(null); // Referenz für den Player
-    const [isPlayerReady, setIsPlayerReady] = useState(false); // Zustand für Player-Bereitschaft
+    const playerRef = useRef(null);
+    const [isPlayerReady, setIsPlayerReady] = useState(false);
     const selectedPlaylists = location.state?.selectedPlaylists || [];
 
     // Lade Songs aus den ausgewählten Playlists
@@ -40,19 +40,16 @@ function MusicTriviaGame() {
                     volume: 0.5
                 });
 
-                // Player bereit
                 playerRef.current.addListener('ready', ({ device_id }) => {
                     console.log('Ready with Device ID', device_id);
-                    setIsPlayerReady(true); // Setze den Zustand auf bereit
+                    setIsPlayerReady(true);
                 });
 
-                // Fehlerbehandlung
                 playerRef.current.addListener('initialization_error', ({ message }) => { console.error('Initialization Error:', message); });
                 playerRef.current.addListener('authentication_error', ({ message }) => { console.error('Authentication Error:', message); });
                 playerRef.current.addListener('account_error', ({ message }) => { console.error('Account Error:', message); });
                 playerRef.current.addListener('playback_error', ({ message }) => { console.error('Playback Error:', message); });
 
-                // Verbinde mit dem Player
                 playerRef.current.connect().then(success => {
                     if (success) {
                         console.log('The Web Playback SDK is ready to play!');
@@ -65,16 +62,16 @@ function MusicTriviaGame() {
             }
         };
 
-        // Warten auf das Laden des SDK
+        // Überprüfen, ob das SDK geladen ist
         const checkSpotifySDKLoaded = () => {
             if (window.Spotify) {
                 initSpotifyPlayer();
             } else {
-                setTimeout(checkSpotifySDKLoaded, 100); // Warten und erneut überprüfen
+                setTimeout(checkSpotifySDKLoaded, 100);
             }
         };
 
-        checkSpotifySDKLoaded(); // Initialisiere den SDK-Check
+        checkSpotifySDKLoaded();
 
     }, [selectedPlaylists]);
 
@@ -116,7 +113,7 @@ function MusicTriviaGame() {
             {currentSong ? (
                 <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
                     <h2>Errate den Song</h2>
-                    {isPlayerReady ? ( // Zeige den Play-Button nur an, wenn der Player bereit ist
+                    {isPlayerReady ? (
                         <button onClick={handlePlaySong}>Play</button>
                     ) : (
                         <p>Warte auf den Spotify Player...</p>
