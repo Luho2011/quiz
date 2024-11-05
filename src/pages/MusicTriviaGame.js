@@ -51,14 +51,6 @@ function MusicTriviaGame() {
         selectRandomSong(remainingSongs);
     };
 
-    const addCardToSorted = (position) => {
-        const newCard = {
-            ...currentSong,
-            position
-        };
-        setSortedCards([...sortedCards, newCard]);
-        handleNextSong();
-    };
 
     return (
         <div style={{ padding: '20px' }}>
@@ -82,8 +74,6 @@ function MusicTriviaGame() {
                     )}
 
                     <div style={{ marginTop: "20px" }}>
-                        <button onClick={() => addCardToSorted('left')}>Vorheriges Jahr</button>
-                        <button onClick={() => addCardToSorted('right')}>Späteres Jahr</button>
                         <button onClick={handleNextSong}>Nächster Song</button>
                     </div>
                 </div>
@@ -91,14 +81,6 @@ function MusicTriviaGame() {
                 <p>Keine weiteren Songs verfügbar</p>
             )}
 
-            <h3>Sortierte Karten</h3>
-            <div style={{ marginTop: '20px' }}>
-                {sortedCards.map((card, index) => (
-                    <div key={index} style={{ padding: "10px", border: "1px solid #ddd", borderRadius: "5px", margin: "5px 0" }}>
-                        {card.name} - {card.artists[0].name} ({card.album.release_date})
-                    </div>
-                ))}
-            </div>
         </div>
     );
 }
