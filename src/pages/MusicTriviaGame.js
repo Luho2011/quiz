@@ -8,10 +8,10 @@ function MusicTriviaGame() {
     const navigate = useNavigate();
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
-    const selectedPlaylists = location.state?.selectedPlaylists || [];
     const playerRef = useRef(null); // Referenz für den Player
+    const [isPlayerReady, setIsPlayerReady] = useState(false); // Zustand für Player-Bereitschaft
+    const selectedPlaylists = location.state?.selectedPlaylists || [];
 
     // Lade Songs aus den ausgewählten Playlists
     useEffect(() => {
@@ -39,19 +39,26 @@ function MusicTriviaGame() {
                 volume: 0.5
             });
 
-            // Error Handling
-            playerRef.current.addListener('initialization_error', ({ message }) => { console.error(message); });
-            playerRef.current.addListener('authentication_error', ({ message }) => { console.error(message); });
-            playerRef.current.addListener('account_error', ({ message }) => { console.error(message); });
-            playerRef.current.addListener('playback_error', ({ message }) => { console.error(message); });
-
-            // Player ready
+            // Player bereit
             playerRef.current.addListener('ready', ({ device_id }) => {
                 console.log('Ready with Device ID', device_id);
+                setIsPlayerReady(true); // Setze den Zustand auf bereit
             });
 
-            // Connect to the player
-            playerRef.current.connect();
+            // Fehlerbehandlung
+            playerRef.current.addListener('initialization_error', ({ message }) => { console.error('Initialization Error:', message); });
+            playerRef.current.addListener('authentication_error', ({ message }) => { console.error('Authentication Error:', message); });
+            playerRef.current.addListener('account_error', ({ message }) => { console.error('Account Error:', message); });
+            playerRef.current.addListener('playback_error', ({ message }) => { console.error('Playback Error:', message); });
+
+            // Verbinde mit dem Player
+            playerRef.current.connect().then(success => {
+                if (success) {
+                    console.log('The Web Playback SDK is ready to play!');
+                } else {
+                    console.error('Failed to connect the Web Playback SDK');
+                }
+            });
         } else {
             console.error('Spotify SDK not loaded');
         }
@@ -61,7 +68,6 @@ function MusicTriviaGame() {
         if (availableSongs.length > 0) {
             const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
             setCurrentSong(randomSong);
-            setIsPlaying(false);
             setShowSolution(false);
         } else {
             setCurrentSong(null);
@@ -81,8 +87,10 @@ function MusicTriviaGame() {
             const playSong = {
                 uris: [currentSong.uri]
             };
-            playerRef.current.resume().then(() => {
-                playerRef.current.play(playSong);
+            playerRef.current.play(playSong).then(() => {
+                console.log('Playback started');
+            }).catch(error => {
+                console.error('Error while trying to play the song:', error);
             });
         }
     };
@@ -94,7 +102,11 @@ function MusicTriviaGame() {
             {currentSong ? (
                 <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
                     <h2>Errate den Song</h2>
-                    <button onClick={handlePlaySong}>Play</button>
+                    {isPlayerReady ? ( // Zeige den Play-Button nur an, wenn der Player bereit ist
+                        <button onClick={handlePlaySong}>Play</button>
+                    ) : (
+                        <p>Warte auf den Spotify Player...</p>
+                    )}
 
                     {showSolution ? (
                         <div>
