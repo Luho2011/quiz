@@ -1,11 +1,15 @@
 import React from 'react'
 import axios from "axios";
-import { useState } from "react";
+import {useState, useEffect} from "react";
 
-function PlaylistSearch() {
+function PlaylistSearch({ onPlaylistsSelected }) {
     const [query, setQuery] = useState("");
     const [playlists, setPlaylists] = useState([]);
     const [selectedPlaylists, setSelectedPlaylists] = useState([]);
+
+    useEffect(() => {
+        onPlaylistsSelected(selectedPlaylists);
+    }, [selectedPlaylists]);
 
     const searchPlaylists = async () => {
         const accessToken = localStorage.getItem('spotifyAccessToken'); // Hier den Token aus localStorage abrufen
