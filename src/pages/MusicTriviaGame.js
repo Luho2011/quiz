@@ -12,6 +12,38 @@ function MusicTriviaGame() {
     const playerRef = useRef(null);
     const [isPlayerReady, setIsPlayerReady] = useState(false);
     const selectedPlaylists = location.state?.selectedPlaylists || [];
+    const [isPremium, setIsPremium] = useState(false);
+
+    useEffect(() => {
+        const accessToken = localStorage.getItem('spotifyAccessToken');
+
+        // Prüfen, ob ein Access Token vorhanden ist
+        if (accessToken) {
+            // Anfrage an den /me-Endpunkt
+            axios.get('https://api.spotify.com/v1/me', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            })
+            .then(response => {
+                const userProduct = response.data.product;
+                
+                // Überprüfen, ob das Konto Premium ist
+                if (userProduct === "premium") {
+                    setIsPremium(true);
+                    console.log("Benutzer hat ein Premium-Konto.");
+                } else {
+                    setIsPremium(false);
+                    console.log("Benutzer hat kein Premium-Konto.");
+                }
+            })
+            .catch(error => {
+                console.error("Fehler beim Überprüfen des Spotify-Kontos:", error);
+            });
+        } else {
+            console.log("Kein Access Token verfügbar.");
+        }
+    }, []);
 
     // Lade Songs aus den ausgewählten Playlists
     useEffect(() => {
