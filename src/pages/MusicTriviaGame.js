@@ -2,144 +2,96 @@ import React from 'react'
 import {useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SpotifyPlayer from 'react-spotify-web-playback';
 
 function MusicTriviaGame() {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const [songs, setSongs] = useState([]);
-    const [currentSong, setCurrentSong] = useState(null);
-    const [showSolution, setShowSolution] = useState(false);
-    const playerRef = useRef(null);
-    const [isPlayerReady, setIsPlayerReady] = useState(false);
-    const selectedPlaylists = location.state?.selectedPlaylists || [];
+  const location = useLocation();
+  const { selectedPlaylists } = location.state || {}; // Übernommene Playlists vom vorherigen Zustand
+  const [currentSong, setCurrentSong] = useState(null);
+  const [showSolution, setShowSolution] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-    // Lade Songs aus den ausgewählten Playlists
-    useEffect(() => {
-        const loadSongs = async () => {
-            let songData = [];
-            for (let playlist of selectedPlaylists) {
-                const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('spotifyAccessToken')}`,
-                    }
-                });
-                songData = [...songData, ...response.data.items.map(item => item.track)];
-            }
-            setSongs(songData);
-            selectRandomSong(songData);
-        };
+  // Beispiel-Songs, falls die Playlist leer ist
+  const exampleSongs = [
+    { id: 'song1', uri: 'spotify:track:4uLU6hMCjMI75M1A2tKUQC', name: 'Bohemian Rhapsody', artist: 'Queen', releaseDate: '1975' },
+    { id: 'song2', uri: 'spotify:track:7GhIk7Il098yCjg4BQjzvb', name: 'Stayin\' Alive', artist: 'Bee Gees', releaseDate: '1977' },
+  ];
 
-        loadSongs();
+  // Song zufällig aus den Playlists auswählen
+  const getRandomSong = () => {
+    if (selectedPlaylists && selectedPlaylists.length > 0) {
+      const allSongs = selectedPlaylists.flatMap(playlist => playlist.tracks); // Über alle Tracks in den Playlists iterieren
+      return allSongs[Math.floor(Math.random() * allSongs.length)];
+    }
+    return exampleSongs[Math.floor(Math.random() * exampleSongs.length)]; // Beispielsong falls keine Playlists vorhanden sind
+  };
 
-        // Player initialisieren
-        const initSpotifyPlayer = () => {
-            if (window.Spotify) {
-                playerRef.current = new window.Spotify.Player({
-                    name: 'Web Playback SDK',
-                    getOAuthToken: cb => { cb(localStorage.getItem('spotifyAccessToken')); },
-                    volume: 0.5
-                });
+  // Laden eines neuen zufälligen Songs
+  const loadNewSong = () => {
+    const song = getRandomSong();
+    setCurrentSong(song);
+    setShowSolution(false);
+    setIsPlaying(false);
+  };
 
-                playerRef.current.addListener('ready', ({ device_id }) => {
-                    console.log('Ready with Device ID', device_id);
-                    setIsPlayerReady(true);
-                });
+  // Erstes Laden eines Songs bei Komponenteneinbindung
+  useEffect(() => {
+    loadNewSong();
+  }, []);
 
-                playerRef.current.addListener('initialization_error', ({ message }) => { console.error('Initialization Error:', message); });
-                playerRef.current.addListener('authentication_error', ({ message }) => { console.error('Authentication Error:', message); });
-                playerRef.current.addListener('account_error', ({ message }) => { console.error('Account Error:', message); });
-                playerRef.current.addListener('playback_error', ({ message }) => { console.error('Playback Error:', message); });
+  // Lösung anzeigen
+  const revealSolution = () => setShowSolution(true);
 
-                playerRef.current.connect().then(success => {
-                    if (success) {
-                        console.log('The Web Playback SDK is ready to play!');
-                    } else {
-                        console.error('Failed to connect the Web Playback SDK');
-                    }
-                });
-            } else {
-                console.error('Spotify SDK not loaded');
-            }
-        };
+  return (
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+      <div
+        style={{
+          width: "300px",
+          padding: "20px",
+          border: "1px solid #ccc",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          textAlign: "center",
+        }}
+      >
+        <h3>Interpret: {showSolution ? currentSong.artist : "?"}</h3>
+        <h4>Song: {showSolution ? currentSong.name : "?"}</h4>
+        <p>Release Date: {showSolution ? currentSong.releaseDate : "?"}</p>
 
-        // Überprüfen, ob das SDK geladen ist
-        const checkSpotifySDKLoaded = () => {
-            if (window.Spotify) {
-                initSpotifyPlayer();
-            } else {
-                setTimeout(checkSpotifySDKLoaded, 100);
-            }
-        };
+        {/* Spotify Web Player */}
+        {currentSong && (
+          <div style={{ marginTop: "10px" }}>
+            <SpotifyPlayer
+              token="YOUR_SPOTIFY_ACCESS_TOKEN" // Spotify Token hier einfügen
+              uris={[currentSong.uri]}
+              autoPlay={false}
+              play={isPlaying}
+              callback={(state) => setIsPlaying(state.isPlaying)}
+              styles={{
+                activeColor: '#1DB954',
+                bgColor: '#333',
+                color: '#fff',
+                loaderColor: '#1DB954',
+                sliderColor: '#1DB954',
+                trackArtistColor: '#ccc',
+                trackNameColor: '#fff',
+              }}
+            />
+          </div>
+        )}
 
-        checkSpotifySDKLoaded();
-
-    }, [selectedPlaylists]);
-
-    const selectRandomSong = (availableSongs) => {
-        if (availableSongs.length > 0) {
-            const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
-            setCurrentSong(randomSong);
-            setShowSolution(false);
-        } else {
-            setCurrentSong(null);
-        }
-    };
-
-    const revealSolution = () => setShowSolution(true);
-
-    const handleNextSong = () => {
-        const remainingSongs = songs.filter(song => song.id !== currentSong.id);
-        setSongs(remainingSongs);
-        selectRandomSong(remainingSongs);
-    };
-
-    const handlePlaySong = () => {
-        if (currentSong && playerRef.current) {
-            const playSong = {
-                uris: [currentSong.uri]
-            };
-            playerRef.current.play(playSong).then(() => {
-                console.log('Playback started');
-            }).catch(error => {
-                console.error('Error while trying to play the song:', error);
-            });
-        }
-    };
-
-    return (
-        <div style={{ padding: '20px' }}>
-            <h1>Music Trivia Game</h1>
-
-            {currentSong ? (
-                <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
-                    <h2>Errate den Song</h2>
-                    {isPlayerReady ? (
-                        <button onClick={handlePlaySong}>Play</button>
-                    ) : (
-                        <p>Warte auf den Spotify Player...</p>
-                    )}
-
-                    {showSolution ? (
-                        <div>
-                            <p><strong>Song:</strong> {currentSong.name}</p>
-                            <p><strong>Interpret:</strong> {currentSong.artists[0].name}</p>
-                            <p><strong>Release Datum:</strong> {currentSong.album.release_date}</p>
-                        </div>
-                    ) : (
-                        <div>
-                            <button onClick={revealSolution}>Lösung anzeigen</button>
-                        </div>
-                    )}
-
-                    <div style={{ marginTop: "20px" }}>
-                        <button onClick={handleNextSong}>Nächster Song</button>
-                    </div>
-                </div>
-            ) : (
-                <p>Keine weiteren Songs verfügbar</p>
-            )}
+        {/* Lösung und Weiter Buttons */}
+        <div style={{ display: "flex", justifyContent: "space-around", marginTop: "15px" }}>
+          <button onClick={revealSolution} style={{ padding: "10px", fontSize: "14px" }}>
+            Lösung
+          </button>
+          <button onClick={loadNewSong} style={{ padding: "10px", fontSize: "14px" }}>
+            Weiter
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default MusicTriviaGame;
