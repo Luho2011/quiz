@@ -20,9 +20,6 @@ import WordsAssociation from "./img/wordsAssociation.png";
 function Content() {
   const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=dc7167f21f264a89aafe40360bc1e358&response_type=token&redirect_uri=https://celeb-quiz.vercel.app/callback&scope=streaming user-read-playback-state user-modify-playback-state`;
 
-  const handleLogin = () => {
-    window.location.href = AUTH_URL;
-};
 
 useEffect(() => {
     const hashParams = new URLSearchParams(window.location.hash.substring(1));
@@ -34,6 +31,10 @@ useEffect(() => {
         window.location.hash = '';
     }
 }, []);
+
+const handleLogin = () => {
+  window.location.href = AUTH_URL;
+};
 
   return (
     <div className='content'>
