@@ -7,8 +7,8 @@ function MusicTriviaGame() {
     const location = useLocation();
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [player, setPlayer] = useState(null); // Zustand für den Player
     const selectedPlaylists = location.state?.selectedPlaylists || [];
 
     // Lade Songs aus den ausgewählten Playlists
@@ -34,7 +34,6 @@ function MusicTriviaGame() {
         if (availableSongs.length > 0) {
             const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
             setCurrentSong(randomSong);
-            setIsPlaying(false);
             setShowSolution(false);
         } else {
             setCurrentSong(null);
@@ -54,40 +53,41 @@ function MusicTriviaGame() {
         window.onSpotifyWebPlaybackSDKReady = () => {
             const token = localStorage.getItem('spotifyAccessToken');
 
-            const player = new window.Spotify.Player({
+            const newPlayer = new window.Spotify.Player({
                 name: 'Web Playback SDK',
                 getOAuthToken: cb => { cb(token); },
                 volume: 0.5
             });
 
+            // Setze den Player in den Zustand
+            setPlayer(newPlayer);
+
             // Player-Events hinzufügen
-            player.addListener('ready', ({ device_id }) => {
+            newPlayer.addListener('ready', ({ device_id }) => {
                 console.log('Got Device ID', device_id);
             });
 
-            player.addListener('not_ready', ({ device_id }) => {
+            newPlayer.addListener('not_ready', ({ device_id }) => {
                 console.log('Device ID has gone offline', device_id);
             });
 
-            player.connect();
+            newPlayer.connect();
         };
     }, []); // Leere Abhängigkeit, um nur einmal zu laufen
 
     const handlePlaySong = () => {
-        if (currentSong) {
-            const token = localStorage.getItem('spotifyAccessToken');
-            const player = new window.Spotify.Player({
-                name: 'Web Playback SDK',
-                getOAuthToken: cb => { cb(token); }
-            });
-
-            player.play({
-                uris: [`spotify:track:${currentSong.id}`]
+        if (currentSong && player) {
+            player.resume().then(() => {
+                return player.play({
+                    uris: [`spotify:track:${currentSong.id}`]
+                });
             }).then(() => {
                 console.log('Playing:', currentSong.name);
             }).catch(error => {
                 console.error('Error playing the song:', error);
             });
+        } else {
+            console.error('Player is not initialized or no song is selected.');
         }
     };
 
