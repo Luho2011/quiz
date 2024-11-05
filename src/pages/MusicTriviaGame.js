@@ -32,36 +32,50 @@ function MusicTriviaGame() {
         loadSongs();
 
         // Player initialisieren
-        if (window.Spotify) {
-            playerRef.current = new window.Spotify.Player({
-                name: 'Web Playback SDK',
-                getOAuthToken: cb => { cb(localStorage.getItem('spotifyAccessToken')); },
-                volume: 0.5
-            });
+        const initSpotifyPlayer = () => {
+            if (window.Spotify) {
+                playerRef.current = new window.Spotify.Player({
+                    name: 'Web Playback SDK',
+                    getOAuthToken: cb => { cb(localStorage.getItem('spotifyAccessToken')); },
+                    volume: 0.5
+                });
 
-            // Player bereit
-            playerRef.current.addListener('ready', ({ device_id }) => {
-                console.log('Ready with Device ID', device_id);
-                setIsPlayerReady(true); // Setze den Zustand auf bereit
-            });
+                // Player bereit
+                playerRef.current.addListener('ready', ({ device_id }) => {
+                    console.log('Ready with Device ID', device_id);
+                    setIsPlayerReady(true); // Setze den Zustand auf bereit
+                });
 
-            // Fehlerbehandlung
-            playerRef.current.addListener('initialization_error', ({ message }) => { console.error('Initialization Error:', message); });
-            playerRef.current.addListener('authentication_error', ({ message }) => { console.error('Authentication Error:', message); });
-            playerRef.current.addListener('account_error', ({ message }) => { console.error('Account Error:', message); });
-            playerRef.current.addListener('playback_error', ({ message }) => { console.error('Playback Error:', message); });
+                // Fehlerbehandlung
+                playerRef.current.addListener('initialization_error', ({ message }) => { console.error('Initialization Error:', message); });
+                playerRef.current.addListener('authentication_error', ({ message }) => { console.error('Authentication Error:', message); });
+                playerRef.current.addListener('account_error', ({ message }) => { console.error('Account Error:', message); });
+                playerRef.current.addListener('playback_error', ({ message }) => { console.error('Playback Error:', message); });
 
-            // Verbinde mit dem Player
-            playerRef.current.connect().then(success => {
-                if (success) {
-                    console.log('The Web Playback SDK is ready to play!');
-                } else {
-                    console.error('Failed to connect the Web Playback SDK');
-                }
-            });
-        } else {
-            console.error('Spotify SDK not loaded');
-        }
+                // Verbinde mit dem Player
+                playerRef.current.connect().then(success => {
+                    if (success) {
+                        console.log('The Web Playback SDK is ready to play!');
+                    } else {
+                        console.error('Failed to connect the Web Playback SDK');
+                    }
+                });
+            } else {
+                console.error('Spotify SDK not loaded');
+            }
+        };
+
+        // Warten auf das Laden des SDK
+        const checkSpotifySDKLoaded = () => {
+            if (window.Spotify) {
+                initSpotifyPlayer();
+            } else {
+                setTimeout(checkSpotifySDKLoaded, 100); // Warten und erneut überprüfen
+            }
+        };
+
+        checkSpotifySDKLoaded(); // Initialisiere den SDK-Check
+
     }, [selectedPlaylists]);
 
     const selectRandomSong = (availableSongs) => {
