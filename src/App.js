@@ -26,40 +26,7 @@ import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend"
 
 function App() {
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    // Token aus URL extrahieren und speichern
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
-    const accessToken = hashParams.get('access_token');
-
-    if (accessToken) {
-        localStorage.setItem('spotifyAccessToken', accessToken);
-        // Weiterleitung auf die App-Hauptseite ohne Token in der URL
-        window.location.hash = '';
-    }
-}, []);
-
-useEffect(() => {
-  // Access Token aus localStorage abrufen
-  const accessToken = localStorage.getItem('spotifyAccessToken');
-
-  // Benutzerinformationen nur abrufen, wenn ein Access Token vorhanden ist
-  if (accessToken) {
-      axios.get('https://api.spotify.com/v1/me', {
-          headers: {
-              Authorization: `Bearer ${accessToken}`
-          }
-      })
-      .then(response => {
-          setUserData(response.data); // Speichern der Benutzerdaten im State
-          console.log("Benutzerdaten abgerufen:", response.data);
-      })
-      .catch(error => {
-          console.error("Fehler beim Abrufen der Benutzerdaten:", error);
-      });
-  }
-}, []);
+ 
 
   return (
     
