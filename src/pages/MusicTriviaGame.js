@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from "react";
 import axios from 'axios';
+import { QRCodeCanvas } from 'qrcode.react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function MusicTriviaGame() {
@@ -8,7 +9,6 @@ function MusicTriviaGame() {
     const navigate = useNavigate();
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
     const selectedPlaylists = location.state?.selectedPlaylists || [];
 
@@ -35,7 +35,6 @@ function MusicTriviaGame() {
         if (availableSongs.length > 0) {
             const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
             setCurrentSong(randomSong);
-            setIsPlaying(false);
             setShowSolution(false);
         } else {
             setCurrentSong(null);
@@ -50,7 +49,6 @@ function MusicTriviaGame() {
         selectRandomSong(remainingSongs);
     };
 
-
     return (
         <div style={{ padding: '20px' }}>
             <h1>Music Trivia Game</h1>
@@ -58,8 +56,14 @@ function MusicTriviaGame() {
             {currentSong ? (
                 <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
                     <h2>Errate den Song</h2>
-                    <audio src={currentSong.preview_url} controls autoPlay={isPlaying} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
-                    
+
+                    {/* QR-Code für den aktuellen Song */}
+                    <QRCodeCanvas 
+                        value={`https://open.spotify.com/track/${currentSong.id}`}
+                        size={256} // Größe des QR-Codes
+                    />
+                    <p>Scanne den QR-Code, um den Song in Spotify abzuspielen!</p>
+
                     {showSolution ? (
                         <div>
                             <p><strong>Song:</strong> {currentSong.name}</p>
@@ -79,7 +83,6 @@ function MusicTriviaGame() {
             ) : (
                 <p>Keine weiteren Songs verfügbar</p>
             )}
-
         </div>
     );
 }
