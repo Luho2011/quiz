@@ -1,18 +1,21 @@
-import React from 'react'
-import {useState, useEffect} from "react";
+import React, { useState, useEffect } from 'react';
+import './MusicTriviaGame.css';
 import axios from 'axios';
 import { QRCodeCanvas } from 'qrcode.react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function MusicTriviaGame() {
     const location = useLocation();
-    const navigate = useNavigate();
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
     const [showSolution, setShowSolution] = useState(false);
     const selectedPlaylists = location.state?.selectedPlaylists || [];
+    const [topContainer, setTopContainer] = useState([]);
+    const [bottomContainer, setBottomContainer] = useState([]);
+    const [songDropped, setSongDropped] = useState(false);
+    
 
-    // Lade Songs aus den ausgewählten Playlists
     useEffect(() => {
         const loadSongs = async () => {
             let songData = [];
@@ -30,59 +33,254 @@ function MusicTriviaGame() {
         loadSongs();
     }, [selectedPlaylists]);
 
-    // Funktion zum Abspielen des nächsten zufälligen Songs
     const selectRandomSong = (availableSongs) => {
-        if (availableSongs.length > 0) {
+        if (availableSongs && availableSongs.length > 0) {
             const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
             setCurrentSong(randomSong);
             setShowSolution(false);
+            setSongDropped(false);
         } else {
             setCurrentSong(null);
         }
     };
 
-    const revealSolution = () => setShowSolution(true);
-
     const handleNextSong = () => {
+        if (!currentSong) return;
         const remainingSongs = songs.filter(song => song.id !== currentSong.id);
         setSongs(remainingSongs);
-        selectRandomSong(remainingSongs);
+        
+        if (remainingSongs.length > 0) {
+            selectRandomSong(remainingSongs);
+        } else {
+            setCurrentSong(null);
+        }
+    };
+
+    const onDragEnd = (result) => {
+        const { source, destination } = result;
+
+        if (!destination) return;
+
+        if (source.droppableId === destination.droppableId) {
+            // Wenn es im selben Container bleibt
+            const container =
+                source.droppableId === "topContainer" ? [...topContainer] :
+                source.droppableId === "bottomContainer" ? [...bottomContainer] :
+                [];
+
+            const [movedSong] = container.splice(source.index, 1);
+            container.splice(destination.index, 0, movedSong);
+
+            if (source.droppableId === "topContainer") {
+                setTopContainer(container);
+            } else if (source.droppableId === "bottomContainer") {
+                setBottomContainer(container);
+            }
+        } else {
+            // Verschieben zwischen Containern
+            const sourceContainer =
+                source.droppableId === "topContainer" ? [...topContainer] :
+                source.droppableId === "bottomContainer" ? [...bottomContainer] :
+                [currentSong]; // Wenn es aus dem centerContainer kommt, nehme die aktuelle Karte
+
+            const destinationContainer =
+                destination.droppableId === "topContainer" ? [...topContainer] :
+                destination.droppableId === "bottomContainer" ? [...bottomContainer] :
+                [];
+
+            const [movedSong] = sourceContainer.splice(source.index, 1);
+
+            if (!movedSong) {
+                console.error("No song found to move");
+                return;
+            }
+
+            destinationContainer.splice(destination.index, 0, movedSong);
+
+            // Setze den Zielcontainer
+            if (destination.droppableId === "topContainer") {
+                setTopContainer(destinationContainer);
+                if (source.droppableId === "bottomContainer") {
+                    setBottomContainer(sourceContainer);
+                }
+            } else if (destination.droppableId === "bottomContainer") {
+                setBottomContainer(destinationContainer);
+                if (source.droppableId === "topContainer") {
+                    setTopContainer(sourceContainer);
+                }
+            } else {
+                // Im CenterContainer bleibt der aktuelle Song
+                setCurrentSong(movedSong);
+            }
+        }
+
+        setSongDropped(true); // Ermögliche das Klicken auf den "Next"-Button
+    };
+
+    const revealSolution = (song, container, setContainer) => {
+        const updatedContainer = container.map(item =>
+            item.id === song.id ? { ...item, showDetails: true } : item
+        );
+        setContainer(updatedContainer);
+    };
+
+    const handleRemoveSong = (song, container, setContainer) => {
+        const updatedContainer = container.filter(item => item.id !== song.id);
+        setContainer(updatedContainer);
     };
 
     return (
-        <div style={{ padding: '20px' }}>
-            <h1>Music Trivia Game</h1>
-
-            {currentSong ? (
-                <div style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px", maxWidth: "400px", margin: "20px auto" }}>
-                    <h2>Errate den Song</h2>
-
-                    {/* QR-Code für den aktuellen Song */}
-                    <QRCodeCanvas 
-                        value={`https://open.spotify.com/track/${currentSong.id}`}
-                        size={256} // Größe des QR-Codes
-                    />
-                    <p>Scanne den QR-Code, um den Song in Spotify abzuspielen!</p>
-
-                    {showSolution ? (
-                        <div>
-                            <p><strong>Song:</strong> {currentSong.name}</p>
-                            <p><strong>Interpret:</strong> {currentSong.artists[0].name}</p>
-                            <p><strong>Release Datum:</strong> {currentSong.album.release_date}</p>
-                        </div>
-                    ) : (
-                        <div>
-                            <button onClick={revealSolution}>Lösung anzeigen</button>
+        <div className='musicTriviaGame'>
+            <DragDropContext onDragEnd={onDragEnd}>
+                {/* Oben Container für abgelegte Karten */}
+                <Droppable droppableId="topContainer" direction="horizontal">
+                    {(provided) => (
+                        <div className='topContainer dropZone' ref={provided.innerRef} {...provided.droppableProps}>
+                            {topContainer.map((song, index) => (
+                                <Draggable key={song.id} draggableId={song.id} index={index}>
+                                    {(provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            className="songCard"
+                                        >
+                                            <button 
+                                                className="removeSong" 
+                                                onClick={() => handleRemoveSong(song, topContainer, setTopContainer)}
+                                            >
+                                                &#10005;
+                                            </button>
+                                            {song.showDetails ? (
+                                                <>
+                                                    <p className='musicInterpret'>{song.artists[0].name}</p>
+                                                    <p className='musicDate'>{song.album.release_date.slice(0, 4)}</p>
+                                                    <p className='musicSong'>{song.name}</p>
+                                                </>
+                                            ) : (
+                                                <button 
+                                                    className='songSolution' 
+                                                    onClick={() => revealSolution(song, topContainer, setTopContainer)}
+                                                >
+                                                    Solution
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+                                </Draggable>
+                            ))}
+                            {provided.placeholder}
                         </div>
                     )}
+                </Droppable>
 
-                    <div style={{ marginTop: "20px" }}>
-                        <button onClick={handleNextSong}>Nächster Song</button>
-                    </div>
-                </div>
-            ) : (
-                <p>Keine weiteren Songs verfügbar</p>
-            )}
+                {/* Hauptcontainer für aktuelle Karte */}
+                <Droppable droppableId="centerContainer">
+                    {(provided) => (
+                        <div className='centerContainer dropZone' ref={provided.innerRef} {...provided.droppableProps}>
+                            <div className='qrNext'>
+                                {/* QR-Code-Container */}
+                                <div className='qrCodeContainer'>
+                                    <div className='qrCodeContainer2'>
+                                        <div className='qrCodeContainer3'>
+                                            <div className='qrCodeContainer4'>
+                                                {currentSong && (
+                                                    <QRCodeCanvas 
+                                                    value={`https://open.spotify.com/track/${currentSong.id}`}
+                                                    size={180}
+                                                    />
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                               </div>
+                                    <div>
+                                            <button className='nextSong' onClick={handleNextSong} disabled={!songDropped}>
+                                                Next Song
+                                            </button>
+                                    </div>
+                            </div>
+                               
+                            {currentSong ? (
+                                <Draggable draggableId={currentSong.id} index={0} key={currentSong.id}>
+                                    {(provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            className='songCard'
+                                        >
+                                            <div className="songContent">
+                                                {showSolution ? (
+                                                    <>
+                                                        <p className='musicInterpret'>{currentSong.artists[0].name}</p>
+                                                        <p className='musicDate'>{currentSong.album.release_date.slice(0, 4)}</p>
+                                                        <p className='musicSong'>{currentSong.name}</p>
+                                                    </>
+                                                ) : (
+                                                    <button className='songSolution' onClick={() => setShowSolution(true)}>Solution</button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </Draggable>
+                            ) : (
+                                <p>No more songs available</p>
+                            )}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+
+                {/* Unten Container für abgelegte Karten */}
+                <Droppable droppableId="bottomContainer" direction="horizontal">
+                    {(provided) => (
+                        <div className='bottomContainer dropZone' ref={provided.innerRef} {...provided.droppableProps}>
+                            {bottomContainer.map((song, index) => (
+                                <Draggable key={song.id} draggableId={song.id} index={index}>
+                                    {(provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            className="songCard"
+                                        >
+                                            <button 
+                                                className="removeSong" 
+                                                onClick={() => handleRemoveSong(song, bottomContainer, setBottomContainer)}
+                                            >
+                                                &#10005;
+                                            </button>
+                                            {song.showDetails ? (
+                                                <>
+                                                <div className='musicInterpret'>
+                                                     <p>{song.artists[0].name}</p>
+                                                </div>                                                  
+                                                    <div className='musicDate'>
+                                                         <p>{song.album.release_date.slice(0, 4)}</p>
+                                                    </div>                                                
+                                                <div className='musicSong'>
+                                                  <p>{song.name}</p>
+                                                </div>    
+                                                </>
+                                            ) : (
+                                                <button 
+                                                    className='songSolution' 
+                                                    onClick={() => revealSolution(song, bottomContainer, setBottomContainer)}
+                                                >
+                                                    Solution
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+                                </Draggable>
+                            ))}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
+
         </div>
     );
 }
