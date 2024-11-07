@@ -25,7 +25,7 @@ const Callback = () => {
       body: new URLSearchParams({
         grant_type: 'authorization_code',
         code: code,
-        redirect_uri: 'http://localhost:3000/callback',
+        redirect_uri: 'https://celeb-quiz.vercel.app/musicTrivia',
         client_id: 'cda1724d1cc24c6c83e339e9eeeb356e',
         client_secret: '62a54a8e3f72467ab982d0ba0728ba79',
       }),

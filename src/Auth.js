@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const CLIENT_ID = 'cda1724d1cc24c6c83e339e9eeeb356e';
-const REDIRECT_URI = 'http://localhost:3000/callback'; // oder die URI, die du in Spotify registriert hast
+const REDIRECT_URI = 'https://celeb-quiz.vercel.app/musicTrivia'; // oder die URI, die du in Spotify registriert hast
 const SCOPES = 'user-read-private user-read-email'; // Erforderliche Scopes
 
 const AUTH_URL = `https://accounts.spotify.com/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
