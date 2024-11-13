@@ -40,7 +40,7 @@
     "Mädchennamen",
     "Maler",
     "Biermarke",
-    "Schimpfwort"
+    "Schimpfwort",
     "Superkraft",
     "Planet (nicht Erde)",
     "Kartenspiel",
@@ -53,5 +53,6 @@
     "Fahrradteil",
     "Fluss",
     "Verkehrszeichen",
-    "Teesorte"
+    "Teesorte", 
+    "Element im Periodensystem"
   ]
