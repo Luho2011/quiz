@@ -20,6 +20,7 @@
     "Getränk",
     "Gesellschaftsspiel",
     "Beruf",
+    "Rohstoff aus Siedler",
     "Obst",
     "Musikinstrument",
     "Haustier",
@@ -54,5 +55,15 @@
     "Fluss",
     "Verkehrszeichen",
     "Teesorte", 
-    "Element im Periodensystem"
+    "Element im Periodensystem",
+    "Historisches Ereignis",
+    "Dinosaurier",
+    "Antiker Gott", 
+    "Krankheit",
+    "Märchen",
+    "Sternzeichen",
+    "Gemälde", 
+    "Kleidungsstück",
+    "Cocktail",
+    "Tote Persönlichkeit"
   ]
