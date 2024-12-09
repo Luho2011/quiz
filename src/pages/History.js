@@ -75,7 +75,7 @@ function History() {
       <div className='history__quiz'>
         <div className='pic__history'>
             {video && (
-              <video key={video} width="1200" controls>
+              <video className='countryShape' key={video} width="1050" controls>
               <source src={video} type="video/mp4" />
             </video>
               )} 

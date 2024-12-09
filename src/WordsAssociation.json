@@ -6,6 +6,7 @@
     "Planet",
     "Ozean",
     "Farbe",
+    "Etwas, das man im Kühlschrank findet",
     "Blume",
     "Musiker*in",
     "Band",
@@ -13,6 +14,7 @@
     "Videospiel",
     "Song von Michael Jackson",
     "Eissorte",
+    "Etwas, das nervt",
     "Reptil",
     "Land außerhalb Deutschlands",
     "Schulfach",
@@ -21,6 +23,7 @@
     "Gesellschaftsspiel",
     "Beruf",
     "Rohstoff aus Siedler",
+    "Ein Gegenstand, der oft verschwindet",
     "Obst",
     "Musikinstrument",
     "Haustier",
@@ -33,6 +36,7 @@
     "Buch",
     "Tanzstil",
     "Elektronisches Gerät",
+    "Etwas, das du auf keinen Fall anfassen würdest",
     "Hunderasse",
     "Meerestier",
     "Gebirge",
@@ -51,6 +55,7 @@
     "Fabelwesen",
     "Himmelsrichtung",
     "Sehenswürdigkeit",
+    "Ein Lied, das niemand hören möchte",
     "Fahrradteil",
     "Fluss",
     "Verkehrszeichen",
@@ -65,5 +70,7 @@
     "Gemälde", 
     "Kleidungsstück",
     "Cocktail",
-    "Tote Persönlichkeit"
+    "Tote Persönlichkeit",
+    "Verkehrsschild",
+    "Buchautor"
   ]
