@@ -12,28 +12,20 @@ function PlaylistSearch({ onPlaylistsSelected }) {
     }, [selectedPlaylists]);
 
     const searchPlaylists = async () => {
-        const accessToken = localStorage.getItem('spotifyAccessToken');
+        const accessToken = localStorage.getItem('spotifyAccessToken'); // Hier den Token aus localStorage abrufen
         if (!accessToken) {
             console.error('Kein Access Token gefunden!');
-            return;
+            return; // Beende die Funktion, wenn kein Token vorhanden ist
         }
-    
+
         try {
             const response = await axios.get("https://api.spotify.com/v1/search", {
                 headers: { Authorization: `Bearer ${accessToken}` },
                 params: { q: query, type: "playlist", limit: 5 },
             });
-    
-            // Validierung der Antwortdaten
-            if (response.data.playlists && response.data.playlists.items) {
-                setPlaylists(response.data.playlists.items);
-            } else {
-                console.warn('Keine Playlists gefunden.');
-                setPlaylists([]); // Leere Ergebnisse setzen
-            }
+            setPlaylists(response.data.playlists.items);
         } catch (error) {
             console.error('Fehler bei der Playlist-Suche:', error);
-            setPlaylists([]); // Fehlerzustand setzen
         }
     };
 
