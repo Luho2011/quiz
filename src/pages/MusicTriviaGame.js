@@ -18,24 +18,34 @@ function MusicTriviaGame() {
 
     useEffect(() => {
         const loadSongs = async () => {
-            let songData = [];
+            let playlistSongs = []; // Array, das Songs aus jeder Playlist speichert
+            
+            // Lade Songs aus allen Playlists
             for (let playlist of selectedPlaylists) {
                 const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('spotifyAccessToken')}`,
                     }
                 });
-                songData = [...songData, ...response.data.items.map(item => item.track)];
+                const songs = response.data.items.map(item => item.track);
+                playlistSongs.push({ playlistId: playlist.id, songs: songs });
             }
-            setSongs(songData);
-            selectRandomSong(songData);
+            
+            // Setze die geladenen Playlist-Songs im State
+            setSongs(playlistSongs);
+            selectRandomSong(playlistSongs);
         };
         loadSongs();
     }, [selectedPlaylists]);
 
-    const selectRandomSong = (availableSongs) => {
-        if (availableSongs && availableSongs.length > 0) {
-            const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
+    const selectRandomSong = (playlistSongs) => {
+        if (playlistSongs && playlistSongs.length > 0) {
+            // Wähle zufällig eine Playlist
+            const randomPlaylist = playlistSongs[Math.floor(Math.random() * playlistSongs.length)];
+            
+            // Wähle zufällig einen Song aus der gewählten Playlist
+            const randomSong = randomPlaylist.songs[Math.floor(Math.random() * randomPlaylist.songs.length)];
+            
             setCurrentSong(randomSong);
             setShowSolution(false);
             setSongDropped(false);
@@ -46,13 +56,33 @@ function MusicTriviaGame() {
 
     const handleNextSong = () => {
         if (!currentSong) return;
-        const remainingSongs = songs.filter(song => song.id !== currentSong.id);
-        setSongs(remainingSongs);
-        
-        if (remainingSongs.length > 0) {
-            selectRandomSong(remainingSongs);
+    
+        // Finde die Playlist, aus der der aktuelle Song stammt
+        const playlistIndex = songs.findIndex(playlist => 
+            playlist.songs.some(song => song.id === currentSong.id)
+        );
+    
+        // Entferne den Song aus der gewählten Playlist
+        const updatedPlaylists = [...songs];
+        const updatedPlaylist = updatedPlaylists[playlistIndex];
+        updatedPlaylist.songs = updatedPlaylist.songs.filter(song => song.id !== currentSong.id);
+    
+        // Wenn noch Songs in dieser Playlist sind, wähle einen neuen zufälligen Song aus dieser Playlist
+        if (updatedPlaylist.songs.length > 0) {
+            updatedPlaylists[playlistIndex] = updatedPlaylist;
+            setSongs(updatedPlaylists);
+            selectRandomSong(updatedPlaylists);
         } else {
-            setCurrentSong(null);
+            // Wenn keine Songs mehr übrig sind, entferne die Playlist
+            updatedPlaylists.splice(playlistIndex, 1);
+            setSongs(updatedPlaylists);
+    
+            // Wähle zufällig einen Song aus den verbleibenden Playlists
+            if (updatedPlaylists.length > 0) {
+                selectRandomSong(updatedPlaylists);
+            } else {
+                setCurrentSong(null); // Keine Songs mehr verfügbar
+            }
         }
     };
 
