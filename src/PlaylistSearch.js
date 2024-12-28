@@ -1,49 +1,62 @@
-import React from 'react'
-import axios from "axios";
-import { useState, useEffect } from "react";
+import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 function PlaylistSearch({ onPlaylistsSelected }) {
-    const [playlists, setPlaylists] = useState([]);  // Alle Playlists des Benutzers
-    const [selectedPlaylists, setSelectedPlaylists] = useState([]);  // Ausgewählte Playlists
+    const [playlists, setPlaylists] = useState([]);
+    const [selectedPlaylists, setSelectedPlaylists] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    // Wenn ausgewählte Playlists sich ändern, rufe onPlaylistsSelected auf
     useEffect(() => {
         onPlaylistsSelected(selectedPlaylists);
     }, [selectedPlaylists]);
 
-    // Hole alle Playlists des Benutzers
     const fetchUserPlaylists = async () => {
         const accessToken = localStorage.getItem('spotifyAccessToken'); // Holen des Tokens aus localStorage
         if (!accessToken) {
             console.error('Kein Access Token gefunden!');
-            return; // Wenn kein Access Token vorhanden, stoppen
+            return;
         }
 
+        setIsLoading(true); // Setze isLoading auf true, um einen Ladezustand anzuzeigen
         try {
-            // API-Aufruf, um die Playlists des Benutzers abzurufen
-            const response = await axios.get("https://api.spotify.com/v1/me/playlists", {
-                headers: { Authorization: `Bearer ${accessToken}` },
-            });
-            // Setze die Playlists in den State
-            setPlaylists(response.data.items);
+            let allPlaylists = [];
+            let nextUrl = "https://api.spotify.com/v1/me/playlists"; // Initiale URL
+
+            // Solange es eine "next"-Seite gibt, lade die nächsten Playlists
+            while (nextUrl) {
+                const response = await axios.get(nextUrl, {
+                    headers: { Authorization: `Bearer ${accessToken}` },
+                });
+
+                // Füge die aktuellen Playlists zur Gesamtliste hinzu
+                allPlaylists = [...allPlaylists, ...response.data.items];
+
+                // Setze die "next"-URL auf den nächsten Seiten-Link
+                nextUrl = response.data.next;
+            }
+
+            // Alle Playlists in den State setzen
+            setPlaylists(allPlaylists);
         } catch (error) {
             console.error('Fehler beim Abrufen der Playlists:', error);
+        } finally {
+            setIsLoading(false); // Setze isLoading auf false, wenn der Ladevorgang abgeschlossen ist
         }
     };
 
-    // Füge eine Playlist zu den ausgewählten Playlists hinzu
     const addPlaylist = (playlist) => {
         setSelectedPlaylists([...selectedPlaylists, playlist]);
     };
 
-    // Rufe die Playlists des Benutzers beim ersten Laden des Komponenten ab
     useEffect(() => {
-        fetchUserPlaylists();
+        fetchUserPlaylists(); // Lade Playlists beim ersten Rendern
     }, []);
 
     return (
         <div>
             <h3>Meine Playlists</h3>
+            {isLoading && <p>Lade Playlists...</p>}
 
             <h4>Alle Playlists:</h4>
             <ul>
