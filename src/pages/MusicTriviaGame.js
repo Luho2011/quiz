@@ -215,10 +215,18 @@ function MusicTriviaGame() {
                                         <div className='qrCodeContainer3'>
                                             <div className='qrCodeContainer4'>
                                                 {currentSong && (
+                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                                                    {/* Spotify Wellen-Code */}
+                                                    <img
+                                                      src={`https://scannables.scdn.co/uri/plain/png/000000/white/640/${encodeURIComponent(`spotify:track:${currentSong.id}`)}`}
+                                                      alt="Spotify Code"
+                                                      style={{ width: '200px', height: 'auto' }}
+                                                    />
                                                     <QRCodeCanvas 
                                                     value={`https://open.spotify.com/track/${currentSong.id}`}
                                                     size={180}
                                                     />
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>
