@@ -37,7 +37,7 @@
             {"id": "10", "image3": "img/movies/12/3.JPG"},
             {"id": "8", "audio2": "img/movies/12/2.mp3", "scale": "1"},
             {"id": "12", "image4": "img/movies/12/4.gif", "scale": "1"},
-            {"id": "7", "cover": "img/movies/Potter/cover.jpg", "scale": "1"}
+            {"id": "7", "cover": "img/movies/12/cover.jpg", "scale": "1"}
         ]
     
     },
@@ -451,13 +451,13 @@
         "ids": 33,
         "items" :
         [   
-            {"id": "2", "image": "img/movies/Green/1.JPG", "difficulty": "1"},
-            {"id": "4", "image2": "img/movies/Green/2.JPG"},
-            {"id": "6", "audio1": "img/movies/Green/1.mp3", "scale": "1"},
-            {"id": "8", "image3": "img/movies/Green/3.JPG"},
-            {"id": "10", "image4": "img/movies/Green/4.JPG"},
-            {"id": "12", "audio2": "img/movies/Green/2.mp3", "scale": "1"},
-            {"id": "7", "cover": "img/movies/Green/cover.JPG", "scale": "1"}
+            {"id": "2", "image": "img/movies/blood/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/blood/1.mp3"},
+            {"id": "6", "image2": "img/movies/blood/2.JPG", "scale": "1"},
+            {"id": "8", "audio2": "img/movies/blood/2.mp3"},
+            {"id": "10", "image3": "img/movies/blood/3.JPG"},
+            {"id": "12", "image4": "img/movies/blood/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/blood/cover.JPG", "scale": "1"}
         ]
     
     },
@@ -584,48 +584,6 @@
             {"id": "5", "image4": "img/movies/exmachina/4.JPG", "scale": "1"},
             {"id": "6", "audio2": "img/movies/exmachina/2.mp3"},
             {"id": "7", "cover": "img/movies/exmachina/cover.JPG", "scale": "1"}
-        ]
-    
-    },
-    {
-        "ids": 43,
-        "items" :
-        [   
-            {"id": "1", "image": "img/movies/7psychos/1.JPG", "difficulty": "2"},
-            {"id": "2", "audio1": "img/movies/7psychos/1.mp3", "scale": "1"},
-            {"id": "3", "image2": "img/movies/7psychos/2.JPG"},
-            {"id": "4", "audio2": "img/movies/7psychos/2.mp3", "scale": "1"},
-            {"id": "5", "image3": "img/movies/7psychos/3.JPG"},
-            {"id": "6", "image4": "img/movies/7psychos/4.JPG"},
-            {"id": "7", "cover": "img/movies/7psychos/cover.JPG", "scale": "1"}
-        ]
-    
-    },
-    {
-        "ids": 44,
-        "items" :
-        [   
-            {"id": "2", "image": "img/movies/Catch/1.JPG", "difficulty": "1"},
-            {"id": "4", "audio1": "img/movies/Catch/1.mp3", "scale": "1"},
-            {"id": "6", "image2": "img/movies/Catch/2.JPG"},
-            {"id": "8", "image3": "img/movies/Catch/3.JPG"},
-            {"id": "10", "audio2": "img/movies/Catch/2.mp3", "scale": "1"},
-            {"id": "12", "image4": "img/movies/Catch/4.JPG"},
-            {"id": "7", "cover": "img/movies/Catch/cover.JPG", "scale": "1"}
-        ]
-    
-    },
-    {
-        "ids": 45,
-        "items" :
-        [   
-            {"id": "1", "image": "img/movies/Brügge/1.JPG", "difficulty": "2"},
-            {"id": "2", "audio1": "img/movies/Brügge/1.mp3", "scale": "1"},
-            {"id": "3", "image2": "img/movies/Brügge/2.JPG"},
-            {"id": "4", "image3": "img/movies/Brügge/3.JPG"},
-            {"id": "5", "image4": "img/movies/Brügge/4.JPG"},
-            {"id": "6", "audio2": "img/movies/Brügge/2.mp3", "scale": "1"},
-            {"id": "7", "cover": "img/movies/Brügge/cover.JPG", "scale": "1"}
         ]
     
     }
