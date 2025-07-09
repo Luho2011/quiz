@@ -9,7 +9,7 @@
             {"id": "8", "image3": "img/movies/1917/3.JPG", "scale": "1"},
             {"id": "10", "image4": "img/movies/1917/1917.gif", "scale": "1"},
             {"id": "10", "audio2": "img/movies/1917/2.mp3", "scale": "1"},
-            {"id": "14", "cover": "img/movies/1917/cover.jpg", "scale": "1"}
+            {"id": "14", "cover": "img/movies/1917/cover.JPG", "scale": "1"}
         ]
     
     },
@@ -37,7 +37,7 @@
             {"id": "10", "image3": "img/movies/12/3.JPG"},
             {"id": "8", "audio2": "img/movies/12/2.mp3", "scale": "1"},
             {"id": "12", "image4": "img/movies/12/4.gif", "scale": "1"},
-            {"id": "7", "cover": "img/movies/12/cover.jpg", "scale": "1"}
+            {"id": "7", "cover": "img/movies/12/cover.JPG", "scale": "1"}
         ]
     
     },
@@ -65,7 +65,7 @@
             {"id": "4", "image3": "img/movies/hunting/3.JPG"},
             {"id": "5", "image4": "img/movies/hunting/4.JPG"},
             {"id": "6", "image5": "img/movies/hunting/5.JPG"},
-            {"id": "7", "cover": "img/movies/hunting/cover.jpg", "scale": "1"}
+            {"id": "7", "cover": "img/movies/hunting/cover.JPG", "scale": "1"}
         ]
     
     },
@@ -79,7 +79,7 @@
             {"id": "8", "image3": "img/movies/matrix/3.gif"},
             {"id": "10", "audio2": "img/movies/matrix/2.mp3", "scale": "1"},
             {"id": "12", "image4": "img/movies/matrix/4.JPG"},
-            {"id": "7", "cover": "img/movies/matrix/cover.jpg", "scale": "1"}
+            {"id": "7", "cover": "img/movies/matrix/cover.JPG", "scale": "1"}
         ]
     
     },
@@ -93,7 +93,7 @@
             {"id": "8", "image2": "img/movies/forrestgump/3.png", "scale": "1"},
             {"id": "10", "image3": "img/movies/forrestgump/2.JPG", "scale": "1"},
             {"id": "12", "image4": "img/movies/forrestgump/4.JPG"},
-            {"id": "7", "cover": "img/movies/forrestgump/cover.jpg", "scale": "1"}
+            {"id": "7", "cover": "img/movies/forrestgump/cover.JPG", "scale": "1"}
         ]
     
     },
