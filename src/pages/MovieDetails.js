@@ -25,7 +25,7 @@ function MovieDetails() {
             className={`movieDetails__itemBtn ${item.audio1 || item.audio2 || item.audio3 ? 'movieDetails__itemBtnmp3' : ''} ${activeButtons.includes(item.id) ? 'active' : ''} ${item.id.endsWith('7') || item.id.endsWith('14')  ? 'movieDetails__itemBtnBg' : ''}`}
             onClick={() =>  handleButtonClick(item)}
           >
-            {item.id.endsWith('7') || item.id.endsWith('14') ? null : <p>-{item.id}</p>}
+            {item.id.endsWith('7') || item.id.endsWith('14') ? null : <p></p>}
           </button>
         ))}
       </div>
@@ -34,13 +34,16 @@ function MovieDetails() {
           <img src={selectedItem.image} alt={`img-${selectedItem.id}`} />
         )}
         {selectedItem && selectedItem.image2 && (
-          <img src={selectedItem.image2} alt={`img2-${selectedItem.id}`} />
+          <img src={selectedItem.image2} alt={`gif-${selectedItem.id}`} />
         )}
         {selectedItem && selectedItem.image3 && (
           <img src={selectedItem.image3} alt={`img3-${selectedItem.id}`} />
         )}
         {selectedItem && selectedItem.image4 && (
           <img src={selectedItem.image4} alt={`img4-${selectedItem.id}`} />
+        )}
+        {selectedItem && selectedItem.image5 && (
+          <img src={selectedItem.image5} alt={`img5-${selectedItem.id}`} />
         )}
         
        {selectedItem && selectedItem.audio1 && (

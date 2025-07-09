@@ -33,7 +33,7 @@
     width: 100px;
     border: solid;
     border-radius: 50px;
-    background-color: rgb(97, 97, 97);
+    background: no-repeat center/85% url("../img/imgIcon.png"), rgb(97, 97, 97);
     color: black;
     font-size: 2rem;
     font-weight: bold;
