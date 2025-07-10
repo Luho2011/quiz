@@ -535,13 +535,13 @@
         "ids": 39,
         "items" :
         [   
-            {"id": "2", "image": "img/movies/potter/1.JPG", "difficulty": "1"},
-            {"id": "4", "audio1": "img/movies/potter/1.mp3"},
-            {"id": "6", "audio2": "img/movies/potter/2.mp3", "scale": "1"},
-            {"id": "8", "image2": "img/movies/potter/2.JPG"},
-            {"id": "10", "image3": "img/movies/potter/3.JPG", "scale": "1"},
-            {"id": "12", "image4": "img/movies/potter/4.png"},
-            {"id": "7", "cover": "img/movies/potter/cover.JPG", "scale": "1"}
+            {"id": "2", "image": "img/movies/potter1/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/potter1/1.mp3"},
+            {"id": "6", "audio2": "img/movies/potter1/2.mp3", "scale": "1"},
+            {"id": "8", "image2": "img/movies/potter1/2.JPG"},
+            {"id": "10", "image3": "img/movies/potter1/3.JPG", "scale": "1"},
+            {"id": "12", "image4": "img/movies/potter1/4.png"},
+            {"id": "7", "cover": "img/movies/potter1/cover.JPG", "scale": "1"}
         ]
     
     },
