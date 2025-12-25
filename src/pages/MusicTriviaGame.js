@@ -14,6 +14,7 @@ function MusicTriviaGame() {
     const [topContainer, setTopContainer] = useState([]);
     const [bottomContainer, setBottomContainer] = useState([]);
     const [songDropped, setSongDropped] = useState(false);
+    const [editingSongId, setEditingSongId] = useState(null);
     
 
     useEffect(() => {
@@ -159,6 +160,17 @@ function MusicTriviaGame() {
         setContainer(updatedContainer);
     };
 
+    const saveYear = (song, newYear, container, setContainer) => {
+    const updatedContainer = container.map(item =>
+        item.id === song.id
+            ? { ...item, customYear: newYear }
+            : item
+    );
+
+    setContainer(updatedContainer);
+    setEditingSongId(null);
+};
+
     return (
         <div className='musicTriviaGame'>
             <DragDropContext onDragEnd={onDragEnd}>
@@ -184,7 +196,30 @@ function MusicTriviaGame() {
                                             {song.showDetails ? (
                                                 <>
                                                     <p className='musicInterpret'>{song.artists[0].name}</p>
-                                                    <p className='musicDate'>{song.album.release_date.slice(0, 4)}</p>
+                                                    {editingSongId === song.id ? (
+    <input
+        type="number"
+        className="editYearInput"
+        defaultValue={song.customYear ?? song.album.release_date.slice(0, 4)}
+        autoFocus
+        onBlur={(e) =>
+            saveYear(song, e.target.value, topContainer, setTopContainer)
+        }
+        onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+                saveYear(song, e.target.value, topContainer, setTopContainer);
+            }
+        }}
+    />
+) : (
+    <p
+        className="musicDate"
+        onDoubleClick={() => setEditingSongId(song.id)}
+    >
+        {song.customYear ?? song.album.release_date.slice(0, 4)}
+    </p>
+)}
+
                                                     <p className='musicSong'>{song.name}</p>
                                                 </>
                                             ) : (
@@ -287,7 +322,30 @@ function MusicTriviaGame() {
                                                      <p>{song.artists[0].name}</p>
                                                 </div>                                                  
                                                     <div className='musicDate'>
-                                                         <p>{song.album.release_date.slice(0, 4)}</p>
+{editingSongId === song.id ? (
+    <input
+        type="number"
+        className="editYearInput"
+        defaultValue={song.customYear ?? song.album.release_date.slice(0, 4)}
+        autoFocus
+        onBlur={(e) =>
+            saveYear(song, e.target.value, bottomContainer, setBottomContainer)
+        }
+        onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+                saveYear(song, e.target.value, bottomContainer, setBottomContainer);
+            }
+        }}
+    />
+) : (
+    <p
+        className="musicDate"
+        onDoubleClick={() => setEditingSongId(song.id)}
+    >
+        {song.customYear ?? song.album.release_date.slice(0, 4)}
+    </p>
+)}
+
                                                     </div>                                                
                                                 <div className='musicSong'>
                                                   <p>{song.name}</p>

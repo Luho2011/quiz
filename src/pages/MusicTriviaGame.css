@@ -236,6 +236,15 @@
     transition: all 0.1s;
 }
 
+.editYearInput {
+    width: 90px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 6px;
+}
+
 
 
 
