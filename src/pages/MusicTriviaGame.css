@@ -44,15 +44,17 @@
     }
 
     .musicDate {
-        font-size: 38px;
+        font-size: 32px;
     }
 
     .musicInterpret {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .musicSong {
-        font-size: 14px;
+        font-size: 12px;
+        white-space: normal; /* Zeilenumbruch erlauben */
+        word-wrap: break-word; /* bei langen Wörtern umbrechen */
     }
 }
 
