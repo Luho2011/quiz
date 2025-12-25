@@ -13,14 +13,13 @@
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     width: 100%;
-    max-width: 1885px;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     height: 275px;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* 🔑 */
     align-items: center;
     flex-wrap: nowrap;
     border-radius: 8px;
@@ -53,14 +52,13 @@
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     width: 100%;
-    max-width: 1885px;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     height: 275px;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* 🔑 */
     align-items: center;
     flex-wrap: nowrap;
     border-radius: 8px;
@@ -132,7 +130,7 @@
 .songCard {
     width: 150px;
     height: 255px;
-    display: flex;
+    flex: 0 0 auto; /* 🔑 verhindert Shrink */
     flex-direction: column;
     align-items: center;
     justify-content: center;
