@@ -195,7 +195,9 @@ function MusicTriviaGame() {
                                             </button>
                                             {song.showDetails ? (
                                                 <>
-                                                    <p className='musicInterpret'>{song.artists[0].name}</p>
+                                                <div className='musicInterpret'>
+                                                     <p>{song.artists[0].name}</p>
+                                                </div>  
                                                     {editingSongId === song.id ? (
     <input
         type="number"
