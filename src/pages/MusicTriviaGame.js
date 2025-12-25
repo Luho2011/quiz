@@ -321,7 +321,7 @@ function MusicTriviaGame() {
                                                 <div className='musicInterpret'>
                                                      <p>{song.artists[0].name}</p>
                                                 </div>                                                  
-                                                    <div className='musicDate'>
+
 {editingSongId === song.id ? (
     <input
         type="number"
@@ -346,7 +346,7 @@ function MusicTriviaGame() {
     </p>
 )}
 
-                                                    </div>                                                
+                                                  
                                                 <div className='musicSong'>
                                                   <p>{song.name}</p>
                                                 </div>    
