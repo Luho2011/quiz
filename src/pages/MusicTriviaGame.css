@@ -49,6 +49,8 @@
 
     .musicInterpret {
         font-size: 14px;
+        white-space: normal;        /* Zeilenumbruch erlauben */
+        word-wrap: break-word;      /* sehr lange Namen umbrechen */
     }
 
     .musicSong {
