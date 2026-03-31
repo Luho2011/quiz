@@ -41,7 +41,7 @@ const Callback = () => {
         localStorage.setItem('spotifyAccessToken', accessToken);
 
         setTimeout(() => {
-          navigate('/hitster'); // Direkt zu Playlist-Auswahl
+          navigate('/playlistSetupHitster'); // Direkt zu Playlist-Auswahl
         }, 50);
       } else {
         console.error('Fehler beim Abrufen des Access Tokens:', data);
