@@ -11,7 +11,7 @@ function RoomPage() {
     const token = localStorage.getItem('spotifyAccessToken');
     if (!token) {
       alert("Bitte melde dich zuerst bei Spotify an!");
-      navigate('/musicTrivia'); // zurück zur Auth-Seite
+      navigate('/spotifyAuth'); // zurück zur Auth-Seite
     } else {
       setAccessToken(token);
     }
