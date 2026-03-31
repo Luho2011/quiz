@@ -6,7 +6,7 @@ function MusicTrivia() {
   const navigate = useNavigate();
 
   const startSpotifyFlow = () => {
-    navigate("/musicTrivia"); // Leitet zur Spotify Auth-Seite
+    navigate("/spotifyAuth"); // Leitet zur Spotify Auth-Seite
   };
 
   return (
