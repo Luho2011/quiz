@@ -18,6 +18,16 @@
     border-radius: 20px;
     background-color: rgb(59, 58, 58);
     margin-top: 20px;
+    position: relative;
+}
+
+.game_button > h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 12px;
+    text-align: center;
 }
 
 .game_button:hover {
@@ -53,14 +63,17 @@
 .claim_logo {
     height: 220px;
     width: 220px;
+    margin-top: 20px;
 }
 
 .whoknowsmore {
     height: 220px;
     width: 220px;
+    margin-top: 20px;
 }
 
 .musicTrivia {
     height: 220px;
     width: 220px;
+    margin-top: 20px;
 }
