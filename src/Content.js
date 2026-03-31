@@ -52,7 +52,7 @@ function Content() {
         <Link to='/WhoKnowsMore' target="_blank">
           <button className='game_button'><img className='whoknowsmore' src={WhoKnowsMore} alt="" onClick={""}/></button>
         </Link>
-        <Link to='/musicTrivia' target="_blank">
+        <Link to='/playlistSetupHitster' target="_blank">
           <button className='game_button'><img className='musicTrivia' src={musicTrivia} alt="" onClick={""}/></button>
         </Link>
         <Link to='/association' target="_blank">

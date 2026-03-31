@@ -1,81 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 
 function PlaylistSearch({ onPlaylistsSelected }) {
-    const [playlists, setPlaylists] = useState([]);
-    const [selectedPlaylists, setSelectedPlaylists] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+  const [playlists, setPlaylists] = useState([]);
+  const [selectedPlaylists, setSelectedPlaylists] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        onPlaylistsSelected(selectedPlaylists);
-    }, [selectedPlaylists]);
+  useEffect(() => {
+    onPlaylistsSelected(selectedPlaylists);
+  }, [selectedPlaylists]);
 
-    const fetchUserPlaylists = async () => {
-        const accessToken = localStorage.getItem('spotifyAccessToken'); // Holen des Tokens aus localStorage
-        if (!accessToken) {
-            console.error('Kein Access Token gefunden!');
-            return;
-        }
+  useEffect(() => {
+    const accessToken = localStorage.getItem('spotifyAccessToken');
+    if (!accessToken) {
+      console.error("Kein Access Token gefunden!");
+      return;
+    }
+    fetchUserPlaylists(accessToken);
+  }, []);
 
-        setIsLoading(true); // Setze isLoading auf true, um einen Ladezustand anzuzeigen
-        try {
-            let allPlaylists = [];
-            let nextUrl = "https://api.spotify.com/v1/me/playlists"; // Initiale URL
+  const fetchUserPlaylists = async (accessToken) => {
+    setIsLoading(true);
+    try {
+      let allPlaylists = [];
+      let nextUrl = "https://api.spotify.com/v1/me/playlists";
 
-            // Solange es eine "next"-Seite gibt, lade die nächsten Playlists
-            while (nextUrl) {
-                const response = await axios.get(nextUrl, {
-                    headers: { Authorization: `Bearer ${accessToken}` },
-                });
+      while (nextUrl) {
+        const response = await axios.get(nextUrl, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
 
-                // Füge die aktuellen Playlists zur Gesamtliste hinzu
-                allPlaylists = [...allPlaylists, ...response.data.items];
+        allPlaylists = [...allPlaylists, ...response.data.items];
+        nextUrl = response.data.next;
+      }
 
-                // Setze die "next"-URL auf den nächsten Seiten-Link
-                nextUrl = response.data.next;
-            }
+      setPlaylists(allPlaylists);
+    } catch (error) {
+      console.error('Fehler beim Abrufen der Playlists:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-            // Alle Playlists in den State setzen
-            setPlaylists(allPlaylists);
-        } catch (error) {
-            console.error('Fehler beim Abrufen der Playlists:', error);
-        } finally {
-            setIsLoading(false); // Setze isLoading auf false, wenn der Ladevorgang abgeschlossen ist
-        }
-    };
+  const addPlaylist = (playlist) => {
+    if (!selectedPlaylists.find(p => p.id === playlist.id)) {
+      setSelectedPlaylists([...selectedPlaylists, playlist]);
+    }
+  };
 
-    const addPlaylist = (playlist) => {
-        setSelectedPlaylists([...selectedPlaylists, playlist]);
-    };
+  return (
+    <div>
+      <h3>Meine Playlists</h3>
+      {isLoading && <p>Lade Playlists...</p>}
 
-    useEffect(() => {
-        fetchUserPlaylists(); // Lade Playlists beim ersten Rendern
-    }, []);
+      <h4>Alle Playlists:</h4>
+      <ul>
+        {playlists.map((playlist) => (
+          <li key={playlist.id}>
+            {playlist.name}{" "}
+            <button onClick={() => addPlaylist(playlist)}>Hinzufügen</button>
+          </li>
+        ))}
+      </ul>
 
-    return (
-        <div>
-            <h3>Meine Playlists</h3>
-            {isLoading && <p>Lade Playlists...</p>}
-
-            <h4>Alle Playlists:</h4>
-            <ul>
-                {playlists.map((playlist) => (
-                    <li key={playlist.id}>
-                        {playlist.name}{" "}
-                        <button onClick={() => addPlaylist(playlist)}>Hinzufügen</button>
-                    </li>
-                ))}
-            </ul>
-
-            <h4>Ausgewählte Playlists:</h4>
-            <ul>
-                {selectedPlaylists.map((playlist) => (
-                    <li key={playlist.id}>{playlist.name}</li>
-                ))}
-            </ul>
-        </div>
-    );
+      <h4>Ausgewählte Playlists:</h4>
+      <ul>
+        {selectedPlaylists.map((playlist) => (
+          <li key={playlist.id}>{playlist.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default PlaylistSearch;

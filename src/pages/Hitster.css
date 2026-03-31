@@ -32,15 +32,15 @@
     .bottomContainer {
         width: 100%;
         max-width: 100%;
-        justify-content: center; /* 🔑 */
+        justify-content: center; 
         gap: 6px;  
     }
 
     .songCard {
-        width: 120px;      /* 🔑 kleiner */
+        width: 120px;      /* kleiner */
         height: 215px;
         margin: 0;
-        flex-shrink: 1;    /* 🔑 darf schrumpfen */
+        flex-shrink: 1;    /* darf schrumpfen */
     }
 
     .musicDate {
@@ -170,6 +170,8 @@
     font-size: 20px;
     position: absolute;
     top: 25px;
+    white-space: normal;    
+    word-wrap: break-word; 
 }
 
 .musicDate {
@@ -185,6 +187,8 @@
     font-size: 17px;
     position: absolute;
     top: 175px;
+    white-space: normal;
+    word-wrap: break-word; 
 }
 
 .qrCodeContainer {

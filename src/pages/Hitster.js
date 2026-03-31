@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './MusicTriviaGame.css';
+import './Hitster.css';
 import axios from 'axios';
 import { QRCodeCanvas } from 'qrcode.react';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-// Test deploy
-function MusicTriviaGame() {
+
+function Hitster() {
     const location = useLocation();
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
@@ -15,12 +15,11 @@ function MusicTriviaGame() {
     const [bottomContainer, setBottomContainer] = useState([]);
     const [songDropped, setSongDropped] = useState(false);
     const [editingSongId, setEditingSongId] = useState(null);
-    
 
     useEffect(() => {
         const loadSongs = async () => {
             let playlistSongs = []; // Array, das Songs aus jeder Playlist speichert
-            
+            console.log("STATE:", location.state);
             // Lade Songs aus allen Playlists
             for (let playlist of selectedPlaylists) {
                 const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
@@ -375,4 +374,4 @@ function MusicTriviaGame() {
     );
 }
 
-export default MusicTriviaGame;
+export default Hitster;

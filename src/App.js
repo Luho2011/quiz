@@ -15,10 +15,9 @@ import Claim from './pages/Claim';
 import WhoKnowsMore from './pages/WhoKnowsMore';
 import Nav from './Nav';
 import History from './pages/History';
-import MusicTrivia from './pages/MusicTrivia';
-import MusicTriviaGame from './pages/MusicTriviaGame';
+import Hitster from './pages/Hitster';
+import PlaylistSetupHitster from './pages/PlaylistSetupHitster';
 import Association from './pages/Association';
-import RoomPage from "./pages/RoomPage";
 import Auth from './Auth';
 import Callback from './Callback';
 import { Route, Routes } from "react-router-dom"; 
@@ -44,12 +43,11 @@ function App() {
             <Route path="/:id" element={<MovieDetails />} />
             <Route path="/claim" element={<Claim />} />
             <Route path="/whoKnowsMore" element={<WhoKnowsMore />} />
-            <Route path="/musicTriviaPlay" element={<MusicTrivia />} />
+            <Route path="/playlistSetupHitster" element={<PlaylistSetupHitster />} />
             <Route path="/association" element={<Association />} />
-            <Route path="/room/:roomId" element={<RoomPage />} />
-            <Route path="/musicTrivia" element={<Auth />} />
+            <Route path="/spotifyAuth" element={<Auth />} />
             <Route path="/callback" element={<Callback />} />
-            <Route path="/musicTriviaGame" element={<MusicTriviaGame />} />
+            <Route path="/hitster" element={<Hitster />} />
           </Routes>
         </div>
        
