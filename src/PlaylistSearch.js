@@ -37,6 +37,12 @@ function PlaylistSearch({ onPlaylistsSelected }) {
       setPlaylists(allPlaylists);
     } catch (error) {
       console.error('Fehler beim Abrufen der Playlists:', error);
+        if (error.response && error.response.status === 401) {
+        console.log("Token abgelaufen → neu einloggen");
+
+        localStorage.removeItem('spotifyAccessToken');
+        window.location.href = "/spotifyAuth"; // zurück zum Login
+       }
     } finally {
       setIsLoading(false);
     }
