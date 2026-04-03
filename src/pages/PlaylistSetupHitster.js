@@ -27,6 +27,11 @@ function RoomPage() {
 
   if (!accessToken) return <div>Lade Spotify Token...</div>;
 
+  const switchSpotifyAccount = () => {
+    localStorage.removeItem("spotifyAccessToken");
+    window.location.href = "/spotifyAuth";
+};
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>Wähle deine Playlists</h2>
@@ -37,6 +42,12 @@ function RoomPage() {
       >
         Spiel starten
       </button>
+        <button
+          onClick={switchSpotifyAccount}
+          style={{ marginTop: "20px", padding: "10px", fontSize: "16px" }}
+        >
+          Acc wechseln
+        </button>
     </div>
   );
 }
