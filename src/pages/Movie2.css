@@ -1,6 +1,22 @@
 .movie2 {
-    background-color: rgb(51, 51, 51);
-    height: 100vh;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(90, 60, 255, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 200, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(120, 40, 255, 0.12),
+            transparent 40%
+        ),
+        #07122f;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -14,61 +30,56 @@
 }
 
 .movies2__all {
-    border-radius: 10px;
     display: flex;
-    gap: 50px;
-    margin-top: 40px;
-    background-color: rgb(172, 172, 172);
-    height: 825px;
-    width: 1400px;
+    gap: 30px;
+    margin-top: 120px;
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 18px;
+    background: rgba(21, 42, 83, 0.72);
+    box-shadow: 
+    0 0 6px rgba(0, 243, 255, 0.3),
+    0 0 12px rgba(0, 243, 255, 0.1);
+    height: 1200px;
+    width: 1800px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .movies2__all > a {
-    height: 110px;
+    height: 75px;
 }
 
 .movie2Btns {
     cursor: pointer;
     height: 100px;
     width: 100px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 5px;
-    border-radius: 10px;
-    background-color: rgb(0, 133, 7);
-    border: solid;
+    background: rgba(0, 190, 120, 0.20);
+    border: 1px solid rgba(0, 255, 170, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 0 18px rgba(0, 255, 170, 0.25);
 }
 
+
 .movie2Btns:hover {
-    background-color: rgb(0, 192, 32);
-    transition: all 0.1s;
+    transform: translateY(-2px);
+    border: 1px solid rgba(53, 255, 188, 0.75);
+    box-shadow: 0 0 18px rgba(127, 252, 210, 0.25);
+    background: rgba(47, 243, 80, 0.50);
 }
 
 
 .movie2Btns > p {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 35px;
     font-weight: bold;
 }
 
 .movie2Btns.clicked {
     background-color: rgb(112, 112, 112);
+    border: 1px solid rgba(255, 59, 59, 0.75);
 }
 
-.movie2Btns__difficult {
-    cursor: pointer;
-    height: 100px;
-    width: 100px;
-    margin-top: 5px;
-    margin-left: 5px;
-    border-radius: 10px;
-    background-color: rgb(0, 133, 7);
-    border: solid;
-}
 
-.movie2Btns__difficult:hover {
-    background-color: rgb(0, 192, 32);
-    transition: all 0.1s;
-}
 

@@ -586,5 +586,635 @@
             {"id": "7", "cover": "img/movies/exmachina/cover.JPG", "scale": "1"}
         ]
     
+    },
+        {
+        "ids": 43,
+        "items" :
+        [   
+            {"id": "1", "image": "img/movies/7psychos/1.JPG", "difficulty": "2"},
+            {"id": "2", "audio1": "img/movies/7psychos/1.mp3", "scale": "1"},
+            {"id": "3", "image2": "img/movies/7psychos/2.JPG"},
+            {"id": "4", "audio2": "img/movies/7psychos/2.mp3"},
+            {"id": "5", "image3": "img/movies/7psychos/3.JPG", "scale": "1"},
+            {"id": "6", "image4": "img/movies/7psychos/4.JPG"},
+            {"id": "7", "cover": "img/movies/7psychos/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 44,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/argo/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/argo/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/argo/2.JPG"},
+            {"id": "8", "audio2": "img/movies/argo/2.mp3"},
+            {"id": "10", "image3": "img/movies/argo/3.JPG"},
+            {"id": "12", "image4": "img/movies/argo/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/argo/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 45,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Avatar/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/Avatar/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/Avatar/2.JPG"},
+            {"id": "8", "audio2": "img/movies/Avatar/2.mp3"},
+            {"id": "10", "image3": "img/movies/Avatar/3.JPG"},
+            {"id": "12", "image4": "img/movies/Avatar/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Avatar/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 46,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Batman/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/Batman/2.png", "scale": "1"},
+            {"id": "6", "image2": "img/movies/Batman/1.mp3"},
+            {"id": "8", "audio2": "img/movies/Batman/3.JPG"},
+            {"id": "10", "image3": "img/movies/Batman/2.mp3"},
+            {"id": "12", "image4": "img/movies/Batman/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Batman/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 47,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Billboards/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/Billboards/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/Billboards/2.JPG"},
+            {"id": "8", "audio2": "img/movies/Billboards/2.mp3"},
+            {"id": "10", "image3": "img/movies/Billboards/3.JPG"},
+            {"id": "12", "image4": "img/movies/Billboards/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Billboards/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 48,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/BladeRunner/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/BladeRunner/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/BladeRunner/2.JPG"},
+            {"id": "8", "audio2": "img/movies/BladeRunner/2.mp3"},
+            {"id": "10", "image3": "img/movies/BladeRunner/3.JPG"},
+            {"id": "12", "image4": "img/movies/BladeRunner/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/BladeRunner/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 49,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/breaking/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/breaking/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/breaking/2.JPG"},
+            {"id": "8", "audio2": "img/movies/breaking/2.mp3"},
+            {"id": "10", "image3": "img/movies/breaking/3.JPG"},
+            {"id": "12", "image4": "img/movies/breaking/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/breaking/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 50,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Brügge/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/Brügge/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/Brügge/2.JPG"},
+            {"id": "8", "audio2": "img/movies/Brügge/2.mp3"},
+            {"id": "10", "image3": "img/movies/Brügge/3.JPG"},
+            {"id": "12", "image4": "img/movies/Brügge/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Brügge/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 51,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Catch/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/Catch/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/Catch/2.JPG"},
+            {"id": "8", "audio2": "img/movies/Catch/2.mp3"},
+            {"id": "10", "image3": "img/movies/Catch/3.JPG"},
+            {"id": "12", "image4": "img/movies/Catch/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Catch/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 52,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/country/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/country/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/country/2.JPG"},
+            {"id": "8", "audio2": "img/movies/country/2.mp3"},
+            {"id": "10", "image3": "img/movies/country/3.JPG"},
+            {"id": "12", "image4": "img/movies/country/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/country/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 53,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Dallas/1.JPG", "difficulty": "1"},
+            {"id": "4", "audio1": "img/movies/Dallas/1.mp3", "scale": "1"},
+            {"id": "6", "image2": "img/movies/Dallas/2.JPG"},
+            {"id": "8", "audio2": "img/movies/Dallas/2.mp3"},
+            {"id": "10", "image3": "img/movies/Dallas/3.JPG"},
+            {"id": "12", "image4": "img/movies/Dallas/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Dallas/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 54,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Drive/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Drive/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Drive/1.mp3"},
+            {"id": "8", "image3": "img/movies/Drive/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Drive/2.mp3"},
+            {"id": "12", "image4": "img/movies/Drive/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Drive/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 55,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Dune2/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Dune2/2.JPG", "scale": "1"},
+            {"id": "6", "image3": "img/movies/Dune2/3.JPG"},
+            {"id": "8", "audio1": "img/movies/Dune2/1.mp3"},
+            {"id": "10", "image4": "img/movies/Dune2/4.JPG"},
+            {"id": "12", "audio2": "img/movies/Dune2/2.mp3", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Dune2/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 56,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Oppenheimer/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Oppenheimer/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Oppenheimer/1.mp3"},
+            {"id": "8", "image3": "img/movies/Oppenheimer/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Oppenheimer/2.mp3"},
+            {"id": "12", "image4": "img/movies/Oppenheimer/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Oppenheimer/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 57,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Titanic/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Titanic/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Titanic/1.mp3"},
+            {"id": "8", "image3": "img/movies/Titanic/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Titanic/2.mp3"},
+            {"id": "12", "image4": "img/movies/Titanic/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Titanic/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 58,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Interstellar/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Interstellar/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Interstellar/1.mp3"},
+            {"id": "8", "image3": "img/movies/Interstellar/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Interstellar/2.mp3"},
+            {"id": "12", "image4": "img/movies/Interstellar/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Interstellar/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 59,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Flower/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Flower/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Flower/1.mp3"},
+            {"id": "8", "image3": "img/movies/Flower/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Flower/2.mp3"},
+            {"id": "12", "image4": "img/movies/Flower/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Flower/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 60,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Zombieland/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Zombieland/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Zombieland/1.mp3"},
+            {"id": "8", "image3": "img/movies/Zombieland/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Zombieland/2.mp3"},
+            {"id": "12", "image4": "img/movies/Zombieland/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Zombieland/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 61,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Saul/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Saul/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Saul/1.mp3"},
+            {"id": "8", "image3": "img/movies/Saul/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Saul/2.mp3"},
+            {"id": "12", "image4": "img/movies/Saul/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Saul/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 62,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Leon/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Leon/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Leon/1.mp3"},
+            {"id": "8", "image3": "img/movies/Leon/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Leon/2.mp3"},
+            {"id": "12", "image4": "img/movies/Leon/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Leon/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 63,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Green/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Green/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Green/1.mp3"},
+            {"id": "8", "image3": "img/movies/Green/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Green/2.mp3"},
+            {"id": "12", "image4": "img/movies/Green/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Green/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 64,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Nope/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Nope/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Nope/1.mp3"},
+            {"id": "8", "image3": "img/movies/Nope/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Nope/2.mp3"},
+            {"id": "12", "image4": "img/movies/Nope/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Nope/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 65,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Sieben/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Sieben/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Sieben/1.mp3"},
+            {"id": "8", "image3": "img/movies/Sieben/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Sieben/2.mp3"},
+            {"id": "12", "image4": "img/movies/Sieben/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Sieben/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 66,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Tschernobyl/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Tschernobyl/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Tschernobyl/1.mp3"},
+            {"id": "8", "image3": "img/movies/Tschernobyl/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Tschernobyl/2.mp3"},
+            {"id": "12", "image4": "img/movies/Tschernobyl/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Tschernobyl/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 67,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/JurassicPark/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/JurassicPark/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/JurassicPark/1.mp3"},
+            {"id": "8", "image3": "img/movies/JurassicPark/3.JPG"},
+            {"id": "10", "audio2": "img/movies/JurassicPark/2.mp3"},
+            {"id": "12", "image4": "img/movies/JurassicPark/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/JurassicPark/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 68,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Fargo/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Fargo/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Fargo/1.mp3"},
+            {"id": "8", "image3": "img/movies/Fargo/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Fargo/2.mp3"},
+            {"id": "12", "image4": "img/movies/Fargo/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Fargo/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 69,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/potter/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/potter/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/potter/1.mp3"},
+            {"id": "8", "image3": "img/movies/potter/3.JPG"},
+            {"id": "10", "audio2": "img/movies/potter/2.mp3"},
+            {"id": "12", "image4": "img/movies/potter/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/potter/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 70,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/GOT/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/GOT/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/GOT/1.mp3"},
+            {"id": "8", "image3": "img/movies/GOT/3.JPG"},
+            {"id": "10", "audio2": "img/movies/GOT/2.mp3"},
+            {"id": "12", "image4": "img/movies/GOT/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/GOT/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 71,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Tierwesen/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Tierwesen/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Tierwesen/1.mp3"},
+            {"id": "8", "image3": "img/movies/Tierwesen/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Tierwesen/2.mp3"},
+            {"id": "12", "image4": "img/movies/Tierwesen/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Tierwesen/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 72,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Jumanji/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Jumanji/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Jumanji/1.mp3"},
+            {"id": "8", "image3": "img/movies/Jumanji/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Jumanji/2.mp3"},
+            {"id": "12", "image4": "img/movies/Jumanji/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Jumanji/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 73,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Nightcrawler/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Nightcrawler/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Nightcrawler/1.mp3"},
+            {"id": "8", "image3": "img/movies/Nightcrawler/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Nightcrawler/2.mp3"},
+            {"id": "12", "image4": "img/movies/Nightcrawler/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Nightcrawler/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 74,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Imitation/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Imitation/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Imitation/1.mp3"},
+            {"id": "8", "image3": "img/movies/Imitation/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Imitation/2.mp3"},
+            {"id": "12", "image4": "img/movies/Imitation/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Imitation/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 75,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Fight/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Fight/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Fight/1.mp3"},
+            {"id": "8", "image3": "img/movies/Fight/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Fight/2.mp3"},
+            {"id": "12", "image4": "img/movies/Fight/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Fight/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 76,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Marsianer/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Marsianer/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Marsianer/1.mp3"},
+            {"id": "8", "image3": "img/movies/Marsianer/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Marsianer/2.mp3"},
+            {"id": "12", "image4": "img/movies/Marsianer/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Marsianer/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 77,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Infinity/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Infinity/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Infinity/1.mp3"},
+            {"id": "8", "image3": "img/movies/Infinity/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Infinity/2.mp3"},
+            {"id": "12", "image4": "img/movies/Infinity/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Infinity/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 78,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Ocean11/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Ocean11/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Ocean11/1.mp3"},
+            {"id": "8", "image3": "img/movies/Ocean11/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Ocean11/2.mp3"},
+            {"id": "12", "image4": "img/movies/Ocean11/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Ocean11/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 79,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Terminator/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Terminator/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Terminator/1.mp3"},
+            {"id": "8", "image3": "img/movies/Terminator/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Terminator/2.mp3"},
+            {"id": "12", "image4": "img/movies/Terminator/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Terminator/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 80,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Sicario/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Sicario/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Sicario/1.mp3"},
+            {"id": "8", "image3": "img/movies/Sicario/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Sicario/2.mp3"},
+            {"id": "12", "image4": "img/movies/Sicario/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Sicario/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 81,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Moneyball/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Moneyball/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Moneyball/1.mp3"},
+            {"id": "8", "image3": "img/movies/Moneyball/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Moneyball/2.mp3"},
+            {"id": "12", "image4": "img/movies/Moneyball/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Moneyball/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 82,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Shining/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Shining/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Shining/1.mp3"},
+            {"id": "8", "image3": "img/movies/Shining/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Shining/2.mp3"},
+            {"id": "12", "image4": "img/movies/Shining/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Shining/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 83,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Getout/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Getout/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Getout/1.mp3"},
+            {"id": "8", "image3": "img/movies/Getout/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Getout/2.mp3"},
+            {"id": "12", "image4": "img/movies/Getout/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Getout/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 84,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/LastOfUs/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/LastOfUs/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/LastOfUs/1.mp3"},
+            {"id": "8", "image3": "img/movies/LastOfUs/3.JPG"},
+            {"id": "10", "audio2": "img/movies/LastOfUs/2.mp3"},
+            {"id": "12", "image4": "img/movies/LastOfUs/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/LastOfUs/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 85,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Whiplash/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Whiplash/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Whiplash/1.mp3"},
+            {"id": "8", "image3": "img/movies/Whiplash/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Whiplash/2.mp3"},
+            {"id": "12", "image4": "img/movies/Whiplash/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Whiplash/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 86,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Nope/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Nope/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Nope/1.mp3"},
+            {"id": "8", "image3": "img/movies/Nope/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Nope/2.mp3"},
+            {"id": "12", "image4": "img/movies/Nope/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Nope/cover.JPG", "scale": "1"}
+        ]
+    
+    },
+        {
+        "ids": 87,
+        "items" :
+        [   
+            {"id": "2", "image": "img/movies/Prisoners/1.JPG", "difficulty": "1"},
+            {"id": "4", "image2": "img/movies/Prisoners/2.JPG", "scale": "1"},
+            {"id": "6", "audio1": "img/movies/Prisoners/1.mp3"},
+            {"id": "8", "image3": "img/movies/Prisoners/3.JPG"},
+            {"id": "10", "audio2": "img/movies/Prisoners/2.mp3"},
+            {"id": "12", "image4": "img/movies/Prisoners/4.JPG", "scale": "1"},
+            {"id": "7", "cover": "img/movies/Prisoners/cover.JPG", "scale": "1"}
+        ]
+    
     }
 ]
