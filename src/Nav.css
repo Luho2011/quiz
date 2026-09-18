@@ -3,11 +3,13 @@
 }
 
 .nav_logo {
-  
+  height: 800px;
+  width: 800px;
+  object-fit: contain;
+  margin-top: 100px;
 }
 
 .nav_contents {
-    background-color: black;
     height: 225px;
     width: 100%;
     color: white;

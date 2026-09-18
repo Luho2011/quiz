@@ -29,19 +29,29 @@ h1 {
 
 .belong__play_button {
     cursor: pointer;
-    height: 35px;
-    width: 80px;
-    border: none;
-    border-radius: 20px;
-    background-color: rgb(128, 128, 128);
-    color: black;
-    font-size: 1.1rem;
-    font-weight: bold;
+    height: 42px;
+    min-width: 95px;
+    padding: 0 20px;
+    border: 1px solid rgba(130, 100, 255, 0.55);
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #6d3df5,
+        #3867ff
+    );
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(80, 60, 255, 0.3);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
 }
 
 .belong__play_button:hover {
-    background-color: rgb(85, 85, 85); 
-    transition: all 0.1s;
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(90, 70, 255, 0.45);
  }
 
  .belong__guess {
@@ -57,9 +67,13 @@ h1 {
     width: 550px;
     margin-left: 75px;
     padding: 30px;
-    border: solid;
-    border-radius: 10px;
-    background-color: rgb(128, 128, 128);
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 18px;
+    background: rgba(10, 25, 55, 0.72);
+    box-shadow: 
+    0 0 6px rgba(0, 243, 255, 0.3),
+    0 0 12px rgba(0, 243, 255, 0.1);
+    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,31 +92,36 @@ h1 {
 
 
 .words1 {
-    background-color: rgb(235, 235, 81);
     margin-top: 35px;
     margin-bottom: 1px;
-    border: solid;
-    border-radius: 10px;
     text-align: center;
-    border-color: rgb(26, 26, 26);   
+    background: rgba(3, 44, 29, 0.2);
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 255, 170);
+    border-radius: 12px;
+    color: #d9fff2;
+    
 }
 
 .words2 {
-    background-color: rgb(235, 235, 81);
-    border: solid;
-    border-radius: 10px;
     text-align: center;
-    border-color: rgb(26, 26, 26);
-    margin-bottom: 30px;   
+    margin-bottom: 30px;
+    background: rgba(0, 190, 120, 0.20);
+    border: 1px solid rgba(0, 255, 170, 0.75);
+    border-radius: 12px;
+    color: #d9fff2;
+    box-shadow: 0 0 18px rgba(0, 255, 170, 0.25);   
 }
 
 .words3 {
-    background-color: rgb(190, 2, 2);
-    border: solid;
-    border-radius: 10px;
     text-align: center;
     border-color: rgb(26, 26, 26);
-    margin-bottom: 30px;   
+    margin-bottom: 30px; 
+    background: rgba(255, 50, 80, 0.20);
+    border: 1px solid rgba(255, 70, 100, 0.8);
+    border-radius: 12px;
+    color: #ffe1e5;
+    box-shadow: 0 0 18px rgba(255, 50, 80, 0.25);  
 }
 
 
@@ -187,27 +206,41 @@ h1 {
 }
 
 .belong__no__solution {
-    background-color: rgb(235, 235, 81);
     text-align: center;
     margin-top: 4px;
     margin-bottom: 65px;
-    border: solid;
     border-radius: 10px;
-    border-color: rgb(26, 26, 26);
     padding-left: 5px;
     height: 32px;
     width: 540px;
+    background: rgba(20, 39, 78, 0.85);
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    color: white;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .belong__no__solution2 {
-    background-color: rgb(235, 235, 81);
     text-align: center;
     margin-left: -7px;
-    border: solid;
-    border-radius: 10px;
-    border-color: rgb(26, 26, 26);
     padding-left: 5px;
     height: 32px;
     width: 540px;
+    border-radius: 10px;
+    background: rgba(20, 39, 78, 0.85);
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    color: white;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 

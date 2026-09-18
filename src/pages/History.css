@@ -1,11 +1,37 @@
 .history {
-    background-color: rgb(51, 51, 51);
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(90, 60, 255, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 200, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(120, 40, 255, 0.12),
+            transparent 40%
+        ),
+        #07122f;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
+}
+
+.countryShape {
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 18px;
+    background: rgba(10, 25, 55, 0.72);
+    box-shadow: 
+    0 0 6px rgba(0, 243, 255, 0.3),
+    0 0 12px rgba(0, 243, 255, 0.1);
+    backdrop-filter: blur(12px);
 }
 
 .history__counter {
@@ -52,34 +78,50 @@
     margin-top: 15px;
     width: 650px;
     margin-left: 20px;
-    border: solid;
-    border-radius: 10px;
-    background-color: rgb(128, 128, 128);
-
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 18px;
+    background: rgba(10, 25, 55, 0.72);
+    box-shadow: 
+    0 0 6px rgba(0, 243, 255, 0.3),
+    0 0 12px rgba(0, 243, 255, 0.1);
+    backdrop-filter: blur(12px);
 }
 
 .history__hintBox {
     display: none;
-    background-color: rgb(235, 235, 81);
     margin-bottom: 25px;
-    border: solid;
-    border-radius: 10px;
     text-align: center;
     border-color: rgb(26, 26, 26);
     padding: 2px; 
     width: 630px;
+    background: rgba(20, 39, 78, 0.85);
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 12px;
+    color: white;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .history__solution {
     margin-top: 10px;
-    background-color: rgb(0, 202, 51);
     width: 300px;
     margin-bottom: 25px;
-    border: solid;
-    border-radius: 10px;
     text-align: center;
-    border-color: rgb(26, 26, 26);
     padding: 2px; 
+    background: rgba(36, 253, 55, 0.2);
+    border: 1px solid rgba(0, 255, 170, 0.75);
+    border-radius: 12px;
+    color: #d9fff2;
+    box-shadow: 0 0 18px rgba(93, 253, 200, 0.25);
+}
+
+.history__solution > h1 {
+    color: white;
 }
 
 .history__hintBox.show {
@@ -96,6 +138,7 @@
 
 .history__hintBox > h2 {
     font-size: 20px;
+    color: white;
 }
 
 .solution {

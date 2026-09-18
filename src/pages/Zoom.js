@@ -140,15 +140,6 @@ function Zoom() {
  
   return (
     <div className="zoom">
-      <div className='zoom__buttons'>
-         <button className='play_button' onClick={() => setFetchData(!fetchData)}>Next</button>
-         <button className='play_button' onClick={() => setShowSolution(!showSolution)}>Solution</button>
-      </div>   
-            {wordsTest.map((item) => (
-                   <div className='specific'>
-                      <h2>{item.specific}</h2> 
-                    </div>                                                             
-            ))}  
        <DragDropContext onDragEnd={onDragEnd}>           
                           <div className='boxes'>
                             <div className='zoom__counter'>
@@ -157,7 +148,18 @@ function Zoom() {
                             <Droppable droppableId="a" type="droppableItem">
                               {(provided) => (
                                 <div ref={provided.innerRef}>
-                                <div className="zoom__words">                                 
+                                <div className="zoom__words">
+                                    <div className='left_side'>
+                                        <div className='zoom__buttons'>
+                                          <button className='play_button' onClick={() => setFetchData(!fetchData)}>Next</button>
+                                          <button className='play_button' onClick={() => setShowSolution(!showSolution)}>Solution</button>
+                                        </div> 
+                                        {wordsTest.map((item) => (
+                                            <div className='specific'>
+                                                <h2>{item.specific}</h2> 
+                                            </div>                                                             
+                                        ))} 
+                                    </div>                                  
                                  {wordsTest.map((item, index) => (                                                                                         
                                     <Draggable
                                       draggableId={(item.id || index).toString()}

@@ -1,5 +1,21 @@
 .movieDetails {
-    background-color: rgb(51, 51, 51);
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(37, 16, 155, 0.2),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 85, 109, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(69, 24, 148, 0.12),
+            transparent 40%
+        ),
+        #020b24;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,9 +28,10 @@
     cursor: pointer;
     height: 100px;
     width: 100px;
-    border: solid;
+    border: 3px solid;
     border-radius: 50px;
-    background: no-repeat center/85% url("../img/audioIcon.png"), rgb(97, 97, 97);
+    background: no-repeat center/60% url("../img/audioIcon.png"), #048eb8;
+    box-shadow: 0 0 25px rgba(204, 243, 255, 0.3);
     color: black;
     font-size: 2rem;
     font-weight: bold;
@@ -22,8 +39,10 @@
 
 .movieDetails__itemBtn.movieDetails__itemBtnmp3:hover,
 .movieDetails__itemBtn.movieDetails__itemBtnmp3.active {
-    background-color: rgb(116, 116, 116);
+    background-color: #6dddff;
     transition: all 0.1s;
+    color: rgb(253, 252, 252);
+    box-shadow: 0 0 15px rgb(247, 248, 248);
 }
 
 .movieDetails__itemBtn {
@@ -33,7 +52,7 @@
     width: 100px;
     border: solid;
     border-radius: 50px;
-    background: no-repeat center/85% url("../img/imgIcon.png"), rgb(97, 97, 97);
+    background: no-repeat center/85% url("../img/imgIcon.png"), #048eb8;
     color: black;
     font-size: 2rem;
     font-weight: bold;
@@ -43,9 +62,10 @@
 
 .movieDetails__itemBtn:hover,
 .movieDetails__itemBtn.active {
-    background-color: rgb(116, 116, 116);
+    background-color: #6dddff;
     transition: all 0.1s;
-    color: rgb(134, 0, 0);
+    color: rgb(253, 252, 252);
+    box-shadow: 0 0 15px rgb(247, 248, 248);
 }
 
 .movieDetails__itemBtnBg {
@@ -55,7 +75,7 @@
     width: 100px;
     border: solid;
     border-radius: 50px;
-    background: no-repeat center/85% url("../img/solution.png"), rgb(97, 97, 97);
+    background: no-repeat center/75% url("../img/solution.png"), #048eb8;
     color: black;
     font-size: 2rem;
     font-weight: bold;
@@ -63,21 +83,31 @@
 
 
 .movieDetails__content {
+    margin-top: 20px;
+    margin-bottom: 10px;
     max-width: 100%;
     max-height: 100%; 
     overflow: hidden;
+    display: flex;
+    border: 1px solid rgba(53, 134, 255, 0.55);
+    border-radius: 35px;
+    box-shadow:
+        0 0 10px rgba(30, 80, 255);
+    backdrop-filter: blur(10px);
 }
 
 .movieDetails__content > img {
-    height: 1300px;
-    width: 1300px;
+    background: rgba(8, 30, 70, 0.72);
+    border: 25px solid rgba(0, 6, 17, 0.45);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
 }
 
 .movieDetails__content > audio {
-  margin-top: 150px;
+ 
 }
 
 .movieDetails__items {

@@ -1,84 +1,107 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .movie2 {
     background:
         radial-gradient(
             circle at 10% 10%,
-            rgba(90, 60, 255, 0.20),
+            rgba(37, 16, 155, 0.2),
             transparent 35%
         ),
         radial-gradient(
             circle at 90% 80%,
-            rgba(0, 200, 255, 0.12),
+            rgba(0, 85, 109, 0.12),
             transparent 35%
         ),
         radial-gradient(
             circle at 50% 100%,
-            rgba(120, 40, 255, 0.12),
+            rgba(69, 24, 148, 0.12),
             transparent 40%
         ),
-        #07122f;
-    height: 100%;
+        #020b24;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 }
 
 .movie2__counter {
     position: absolute;
     left: 5px;
     top: 3px;
+    z-index: 100;
 }
 
 .movies2__all {
     display: flex;
-    gap: 30px;
-    margin-top: 120px;
-    border: 1px solid rgba(100, 140, 220, 0.35);
+    gap: 20px;
+    padding: 10px;
+    
+    box-sizing: border-box;
+    background: rgba(8, 30, 70, 0.72);
+    border: 1px solid rgba(60, 130, 255, 0.45);
     border-radius: 18px;
-    background: rgba(21, 42, 83, 0.72);
-    box-shadow: 
-    0 0 6px rgba(0, 243, 255, 0.3),
-    0 0 12px rgba(0, 243, 255, 0.1);
-    height: 1200px;
-    width: 1800px;
+    box-shadow:
+        0 0 10px rgba(30, 100, 255, 0.25),
+        0 0 30px rgba(30, 80, 255, 0.08);
+    backdrop-filter: blur(10px);
+    width: 90vw;
+    height: 90vh;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
 }
 
 .movies2__all > a {
-    height: 75px;
+    height: 60px;
 }
 
 .movie2Btns {
     cursor: pointer;
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 90px;
     margin-top: 10px;
     margin-left: 5px;
-    background: rgba(0, 190, 120, 0.20);
-    border: 1px solid rgba(0, 255, 170, 0.75);
+    background: rgba(2, 27, 61, 0.75);
+
+    border: 2px solid rgba(53, 134, 255, 0.55);
     border-radius: 12px;
-    box-shadow: 0 0 18px rgba(0, 255, 170, 0.25);
+    box-shadow:
+        0 0 10px rgba(30, 80, 255);
+    backdrop-filter: blur(10px);    
 }
 
 
 .movie2Btns:hover {
     transform: translateY(-2px);
-    border: 1px solid rgba(53, 255, 188, 0.75);
-    box-shadow: 0 0 18px rgba(127, 252, 210, 0.25);
-    background: rgba(47, 243, 80, 0.50);
+    background: rgba(25, 75, 145);
+    border: 2px solid rgba(70, 150, 255, 0.9);
+    box-shadow:
+        0 0 14px rgba(40, 120, 255, 0.35);
 }
 
 
 .movie2Btns > p {
     color: rgb(255, 255, 255);
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .movie2Btns.clicked {
-    background-color: rgb(112, 112, 112);
-    border: 1px solid rgba(255, 59, 59, 0.75);
+    background: rgba(51, 54, 59, 0.75);
+    border: 1px solid rgba(140, 145, 155, 0.45);
+    box-shadow: none;
+    opacity: 0.65;
 }
 
 

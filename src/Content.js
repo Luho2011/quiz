@@ -32,7 +32,7 @@ function Content() {
           <button className='game_button'><h2>Zuordnen</h2><img className='geo_logo' src={belong} alt="" onClick={""}/></button>
         </Link>
         <Link to='/zoom' target="_blank">
-          <button className='game_button'><h2>Sorieren</h2><img className='sort_logo' src={Sort} alt="" onClick={""}/></button>
+          <button className='game_button'><h2>Sortieren</h2><img className='sort_logo' src={Sort} alt="" onClick={""}/></button>
         </Link>
         <Link to='/history' target="_blank">
           <button className='game_button'><h2>Geographie</h2><img className='sort_logo' src={Globe} alt="" onClick={""}/></button>

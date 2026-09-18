@@ -1,12 +1,22 @@
-
-.game_buttons {
-    margin-top: -50px;
-    background-color: black;
-    padding: 150px;
+.content {
     display: flex;
     justify-content: center;
+    margin-top: 110px;
+}
+
+.game_buttons {
+    background: rgba(8, 30, 70, 0.55);
+    border: 1px solid rgba(60, 130, 255, 0.35);
+    border-radius: 22px;
+    box-shadow:
+        0 0 20px rgba(30, 100, 255, 0.15),
+        0 0 50px rgba(80, 50, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+    padding: 10px;
+    width: 90%;
+    display: flex;
     justify-content: space-around;
-    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -14,66 +24,86 @@
     cursor: pointer;
     height: 250px;
     width: 250px;
-    border: none;
-    border-radius: 20px;
-    background-color: rgb(59, 58, 58);
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     position: relative;
+    background: rgba(2, 27, 61, 0.75);
+    border: 2px solid rgba(53, 134, 255, 0.55);
+    border-radius: 12px;
+    box-shadow:
+        0 0 10px rgba(30, 80, 255);
+    backdrop-filter: blur(10px); 
 }
+
 
 .game_button > h2 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    top: 12px;
+    top: 25px;
     text-align: center;
+    color: white;
 }
 
 .game_button:hover {
-    background-color: rgb(180, 180, 180);
-    transition: all 0.5s;
+    transform: translateY(-2px);
+    background: rgba(25, 75, 145);
+    border: 2px solid rgba(70, 150, 255, 0.9);
+    box-shadow:
+        0 0 14px rgba(40, 120, 255, 0.35);
 }
 
 .questionmark_logo {
-    height: 150px;
-    width: 150px;
+    margin-top: 10px;
+    height: 125px;
+    width: 125px;
 }
 
 .rewind_logo {
-    height: 150px;
-    width: 150px;
+    margin-top: 10px;
+    height: 125px;
+    width: 125px;
 }
 
 .geo_logo {
-    height: 150px;
-    width: 150px;
+    margin-top: 10px;
+    height: 125px;
+    width: 125px;
 }
 
 .sort_logo {
+    margin-top: 10px;
+    height: 125px;
+    width: 125px;
+}
+
+.movie_logo {
+    margin-top: 10px;
     height: 150px;
     width: 150px;
 }
 
-.movie_logo {
-    height: 220px;
-    width: 220px;
+.movie2_logo {
+    margin-top: 10px;
+    height: 150px;
+    width: 150px;
 }
 
 .claim_logo {
-    height: 220px;
-    width: 220px;
+    height: 150px;
+    width: 150px;
     margin-top: 20px;
 }
 
 .whoknowsmore {
-    height: 220px;
-    width: 220px;
+    height: 150px;
+    width: 150px;
     margin-top: 20px;
 }
 
 .musicTrivia {
-    height: 220px;
-    width: 220px;
+    height: 135px;
+    width: 135px;
     margin-top: 20px;
 }

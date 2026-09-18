@@ -40,14 +40,29 @@ h1 {
     top: 3px;
 }
 
+.left_side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.specific {
+    width: 100%;
+}
+
+.specific > h2 {
+    color: rgb(252, 252, 252);
+    font-size: 22px;
+    width: 100%;
+}
+
 .zoom__buttons {
     display: flex;
-    justify-content: center;
-    gap: 35px;
-    width: 100%;
-    margin-top: 5px;
-    margin-right: 10px;
-    margin-bottom: 5px;
+    gap: 10px;
+    margin-top: 2px;
+    margin-bottom: 25px;
 }
 
 .play_button {
@@ -82,6 +97,7 @@ h1 {
     height: 775px;
     width: 400px;
     margin-left: 75px;
+    margin-top: 25px;
     padding: 30px;
     border: 1px solid rgba(100, 140, 220, 0.35);
     border-radius: 18px;
@@ -164,7 +180,7 @@ h1 {
 }
 
 .no__solution {
-        background: rgba(20, 39, 78, 0.85);
+    background: rgba(20, 39, 78, 0.85);
     border: 1px solid rgba(100, 140, 220, 0.35);
     text-align: center;
     color: white;
@@ -207,11 +223,4 @@ h1 {
 
 .words__solution {
   display: none;
-}
-
-.specific > h2 {
-    color: white;
-    font-size: 22px;
-    text-align: center;
-    margin-right: 1045px;
 }
