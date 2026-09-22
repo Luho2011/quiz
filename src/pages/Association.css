@@ -1,5 +1,21 @@
 .Association {
-    background-color: rgb(41, 41, 41);
+      background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(90, 60, 255, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 200, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(120, 40, 255, 0.12),
+            transparent 40%
+        ),
+        #07122f;
     height: 100vh;
     display: flex;
     align-items: center; 
@@ -22,32 +38,52 @@
     cursor: pointer;
     height: 35px;
     width: 80px;
-    border: none;
-    border-radius: 20px;
-    background-color: rgb(128, 128, 128);
-    color: black;
+    border: 1px solid rgba(130, 100, 255, 0.55);
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #6d3df5,
+        #3867ff
+    );
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(80, 60, 255, 0.3);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
     font-size: 1.1rem;
     font-weight: bold;
 }
 
 .Association__button:hover {
-    background-color: rgb(83, 83, 83);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(90, 70, 255, 0.45);
 }
 
 .currentWord {
-    background-color: rgb(235, 235, 81);
     margin-bottom: 30px;
-    border: solid;
-    border-radius: 10px;
-    border-color: rgb(26, 26, 26);
     height: 80px;
     width: 750px;
     margin-top: 20px;
+    background: rgba(20, 39, 78, 0.85);
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 12px;
+    color: white;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .currentWord > h1 {
     text-align: center;
     margin-top: 12px;
     font-size: 40px;
+    color: white;
  }
 

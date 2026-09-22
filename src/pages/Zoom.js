@@ -98,6 +98,35 @@ function Zoom() {
     if (source.index === destination.index && source.droppableId === destination.droppableId) {
       return;
     }
+
+
+        // ROTER EINTRAG VON DER LISTE ZURÜCK NACH LINKS
+    if (
+      source.droppableId === "b" &&
+      destination.droppableId === "a"
+    ) {
+      // Nur das aktuell rote Wort darf zurück
+      if (source.index !== draggedItemIndex) {
+        return;
+      }
+
+      const movedItem = solutionList[source.index];
+
+      // Aus solutionList entfernen
+      const newSolutionList = [...solutionList];
+      newSolutionList.splice(source.index, 1);
+
+      // Wieder zu den verfügbaren Wörtern hinzufügen
+      const newWordsTest = [...wordsTest];
+      newWordsTest.splice(destination.index, 0, movedItem);
+
+      setSolutionList(newSolutionList);
+      setWordsTest(newWordsTest);
+      setDraggedItemIndex(null);
+
+      return;
+    }
+
   
     if (source.droppableId !== destination.droppableId) {
   
@@ -105,7 +134,7 @@ function Zoom() {
   
       const sourceIndex = source.index;
       const destinationIndex = destination.index;
-  
+      
       const [removedItem] = wordsTest.splice(sourceIndex, 1);
       
   

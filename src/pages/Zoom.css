@@ -224,3 +224,44 @@ h1 {
 .words__solution {
   display: none;
 }
+
+@media (max-width: 1100px) {
+    .boxes {
+        margin-left: 0;
+        margin-bottom: 40px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .zoom__words {
+        width: 280px;
+        padding: 20px;
+    }
+
+    .zoom__list {
+        width: 350px;
+        margin-left: 20px;
+        padding: 20px;
+    }
+
+    .zoom__solution {
+        width: 350px;
+        margin-left: 20px;
+        padding: 20px;
+    }
+
+    .specific > h2 {
+        font-size: 19px;
+    }
+
+    .words h2,
+    .wordsValid h2,
+    .wordsInvalid h2 {
+        font-size: 19px;
+    }
+
+    .zoom__counter {
+    background-color: #3867ff;
+    top: 735px;
+    }
+}
