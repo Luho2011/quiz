@@ -32,4 +32,4 @@ Interactive quiz application with multiple game modes, focusing on dynamic user 
 
 ## 📸 Screenshots
 ![Screenshot quiz2](https://github.com/user-attachments/assets/de6702e8-72ec-4eaf-962a-2b2503cc38d9)
-![Screenshot quiz1](https://github.com/user-attachments/assets/ca3d9da8-deb1-48e4-86d5-e0bab3cc470e)
+![Screenshot quiz1](https://github.com/user-attachments/assets/6a14e30a-b87e-4124-ba0c-b69fbb5cbf26)
