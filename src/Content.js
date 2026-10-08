@@ -23,7 +23,7 @@ function Content() {
     <div className='content'>
        <div className='game_buttons'>
         <Link to='/celeb' target="_blank">
-          <button className='game_button'><h2>Wer ist das?</h2><img className='questionmark_logo' src={questionmark} alt="" onClick={""}/></button>
+          <button className='game_button'><h2>Wo bin ich?</h2><img className='questionmark_logo' src={questionmark} alt="" onClick={""}/></button>
         </Link>
         <Link to='/music' target="_blank">
           <button className='game_button'><h2>Musik back</h2><img className='rewind_logo' src={rewindlogo} alt="" onClick={""}/></button>

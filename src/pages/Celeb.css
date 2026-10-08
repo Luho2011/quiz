@@ -16,94 +16,149 @@
             transparent 40%
         ),
         #07122f;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 10px;
+    box-sizing: border-box;
     position: relative;
-}
-
-.celeb_pic {
-    height: 500px;
-    width: 500px;
-    filter: blur(15px);
-}
-
-.celeb_buttons {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    width: 100%;
-    position: absolute;
-    top: 100px;
-}
-
-.play_button {
-    cursor: pointer;
-    height: 50px;
-    width: 110px;
-    border: none;
-    border-radius: 20px;
-    background-color: rgb(128, 128, 128);
-    color: black;
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.play_button:hover {
-   background-color: rgb(85, 85, 85); 
-   transition: all 0.1s;
-}
-
-
-.blur {
-    filter: blur(30px);
-}
-
-.unblur {
-    transition-duration: 30s;
-    filter: none !important;  
-}
-
-.unblurFast {
-    transition-duration: 5s;
-    filter: none !important;  
-}
-
-.pic img {
-    max-height: 600px;
-    max-width: 600px;
-}
-
-.pic {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
-    z-index: 5;
-}
-
-.pic > h1 {
-    font-size: 45px;
-    color: rgb(255, 255, 255);
-}
-
-
-.solution {
-    filter: blur(30px);
-    display: none;
-}
-
-.headline {
-    top: 0;
-    position: absolute;
-    margin-top: 20px;
-    font-size: 25px;
-}
-
-.headline > h1 {
     color: white;
 }
 
+.celeb__counter {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+}
+
+.celeb__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.celeb__header > h1 {
+    color: white;
+    font-size: 45px;
+}
+
+.celeb__buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.celeb__button {
+    cursor: pointer;
+    height: 42px;
+    min-width: 95px;
+    padding: 0 20px;
+    border: 1px solid rgba(130, 100, 255, 0.55);
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #6d3df5,
+        #3867ff
+    );
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(80, 60, 255, 0.3);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.celeb__button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(90, 70, 255, 0.45);
+}
+
+.celeb__stage {
+    width: 100%;
+    max-width: 1400px;
+    min-height: 600px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 18px;
+    background: rgba(10, 25, 55, 0.72);
+    box-shadow:
+        0 0 6px rgba(0, 243, 255, 0.3),
+        0 0 12px rgba(0, 243, 255, 0.1);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.celeb__images,
+.celeb__audio {
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 12px;
+    background: rgba(20, 39, 78, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+}
+
+.celeb__images {
+    flex: 1;
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: start;
+    align-items: start;
+    gap: 15px;
+    padding: 10px;
+}
+
+.celeb__images > p {
+    grid-column: 1 / -1;
+    min-height: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.celeb__audio {
+    min-height: 100px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+}
+
+.celeb__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    animation: celebFadeIn 1.5s;
+}
+
+/* ungerade Anzahl: letztes Bild mittig in der letzten Zeile */
+.celeb__image:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 7.5px);
+}
+
+.celeb__player {
+    animation: celebFadeIn 1.5s;
+}
+
+.celeb__button:disabled {
+    cursor: default;
+    filter: grayscale(0.8) brightness(0.7);
+    box-shadow: none;
+}
+
+@keyframes celebFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

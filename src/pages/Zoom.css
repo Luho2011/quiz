@@ -105,11 +105,23 @@ h1 {
     box-shadow: 
     0 0 6px rgba(0, 243, 255, 0.3),
     0 0 12px rgba(0, 243, 255, 0.1);
-    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    isolation: isolate;
+}
+
+/* Blur liegt auf dem Pseudo-Element: backdrop-filter direkt auf .zoom__list
+   würde position: fixed beim Draggen relativ zur Liste statt zum Fenster machen */
+.zoom__list::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    backdrop-filter: blur(12px);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .zoom__solution {

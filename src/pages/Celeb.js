@@ -1,48 +1,60 @@
 import React from 'react'
-import {useState, useEffect} from "react";
+import {useState} from "react";
+import Counter from "../Counter";
 import "./Celeb.css"
-import images from "../Index.json"
+import places from "../Places.json"
 
 
 function Celeb() {
-  const [image, setImage] = useState();
-  const [name, setName] = useState();
-  const [unblur, setUnblur] = useState(true);
-  const [unblurSolution, setUnblurSolution] = useState(false);
-  const [imageList, setImageList] = useState(images);
-  
-  
+  const [placeList, setPlaceList] = useState(places);
+  const [place, setPlace] = useState();
+  const [hintIndex, setHintIndex] = useState(0);
 
-    const handleNext = () => {
-      let random = Math.floor(Math.random() * imageList.length);
-      setImage(imageList[random].image);
-      // setName(imageList)
-      setName(imageList[random].name);
-      remove(imageList[random].id);
-      setUnblurSolution(true);
-    }
+  const handleStart = () => {
+    // Liste leer -> alle Orte wieder zur Auswahl freigeben
+    const available = placeList.length > 0 ? placeList : places;
+    const random = Math.floor(Math.random() * available.length);
+    const chosen = available[random];
+    setPlace(chosen);
+    setHintIndex(0);
+    setPlaceList(available.filter(item => item.id !== chosen.id));
+  }
 
-    const remove = (id) => {
-      const newList = imageList.filter(image => image.id !== id);
-      setImageList(newList);
-      console.log(newList);
-    }
-    
-  
+  const handleHint = () => {
+    if (!place) return;
+    setHintIndex(Math.min(hintIndex + 1, place.hints.length));
+  }
+
+  const visibleHints = place ? place.hints.slice(0, hintIndex) : [];
+  const images = visibleHints.filter(hint => hint.type === "image");
+  const audios = visibleHints.filter(hint => hint.type === "audio");
+  const allHintsShown = !place || hintIndex >= place.hints.length;
 
   return (
     <div className='celeb'>
-      <div className='headline'>
-        <h1>Wer ist das?</h1>
+      <div className='celeb__counter'>
+        <Counter/>
       </div>
-      <div className='celeb_buttons'>
-        <button className='play_button' onClick={handleNext}>Next</button>
-        <button className='play_button' onClick={()=> setUnblur(!unblur)}>Start</button>
-        <button className='play_button' onClick={()=> setUnblurSolution(!unblurSolution)}>Solution</button>
+      <div className='celeb__header'>
+        <h1>Wo bin ich?</h1>
+        <div className='celeb__buttons'>
+          <button className='celeb__button' onClick={handleStart}>Start</button>
+          <button className='celeb__button' onClick={handleHint} disabled={allHintsShown}>Hint</button>
+        </div>
       </div>
-      <div className='pic'>
-        <img className={`${unblur ? "blur" : "unblur"} ${unblurSolution ? "" : "unblurFast"}`} src={image} />
-       <h1 className={unblurSolution ? "solution" : ""}>{name}</h1>
+      <div className='celeb__stage'>
+        <div className='celeb__images'>
+          {images.length === 0 && <p></p>}
+          {images.map(hint => (
+            <img className='celeb__image' key={hint.src} src={hint.src} alt="" />
+          ))}
+        </div>
+        <div className='celeb__audio'>
+          {audios.length === 0 && <p></p>}
+          {audios.map(hint => (
+            <audio className='celeb__player' key={hint.src} src={hint.src} controls />
+          ))}
+        </div>
       </div>
     </div>
   )

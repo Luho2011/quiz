@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "New York",
+        "hints": [
+            { "type": "image", "src": "places/new-york/1.JPG" },
+            { "type": "audio", "src": "places/new-york/audio1.mp3" },
+            { "type": "image", "src": "places/new-york/2.JPG" },
+            { "type": "image", "src": "places/new-york/3.JPG" },
+            { "type": "audio", "src": "places/new-york/audio2.mp3" },
+            { "type": "image", "src": "places/new-york/4.JPG" },
+            { "type": "audio", "src": "places/new-york/audio3.mp3" },
+            { "type": "image", "src": "places/new-york/5.JPG" }
+        ]
+    }
+]
