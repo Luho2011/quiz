@@ -110,20 +110,9 @@
 .celeb__images {
     flex: 1;
     min-height: 400px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-content: start;
-    align-items: start;
+    flex-direction: column;
     gap: 15px;
     padding: 10px;
-}
-
-.celeb__images > p {
-    grid-column: 1 / -1;
-    min-height: 370px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .celeb__audio {
@@ -133,19 +122,38 @@
     padding: 15px;
 }
 
+/* feste 16:9-Fläche, abweichende Bilder bekommen einen Rand */
 .celeb__image {
-    width: 100%;
+    width: min(100%, calc(70vh * 16 / 9));
     aspect-ratio: 16 / 9;
-    object-fit: cover;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 12px;
     animation: celebFadeIn 1.5s;
 }
 
-/* ungerade Anzahl: letztes Bild mittig in der letzten Zeile */
-.celeb__image:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - 7.5px);
+.celeb__nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.celeb__nav-button {
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(130, 100, 255, 0.55);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6d3df5, #3867ff);
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.celeb__nav-button:disabled {
+    cursor: default;
+    opacity: 0.3;
 }
 
 .celeb__player {

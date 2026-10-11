@@ -9,6 +9,13 @@ function Celeb() {
   const [placeList, setPlaceList] = useState(places);
   const [place, setPlace] = useState();
   const [hintIndex, setHintIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const visibleHints = place ? place.hints.slice(0, hintIndex) : [];
+  const images = visibleHints.filter(hint => hint.type === "image");
+  const audios = visibleHints.filter(hint => hint.type === "audio");
+  const allHintsShown = !place || hintIndex >= place.hints.length;
+  const currentImage = images[imageIndex];
 
   const handleStart = () => {
     // Liste leer -> alle Orte wieder zur Auswahl freigeben
@@ -17,18 +24,18 @@ function Celeb() {
     const chosen = available[random];
     setPlace(chosen);
     setHintIndex(0);
+    setImageIndex(0);
     setPlaceList(available.filter(item => item.id !== chosen.id));
   }
 
   const handleHint = () => {
-    if (!place) return;
-    setHintIndex(Math.min(hintIndex + 1, place.hints.length));
+    if (allHintsShown) return;
+    // neues Bild -> direkt anzeigen, Audio -> aktuelles Bild bleibt
+    if (place.hints[hintIndex].type === "image") {
+      setImageIndex(images.length);
+    }
+    setHintIndex(hintIndex + 1);
   }
-
-  const visibleHints = place ? place.hints.slice(0, hintIndex) : [];
-  const images = visibleHints.filter(hint => hint.type === "image");
-  const audios = visibleHints.filter(hint => hint.type === "audio");
-  const allHintsShown = !place || hintIndex >= place.hints.length;
 
   return (
     <div className='celeb'>
@@ -44,10 +51,16 @@ function Celeb() {
       </div>
       <div className='celeb__stage'>
         <div className='celeb__images'>
-          {images.length === 0 && <p></p>}
-          {images.map(hint => (
-            <img className='celeb__image' key={hint.src} src={hint.src} alt="" />
-          ))}
+          {currentImage && (
+            <img className='celeb__image' key={currentImage.src} src={currentImage.src} alt="" />
+          )}
+          {images.length > 1 && (
+            <div className='celeb__nav'>
+              <button className='celeb__nav-button' onClick={() => setImageIndex(imageIndex - 1)} disabled={imageIndex === 0}>‹</button>
+              <span>{imageIndex + 1} / {images.length}</span>
+              <button className='celeb__nav-button' onClick={() => setImageIndex(imageIndex + 1)} disabled={imageIndex === images.length - 1}>›</button>
+            </div>
+          )}
         </div>
         <div className='celeb__audio'>
           {audios.length === 0 && <p></p>}
