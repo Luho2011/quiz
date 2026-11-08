@@ -50,7 +50,7 @@ function Content() {
           <button className='game_button'><h2>Wer lügt?</h2><img className='claim_logo' src={Claim} alt="" onClick={""}/></button>
         </Link>
         <Link to='/WhoKnowsMore' target="_blank">
-          <button className='game_button'><h2>WhoKnowsMore</h2><img className='whoknowsmore' src={WhoKnowsMore} alt="" onClick={""}/></button>
+          <button className='game_button'><h2>Last Man Standing</h2><img className='whoknowsmore' src={WhoKnowsMore} alt="" onClick={""}/></button>
         </Link>
         <Link to='/playlistSetupHitster' target="_blank">
           <button className='game_button'><h2>Hitster</h2><img className='musicTrivia' src={musicTrivia} alt="" onClick={""}/></button>
