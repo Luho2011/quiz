@@ -183,6 +183,9 @@ function WhoKnowsMore() {
                 <h1>Last Man Standing</h1>
             </div>
             <form className='more__form' onSubmit={handleGuess}>
+                {remainingWords.length > 0 && (
+                    <span className='more__category'>{remainingWords[0].title}:</span>
+                )}
                 <input
                     className='more__input'
                     type='text'
@@ -194,11 +197,6 @@ function WhoKnowsMore() {
                 <button className='more__button' onClick={handleStart}>start</button>
             </form>
             <div className='more__content'>
-                {remainingWords.length > 0 && (
-                    <div className='more__category'>
-                        <h3>{remainingWords[0].title}</h3>
-                    </div>
-                )}
                 {remainingWords.map((item, index) => (
                     <div key={index} className={`more__names${visible[index] ? ' more__names--revealed' : ''}`} onClick={() => toggleVisibility(index)}>
                         <h2>{visible[index] ? item.name : ''}</h2>

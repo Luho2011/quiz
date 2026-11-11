@@ -38,7 +38,7 @@
 .more__title > h1 {
     color: white;
     font-size: 35px;
-    margin: 0;
+    margin-top: 2px;
 }
 
 .more__button {
@@ -65,13 +65,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 10px 0;
-    width: 90%;
-    max-width: 500px;
+    margin: 17px 0;
+    justify-content: center;
+    position: relative;
+    max-width: 90%;
 }
 
 .more__input {
-    flex: 1;
     min-width: 0;
     height: 42px;
     padding: 0 16px;
@@ -201,16 +201,13 @@
 }
 
 .more__category {
-    grid-column: 1 / -1;
-    width: 100%;
-    text-align: center;
+    position: absolute;
+    right: 100%;
+    margin-right: 10px;
+    white-space: nowrap;
     color: #b9a7ff;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 700;
-}
-
-.more__category > h3 {
-    margin: 0 0 5px;
 }
 
 @media (max-width: 1100px) {
@@ -232,6 +229,6 @@
     }
 
     .more__form {
-        width: 90%;
+        max-width: 90%;
     }
 }
