@@ -32,19 +32,19 @@
 }
 
 .more__title {
-    margin: 15px 0 20px;
+    margin: 0 0 5px;
 }
 
 .more__title > h1 {
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     margin: 0;
 }
 
 .more__button {
     cursor: pointer;
-    height: 42px;
-    min-width: 95px;
+    height: 35px;
+    min-width: 80px;
     padding: 0 20px;
     border: 1px solid rgba(130, 100, 255, 0.55);
     border-radius: 22px;
@@ -63,8 +63,9 @@
 
 .more__form {
     display: flex;
+    align-items: center;
     gap: 10px;
-    margin: 20px 0;
+    margin: 10px 0;
     width: 90%;
     max-width: 500px;
 }
@@ -102,10 +103,10 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     align-content: start;
-    gap: 1.2vh 12px;
-    padding: 2vh 20px;
+    gap: calc(1.2vh * var(--z, 1)) 12px;
+    padding: 10px;
     width: 98%;
-    max-width: 1850px;
+    max-width: calc(1850px / var(--z, 1));
     min-height: 200px;
     box-sizing: border-box;
 }
@@ -115,7 +116,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 5.6vh;
+    min-height: calc(5.6vh * var(--z, 1));
     width: 100%;
     border: 1px solid rgba(100, 140, 220, 0.35);
     border-radius: 12px;
@@ -133,7 +134,7 @@
 .more__names > h2 {
     margin: 0;
     line-height: 1.15;
-    font-size: clamp(1.1rem, 1.35vw, 1.9rem);
+    font-size: clamp(1.1rem, calc(1.35vw * var(--z, 1)), 1.9rem);
     padding: 4px 8px;
     overflow-wrap: anywhere;
 }
@@ -209,7 +210,7 @@
 }
 
 .more__category > h3 {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
 }
 
 @media (max-width: 1100px) {

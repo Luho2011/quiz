@@ -95,6 +95,19 @@ function WhoKnowsMore() {
     const [alertInfo, setAlertInfo] = useState(null);  // { text } – nur für falsche Begriffe
     const [pending, setPending] = useState(false);     // Eingabe gesperrt, solange eine Prüfung läuft
     const timerRef = useRef(null);
+    const rootRef = useRef(null);
+
+    // Browser-Zoom (Strg + Mausrad) erkennen: --z = 1 bei 100 % / Reinzoomen, <1 beim Rauszoomen
+    useEffect(() => {
+        const update = () => {
+            let z = window.outerWidth / window.innerWidth;
+            if (!isFinite(z) || z > 0.97) z = 1;
+            if (rootRef.current) rootRef.current.style.setProperty('--z', Math.max(z, 0.2));
+        };
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
 
     const handleStart = () => {
         const random = Math.floor(Math.random() * words.length);
@@ -152,7 +165,7 @@ function WhoKnowsMore() {
                     setPending(false);
                 }, 2000);
             }
-        }, 3000);
+        }, 2000);
     };
 
     const toggleVisibility = (index) => {
@@ -162,14 +175,13 @@ function WhoKnowsMore() {
     };
 
     return (
-        <div className='more'>
+        <div className='more' ref={rootRef}>
             <div className='more__counter'>
                 <Counter />
             </div>
             <div className='more__title'>
                 <h1>Last Man Standing</h1>
             </div>
-            <button className='more__button' onClick={handleStart}>start</button>
             <form className='more__form' onSubmit={handleGuess}>
                 <input
                     className='more__input'
@@ -179,6 +191,7 @@ function WhoKnowsMore() {
                     onChange={(e) => setGuess(e.target.value)}
                 />
                 <button className='more__button' type='submit'>OK</button>
+                <button className='more__button' onClick={handleStart}>start</button>
             </form>
             <div className='more__content'>
                 {remainingWords.length > 0 && (
