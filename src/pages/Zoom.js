@@ -7,6 +7,8 @@ import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 import {db} from '../firebase'
 import {getDocs, collection, collectionGroup} from 'firebase/firestore'
 
+const MAX_LIST_ID = 50;
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -33,13 +35,31 @@ function Zoom() {
 
   useEffect(() => {
     const getCollectionSize = async () => {
-      const rnd = getRandomNumber();
-      const wordsCollection = collection(db, `sort/B5WJdSrsvNUlCEtcjG1p/${rnd}`);
-      const data = await getDocs(wordsCollection);
-      
+      // Gelöschte Listen liefern 0 Dokumente -> einfach die nächste Nummer ziehen
+      const tried = [...usedNumbers];
+      let data = null;
+
+      while (true) {
+        const rnd = getRandomNumber(tried);
+        if (rnd === null) {
+          // alle Listen durch -> nichts mehr tun
+          console.log('alle Listen durch');
+          data = null;
+          break;
+        }
+        tried.push(rnd);
+        const wordsCollection = collection(db, `sort/B5WJdSrsvNUlCEtcjG1p/${rnd}`);
+        data = await getDocs(wordsCollection);
+        if (!data.empty) break;
+        console.log('leer, überspringe', rnd);
+      }
+
+      setUsedNumbers(tried);
+      if (!data || data.empty) return;
+
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
-      
+
       }));
 
       setWordsTest(shuffleArray(filteredData));
@@ -54,13 +74,13 @@ function Zoom() {
   }, [fetchData]);
 
 
-  const getRandomNumber = () => {
-    let rnd;
-    do {
-      rnd = Math.floor(Math.random() * 50) + 1;
-    } while (usedNumbers.includes(rnd));
-    setUsedNumbers(prevState => [...prevState, rnd]);
-    return rnd;
+  const getRandomNumber = (tried) => {
+    const available = [];
+    for (let i = 1; i <= MAX_LIST_ID; i++) {
+      if (!tried.includes(i)) available.push(i);
+    }
+    if (available.length === 0) return null;
+    return available[Math.floor(Math.random() * available.length)];
   };
   
 
