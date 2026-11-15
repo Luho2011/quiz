@@ -1,0 +1,195 @@
+.celebplay {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 20px 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    color: white;
+    --team: #6d3df5;
+    --team-soft: rgba(109, 61, 245, 0.35);
+    background:
+        radial-gradient(circle at 10% 10%, var(--team-soft), transparent 40%),
+        radial-gradient(circle at 90% 85%, var(--team-soft), transparent 40%),
+        #07122f;
+}
+
+/* Team A = blau, Team B = rot (wie am Host) */
+.celebplay--A {
+    --team: #3b82f6;
+    --team-soft: rgba(59, 130, 246, 0.35);
+}
+
+.celebplay--B {
+    --team: #ef4444;
+    --team-soft: rgba(239, 68, 68, 0.35);
+}
+
+.celebplay > * {
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+}
+
+.celebplay h1,
+.celebplay__statement {
+    margin: 0;
+    text-align: center;
+}
+
+.celebplay__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.celebplay__team {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--team);
+}
+
+.celebplay__link {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: underline;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.celebplay__teams {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.celebplay__team-button,
+.celebplay__confirm {
+    cursor: pointer;
+    min-height: 70px;
+    border: 2px solid var(--team);
+    border-radius: 36px;
+    background: var(--team);
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.celebplay__team-button--A {
+    --team: #3b82f6;
+}
+
+.celebplay__team-button--B {
+    --team: #ef4444;
+}
+
+.celebplay__message {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.celebplay__hint {
+    margin: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.celebplay__error {
+    margin: 0;
+    color: #ff8a8a;
+    font-size: 0.9rem;
+}
+
+.celebplay__answers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.celebplay__answer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border: 2px solid rgba(100, 140, 220, 0.35);
+    border-radius: 14px;
+    background: rgba(20, 39, 78, 0.85);
+    color: white;
+    font-size: 1.3rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.celebplay__answer:disabled {
+    cursor: default;
+}
+
+.celebplay__letter {
+    flex: 0 0 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    font-weight: 700;
+}
+
+.celebplay__text {
+    flex: 1;
+}
+
+.celebplay__answer--selected {
+    border-color: var(--team);
+    background: var(--team-soft);
+}
+
+.celebplay__answer--selected .celebplay__letter {
+    background: var(--team);
+}
+
+/* Zeile: Antwort + (nach dem Auflösen) Marker mit dem eigenen Tipp */
+.celebplay__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.celebplay__row .celebplay__answer {
+    flex: 1;
+    min-width: 0;
+}
+
+.celebplay__marker-slot {
+    flex: 0 0 110px;
+    display: flex;
+    justify-content: center;
+}
+
+.celebplay__marker {
+    padding: 8px 14px;
+    border: 2px solid var(--team);
+    border-radius: 999px;
+    background: var(--team-soft);
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.celebplay__answer--correct {
+    border-color: rgba(60, 220, 120, 0.9);
+    background: rgba(30, 140, 80, 0.55);
+}
+
+.celebplay__answer--wrong {
+    border-color: rgba(255, 90, 90, 0.9);
+    background: rgba(160, 40, 50, 0.55);
+}

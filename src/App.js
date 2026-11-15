@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import HomeScreen from './HomeScreen';
 import Celeb from './pages/Celeb';
+import CelebPlay from './pages/CelebPlay';
 import Music from './pages/Music';
 import Belong from './pages/Belong';
 import Zoom from './pages/Zoom';
@@ -33,7 +34,9 @@ function App() {
           <Routes>
             <Route exact path='/' element={<HomeScreen />} />
             <Route path='/celeb' element={<Celeb />} />
-            <Route path='/music' element={<Music />} />
+            <Route path='/celeb/play' element={<CelebPlay />} />
+            <Route path='/celeb/play/:team' element={<CelebPlay />} />
+            <Route path='/music'element={<Music />} />
             <Route path='/belong' element={<Belong />} />
             <Route path='/zoom' element={<Zoom />} />
             <Route path='/history' element={<History />} />

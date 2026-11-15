@@ -1,0 +1,277 @@
+[
+    {
+        "ids": 1,
+        "statement": "Brad Pitt …",
+        "answers": [
+            {"id": "A", "text": "hat einen Oscar als Schauspieler gewonnen", "correct": true},
+            {"id": "B", "text": "war mit Jennifer Aniston verheiratet", "correct": true},
+            {"id": "C", "text": "spielte in „Titanic“ mit", "correct": false},
+            {"id": "D", "text": "durfte jahrelang nicht nach China einreisen", "correct": true},
+            {"id": "E", "text": "ist älter als Tom Cruise", "correct": false}
+        ]
+    },
+    {
+        "ids": 2,
+        "statement": "Der Eiffelturm …",
+        "answers": [
+            {"id": "A", "text": "ist mehr als doppelt so hoch wie der Kölner Dom", "correct": true},
+            {"id": "B", "text": "wurde für eine Weltausstellung gebaut", "correct": true},
+            {"id": "C", "text": "wird im Sommer durch die Hitze ein paar Zentimeter höher", "correct": true},
+            {"id": "D", "text": "war bei seiner Fertigstellung das höchste Bauwerk der Welt", "correct": true},
+            {"id": "E", "text": "besteht aus Stahl", "correct": false}
+        ]
+    },
+    {
+        "ids": 3,
+        "statement": "Deutschland …",
+        "answers": [
+            {"id": "A", "text": "hat 9 Nachbarländer", "correct": true},
+            {"id": "B", "text": "hat seinen höchsten Punkt direkt an der Grenze zu Österreich", "correct": true},
+            {"id": "C", "text": "hat mit München seine zweitgrößte Stadt", "correct": false},
+            {"id": "D", "text": "hat mehr Einwohner als Frankreich", "correct": true},
+            {"id": "E", "text": "grenzt an Italien", "correct": false}
+        ]
+    },
+    {
+        "ids": 4,
+        "statement": "Die Venus …",
+        "answers": [
+            {"id": "A", "text": "ist der heißeste Planet unseres Sonnensystems", "correct": true},
+            {"id": "B", "text": "dreht sich andersherum als die Erde", "correct": true},
+            {"id": "C", "text": "hat einen Tag, der länger dauert als ihr Jahr", "correct": true},
+            {"id": "D", "text": "ist ungefähr so groß wie die Erde", "correct": true},
+            {"id": "E", "text": "ist nach einer römischen Göttin benannt", "correct": true}
+        ]
+    },
+    {
+        "ids": 5,
+        "statement": "Die Beatles …",
+        "answers": [
+            {"id": "A", "text": "stammen aus London", "correct": false},
+            {"id": "B", "text": "haben „Bohemian Rhapsody“ geschrieben", "correct": false},
+            {"id": "C", "text": "hatten Ringo Starr als Leadsänger", "correct": false},
+            {"id": "D", "text": "trennten sich 1980", "correct": false},
+            {"id": "E", "text": "hatten John Lennon als letztes neues Bandmitglied", "correct": false}
+        ]
+    },
+    {
+        "ids": 6,
+        "statement": "Der Oktopus …",
+        "answers": [
+            {"id": "A", "text": "hat drei Herzen", "correct": true},
+            {"id": "B", "text": "hat blaues Blut", "correct": true},
+            {"id": "C", "text": "kann seine Farbe nicht ändern", "correct": false},
+            {"id": "D", "text": "ist ein Fisch", "correct": false},
+            {"id": "E", "text": "wird meistens älter als 10 Jahre", "correct": false}
+        ]
+    },
+    {
+        "ids": 7,
+        "statement": "Bananen …",
+        "answers": [
+            {"id": "A", "text": "sind botanisch gesehen Beeren", "correct": true},
+            {"id": "B", "text": "wachsen an Bäumen", "correct": false},
+            {"id": "C", "text": "sind leicht radioaktiv", "correct": true},
+            {"id": "D", "text": "Erdbeeren sind botanisch ebenfalls Beeren", "correct": false},
+            {"id": "E", "text": "Die meisten Bananen im deutschen Supermarkt sind die Sorte Cavendish", "correct": true}
+        ]
+    },
+    {
+        "ids": 8,
+        "statement": "ABBA …",
+        "answers": [
+            {"id": "A", "text": "kommt aus Schweden", "correct": true},
+            {"id": "B", "text": "gewann den ESC mit „Waterloo“", "correct": true},
+            {"id": "C", "text": "hat einen Namen aus den Anfangsbuchstaben der Vornamen der Mitglieder", "correct": true},
+            {"id": "D", "text": "trat beim ESC für Norwegen an", "correct": false},
+            {"id": "E", "text": "hat nach der Trennung nie wieder neue Songs veröffentlicht", "correct": false}
+        ]
+    },
+    {
+        "ids": 9,
+        "statement": "Kleopatra …",
+        "answers": [
+            {"id": "A", "text": "lebte zeitlich näher an der Mondlandung als am Bau der Cheops-Pyramide", "correct": true},
+            {"id": "B", "text": "stammte aus einer griechisch-makedonischen Herrscherfamilie", "correct": true},
+            {"id": "C", "text": "war mit Julius Cäsar verheiratet", "correct": false},
+            {"id": "D", "text": "hat Ägypten von Rom aus regiert", "correct": false},
+            {"id": "E", "text": "Zu ihrer Zeit war die Cheops-Pyramide schon über 2000 Jahre alt", "correct": true}
+        ]
+    },
+    {
+        "ids": 10,
+        "statement": "Die Fußball-WM …",
+        "answers": [
+            {"id": "A", "text": "wurde von Deutschland viermal gewonnen", "correct": true},
+            {"id": "B", "text": "wurde von Brasilien am häufigsten gewonnen", "correct": true},
+            {"id": "C", "text": "findet 2026 in drei Ländern statt", "correct": true},
+            {"id": "D", "text": "wurde noch nie in Afrika ausgetragen", "correct": false},
+            {"id": "E", "text": "wurde von England noch nie gewonnen", "correct": false}
+        ]
+    },
+    {
+        "ids": 11,
+        "statement": "Die Chinesische Mauer …",
+        "answers": [
+            {"id": "A", "text": "ist vom Mond aus mit bloßem Auge sichtbar", "correct": false},
+            {"id": "B", "text": "ist ein einziges, durchgehendes Bauwerk", "correct": false},
+            {"id": "C", "text": "wurde komplett unter der Ming-Dynastie gebaut", "correct": false},
+            {"id": "D", "text": "gehört zum UNESCO-Weltkulturerbe", "correct": true},
+            {"id": "E", "text": "ist kürzer als die Strecke Berlin–Peking", "correct": false}
+        ]
+    },
+    {
+        "ids": 12,
+        "statement": "Der Mount Everest …",
+        "answers": [
+            {"id": "A", "text": "ist der höchste Berg der Erde, gemessen ab Meeresspiegel", "correct": true},
+            {"id": "B", "text": "liegt an der Grenze zwischen Nepal und China", "correct": true},
+            {"id": "C", "text": "wird jedes Jahr ein paar Millimeter höher", "correct": true},
+            {"id": "D", "text": "ist auch vom Fuß bis zum Gipfel gemessen der höchste Berg", "correct": false},
+            {"id": "E", "text": "ist höher als die Reiseflughöhe von Passagierflugzeugen", "correct": false}
+        ]
+    },
+    {
+        "ids": 13,
+        "statement": "Welche Farben kommen in der Flagge Namibias vor?",
+        "answers": [
+            {"id": "A", "text": "Blau", "correct": true},
+            {"id": "B", "text": "Gelb", "correct": true},
+            {"id": "C", "text": "Rot", "correct": true},
+            {"id": "D", "text": "Schwarz", "correct": false},
+            {"id": "E", "text": "Weiß", "correct": true}
+        ]
+    },
+    {
+        "ids": 14,
+        "statement": "Wer war Formel-1-Weltmeister?",
+        "answers": [
+            {"id": "A", "text": "Nico Rosberg", "correct": true},
+            {"id": "B", "text": "David Coulthard", "correct": false},
+            {"id": "C", "text": "Jenson Button", "correct": true},
+            {"id": "D", "text": "Felipe Massa", "correct": false},
+            {"id": "E", "text": "Damon Hill", "correct": true}
+        ]
+    },
+    {
+        "ids": 15,
+        "statement": "Welche Länder grenzen an Brasilien?",
+        "answers": [
+            {"id": "A", "text": "Chile", "correct": false},
+            {"id": "B", "text": "Ecuador", "correct": false},
+            {"id": "C", "text": "Frankreich", "correct": true},
+            {"id": "D", "text": "Peru", "correct": true},
+            {"id": "E", "text": "Uruguay", "correct": true}
+        ]
+    },
+    {
+        "ids": 16,
+        "statement": "Welche dieser Planeten haben Ringe?",
+        "answers": [
+            {"id": "A", "text": "Saturn", "correct": true},
+            {"id": "B", "text": "Jupiter", "correct": true},
+            {"id": "C", "text": "Uranus", "correct": true},
+            {"id": "D", "text": "Neptun", "correct": true},
+            {"id": "E", "text": "Mars", "correct": false}
+        ]
+    },
+    {
+        "ids": 17,
+        "statement": "Was wurde in Deutschland erfunden?",
+        "answers": [
+            {"id": "A", "text": "Der Buchdruck mit beweglichen Lettern", "correct": true},
+            {"id": "B", "text": "Das MP3-Format", "correct": true},
+            {"id": "C", "text": "Der Reißverschluss", "correct": false},
+            {"id": "D", "text": "Das Penicillin", "correct": false},
+            {"id": "E", "text": "Das Laufrad, Vorläufer des Fahrrads", "correct": true}
+        ]
+    },
+    {
+        "ids": 18,
+        "statement": "Island …",
+        "answers": [
+            {"id": "A", "text": "hat keine eigene Armee", "correct": true},
+            {"id": "B", "text": "ist größer als die Insel Irland", "correct": true},
+            {"id": "C", "text": "ist Mitglied der EU", "correct": false},
+            {"id": "D", "text": "liegt komplett nördlich des Polarkreises", "correct": false},
+            {"id": "E", "text": "hat die nördlichste Hauptstadt eines unabhängigen Staates", "correct": true}
+        ]
+    },
+    {
+        "ids": 19,
+        "statement": "Wer kommt aus Australien?",
+        "answers": [
+            {"id": "A", "text": "AC/DC", "correct": true},
+            {"id": "B", "text": "Kylie Minogue", "correct": true},
+            {"id": "C", "text": "Lorde", "correct": false},
+            {"id": "D", "text": "INXS", "correct": true},
+            {"id": "E", "text": "The Cranberries", "correct": false}
+        ]
+    },
+    {
+        "ids": 20,
+        "statement": "Welche Städte liegen auf der Südhalbkugel?",
+        "answers": [
+            {"id": "A", "text": "Nairobi", "correct": true},
+            {"id": "B", "text": "Singapur", "correct": false},
+            {"id": "C", "text": "Lima", "correct": true},
+            {"id": "D", "text": "Jakarta", "correct": true},
+            {"id": "E", "text": "Bogotá", "correct": false}
+        ]
+    },
+    {
+        "ids": 21,
+        "statement": "Der menschliche Körper …",
+        "answers": [
+            {"id": "A", "text": "hat als Erwachsener mehr Knochen als als Neugeborenes", "correct": false},
+            {"id": "B", "text": "hat seinen kleinsten Knochen im Ohr", "correct": true},
+            {"id": "C", "text": "hat seinen längsten Knochen im Oberschenkel", "correct": true},
+            {"id": "D", "text": "lässt Haare und Nägel nach dem Tod weiterwachsen", "correct": false},
+            {"id": "E", "text": "nutzt nur etwa 10 % des Gehirns", "correct": false}
+        ]
+    },
+    {
+        "ids": 22,
+        "statement": "Die Giraffe …",
+        "answers": [
+            {"id": "A", "text": "hat genauso viele Halswirbel wie der Mensch", "correct": true},
+            {"id": "B", "text": "hat eine dunkelblaue bis fast schwarze Zunge", "correct": true},
+            {"id": "C", "text": "ist nach dem Elefanten das schwerste Landtier", "correct": false},
+            {"id": "D", "text": "lebt in freier Wildbahn nur in Afrika", "correct": true},
+            {"id": "E", "text": "ist das größte Säugetier der Welt", "correct": false}
+        ]
+    },
+    {
+        "ids": 23,
+        "statement": "Welche Lebensmittel stammen ursprünglich aus Amerika?",
+        "answers": [
+            {"id": "A", "text": "Tomate", "correct": true},
+            {"id": "B", "text": "Kaffee", "correct": false},
+            {"id": "C", "text": "Chili/Paprika", "correct": true},
+            {"id": "D", "text": "Banane", "correct": false},
+            {"id": "E", "text": "Erdnuss", "correct": true}
+        ]
+    },
+    {
+        "ids": 24,
+        "statement": "Was geschah vor dem Jahr 1500?",
+        "answers": [
+            {"id": "A", "text": "Kolumbus erreicht Amerika", "correct": true},
+            {"id": "B", "text": "Gutenberg druckt die erste Bibel mit beweglichen Lettern", "correct": true},
+            {"id": "C", "text": "Martin Luther veröffentlicht seine 95 Thesen", "correct": false},
+            {"id": "D", "text": "Die Universität Heidelberg wird gegründet", "correct": true},
+            {"id": "E", "text": "Leonardo da Vinci stirbt", "correct": false}
+        ]
+    },
+    {
+        "ids": 25,
+        "statement": "In der griechischen Mythologie …",
+        "answers": [
+            {"id": "A", "text": "ist Zeus der Bruder von Poseidon und Hades", "correct": true},
+            {"id": "B", "text": "ist Achilles nur an der Ferse verwundbar, weil ihn seine Mutter dort festhielt, als sie ihn in den Fluss Styx tauchte", "correct": true},
+            {"id": "C", "text": "ist Herakles ein Sohn des Zeus", "correct": true},
+            {"id": "D", "text": "ist Aphrodite mit Ares verheiratet", "correct": false},
+            {"id": "E", "text": "ist der Olymp ein erfundener Berg", "correct": false}
+        ]
+    }
+]
