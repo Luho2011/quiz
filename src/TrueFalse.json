@@ -179,7 +179,7 @@
         "ids": 17,
         "statement": "Was wurde in Deutschland erfunden?",
         "answers": [
-            {"id": "A", "text": "Der Buchdruck mit beweglichen Lettern", "correct": true},
+            {"id": "A", "text": "Der Buchdruck", "correct": true},
             {"id": "B", "text": "Das MP3-Format", "correct": true},
             {"id": "C", "text": "Der Reißverschluss", "correct": false},
             {"id": "D", "text": "Das Penicillin", "correct": false},
