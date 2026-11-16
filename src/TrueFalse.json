@@ -27,9 +27,9 @@
         "answers": [
             {"id": "A", "text": "hat 9 Nachbarländer", "correct": true},
             {"id": "B", "text": "hat seinen höchsten Punkt direkt an der Grenze zu Österreich", "correct": true},
-            {"id": "C", "text": "hat mit München seine zweitgrößte Stadt", "correct": false},
-            {"id": "D", "text": "hat mehr Einwohner als Frankreich", "correct": true},
-            {"id": "E", "text": "grenzt an Italien", "correct": false}
+            {"id": "C", "text": "hat den höchsten Altersdurchschnitt Europas", "correct": false},
+            {"id": "D", "text": "hat mehr Einwohner als Italien und Niederlande zusammen", "correct": false},
+            {"id": "E", "text": "Deutschland hat als erstes Land die Sommerzeit eingeführt", "correct": true}
         ]
     },
     {
@@ -48,7 +48,7 @@
         "statement": "Die Beatles …",
         "answers": [
             {"id": "A", "text": "stammen aus London", "correct": false},
-            {"id": "B", "text": "haben „Bohemian Rhapsody“ geschrieben", "correct": false},
+            {"id": "B", "text": "konnten keine Noten lesen", "correct": true},
             {"id": "C", "text": "hatten Ringo Starr als Leadsänger", "correct": false},
             {"id": "D", "text": "trennten sich 1980", "correct": false},
             {"id": "E", "text": "hatten John Lennon als letztes neues Bandmitglied", "correct": false}
@@ -62,18 +62,18 @@
             {"id": "B", "text": "hat blaues Blut", "correct": true},
             {"id": "C", "text": "kann seine Farbe nicht ändern", "correct": false},
             {"id": "D", "text": "ist ein Fisch", "correct": false},
-            {"id": "E", "text": "wird meistens älter als 10 Jahre", "correct": false}
+            {"id": "E", "text": "wird bis zu 10 Jahre alt", "correct": false}
         ]
     },
     {
         "ids": 7,
-        "statement": "Bananen …",
+        "statement": "Marie Curie …",
         "answers": [
-            {"id": "A", "text": "sind botanisch gesehen Beeren", "correct": true},
-            {"id": "B", "text": "wachsen an Bäumen", "correct": false},
-            {"id": "C", "text": "sind leicht radioaktiv", "correct": true},
-            {"id": "D", "text": "Erdbeeren sind botanisch ebenfalls Beeren", "correct": false},
-            {"id": "E", "text": "Die meisten Bananen im deutschen Supermarkt sind die Sorte Cavendish", "correct": true}
+            {"id": "A", "text": "war die erste Frau, die einen Nobelpreis erhielt", "correct": true},
+            {"id": "B", "text": "gewann Nobelpreise in zwei unterschiedlichen wissenschaftlichen Disziplinen", "correct": true},
+            {"id": "C", "text": "entdeckte gemeinsam mit ihrem Mann das Element Radium", "correct": true},
+            {"id": "D", "text": "war die erste Frau, die an der Universität Sorbonne als Professorin lehrte", "correct": true},
+            {"id": "E", "text": "wurde in Warschau geboren", "correct": true}
         ]
     },
     {
@@ -100,24 +100,24 @@
     },
     {
         "ids": 10,
-        "statement": "Die Fußball-WM …",
+        "statement": "Die deutsche Fußball-Bundesliga …",
         "answers": [
-            {"id": "A", "text": "wurde von Deutschland viermal gewonnen", "correct": true},
-            {"id": "B", "text": "wurde von Brasilien am häufigsten gewonnen", "correct": true},
-            {"id": "C", "text": "findet 2026 in drei Ländern statt", "correct": true},
-            {"id": "D", "text": "wurde noch nie in Afrika ausgetragen", "correct": false},
-            {"id": "E", "text": "wurde von England noch nie gewonnen", "correct": false}
+            {"id": "A", "text": "wurde 1963 gegründet", "correct": true},
+            {"id": "B", "text": "hatte 1.FC. Köln als ersten Deutschen Meister", "correct": true},
+            {"id": "C", "text": "besteht seit ihrer Gründung durchgehend aus 18 Mannschaften", "correct": false},
+            {"id": "D", "text": "Hat den FC Bayern München als Rekordmeister", "correct": true},
+            {"id": "E", "text": "hat Lewandowski als Rekordtorschützen", "correct": false}
         ]
     },
     {
         "ids": 11,
         "statement": "Die Chinesische Mauer …",
         "answers": [
-            {"id": "A", "text": "ist vom Mond aus mit bloßem Auge sichtbar", "correct": false},
-            {"id": "B", "text": "ist ein einziges, durchgehendes Bauwerk", "correct": false},
+            {"id": "A", "text": "ist von der ISS aus mit bloßem Auge sichtbar", "correct": false},
+            {"id": "B", "text": "besteht unter anderem aus Klebereis", "correct": true},
             {"id": "C", "text": "wurde komplett unter der Ming-Dynastie gebaut", "correct": false},
             {"id": "D", "text": "gehört zum UNESCO-Weltkulturerbe", "correct": true},
-            {"id": "E", "text": "ist kürzer als die Strecke Berlin–Peking", "correct": false}
+            {"id": "E", "text": "ist länger als der Durchmesser der Erde", "correct": true}
         ]
     },
     {
@@ -127,17 +127,17 @@
             {"id": "A", "text": "ist der höchste Berg der Erde, gemessen ab Meeresspiegel", "correct": true},
             {"id": "B", "text": "liegt an der Grenze zwischen Nepal und China", "correct": true},
             {"id": "C", "text": "wird jedes Jahr ein paar Millimeter höher", "correct": true},
-            {"id": "D", "text": "ist auch vom Fuß bis zum Gipfel gemessen der höchste Berg", "correct": false},
+            {"id": "D", "text": "benannt wurde der Berg nach dem briten Sir George Everest", "correct": true},
             {"id": "E", "text": "ist höher als die Reiseflughöhe von Passagierflugzeugen", "correct": false}
         ]
     },
     {
         "ids": 13,
-        "statement": "Welche Farben kommen in der Flagge Namibias vor?",
+        "statement": "Welche Farben kommen in der Flagge Brasiliens vor?",
         "answers": [
             {"id": "A", "text": "Blau", "correct": true},
             {"id": "B", "text": "Gelb", "correct": true},
-            {"id": "C", "text": "Rot", "correct": true},
+            {"id": "C", "text": "Rot", "correct": false},
             {"id": "D", "text": "Schwarz", "correct": false},
             {"id": "E", "text": "Weiß", "correct": true}
         ]
@@ -155,24 +155,24 @@
     },
     {
         "ids": 15,
-        "statement": "Welche Länder grenzen an Brasilien?",
+        "statement": "Google …",
         "answers": [
-            {"id": "A", "text": "Chile", "correct": false},
-            {"id": "B", "text": "Ecuador", "correct": false},
-            {"id": "C", "text": "Frankreich", "correct": true},
-            {"id": "D", "text": "Peru", "correct": true},
-            {"id": "E", "text": "Uruguay", "correct": true}
+            {"id": "A", "text": "wurde ursprünglich unter dem Namen „BackRub“ entwickelt", "correct": true},
+            {"id": "B", "text": "wurde 1998 gegründet", "correct": true},
+            {"id": "C", "text": "hatte ursprünglich seinen Hauptsitz in Seattle", "correct": false},
+            {"id": "D", "text": "wurde von Larry Page und Max Levchin gegründet", "correct": false},
+            {"id": "E", "text": "war zunächst ein Projekt an der Stanford University", "correct": true}
         ]
     },
     {
         "ids": 16,
-        "statement": "Welche dieser Planeten haben Ringe?",
+        "statement": "Wer war ein Maler des Surrealismus?",
         "answers": [
-            {"id": "A", "text": "Saturn", "correct": true},
-            {"id": "B", "text": "Jupiter", "correct": true},
-            {"id": "C", "text": "Uranus", "correct": true},
-            {"id": "D", "text": "Neptun", "correct": true},
-            {"id": "E", "text": "Mars", "correct": false}
+            {"id": "A", "text": "Salvador Dalí", "correct": true},
+            {"id": "B", "text": "René Magritte", "correct": true},
+            {"id": "C", "text": "Pablo Picasso", "correct": false},
+            {"id": "D", "text": "Wassily Kandinsky", "correct": false},
+            {"id": "E", "text": "Max Ernst", "correct": true}
         ]
     },
     {
@@ -186,15 +186,15 @@
             {"id": "E", "text": "Das Laufrad, Vorläufer des Fahrrads", "correct": true}
         ]
     },
-    {
+        {
         "ids": 18,
-        "statement": "Island …",
+        "statement": "Kaffee …",
         "answers": [
-            {"id": "A", "text": "hat keine eigene Armee", "correct": true},
-            {"id": "B", "text": "ist größer als die Insel Irland", "correct": true},
-            {"id": "C", "text": "ist Mitglied der EU", "correct": false},
-            {"id": "D", "text": "liegt komplett nördlich des Polarkreises", "correct": false},
-            {"id": "E", "text": "hat die nördlichste Hauptstadt eines unabhängigen Staates", "correct": true}
+            {"id": "A", "text": "ist botanisch gesehen eine Steinfrucht und keine echte Beere", "correct": true},
+            {"id": "B", "text": "wird in Italien am meisten konsumiert", "correct": false},
+            {"id": "C", "text": "kommt aus Äthiopien", "correct": true},
+            {"id": "D", "text": "ist nach Erdöl das meistgehandelte Gut der Welt", "correct": false},
+            {"id": "E", "text": "wurde im Osmanischen Reich zeitweise mit einem Verbot belegt", "correct": true}
         ]
     },
     {
@@ -232,28 +232,17 @@
     },
     {
         "ids": 22,
-        "statement": "Die Giraffe …",
+        "statement": "Die Mona Lisa …",
         "answers": [
-            {"id": "A", "text": "hat genauso viele Halswirbel wie der Mensch", "correct": true},
-            {"id": "B", "text": "hat eine dunkelblaue bis fast schwarze Zunge", "correct": true},
-            {"id": "C", "text": "ist nach dem Elefanten das schwerste Landtier", "correct": false},
-            {"id": "D", "text": "lebt in freier Wildbahn nur in Afrika", "correct": true},
-            {"id": "E", "text": "ist das größte Säugetier der Welt", "correct": false}
+            {"id": "A", "text": "wurde auf eine Holztafel gemalt", "correct": true},
+            {"id": "B", "text": "Wurde mal aus dem Louvre gestohlen", "correct": true},
+            {"id": "C", "text": "zeigt vermutlich Lisa del Giocondo", "correct": true},
+            {"id": "D", "text": "wurde von Michelangelo gemalt", "correct": false},
+            {"id": "E", "text": "hat keine sichtbaren Augenbrauen", "correct": true}
         ]
     },
     {
         "ids": 23,
-        "statement": "Welche Lebensmittel stammen ursprünglich aus Amerika?",
-        "answers": [
-            {"id": "A", "text": "Tomate", "correct": true},
-            {"id": "B", "text": "Kaffee", "correct": false},
-            {"id": "C", "text": "Chili/Paprika", "correct": true},
-            {"id": "D", "text": "Banane", "correct": false},
-            {"id": "E", "text": "Erdnuss", "correct": true}
-        ]
-    },
-    {
-        "ids": 24,
         "statement": "Was geschah vor dem Jahr 1500?",
         "answers": [
             {"id": "A", "text": "Kolumbus erreicht Amerika", "correct": true},
@@ -264,7 +253,7 @@
         ]
     },
     {
-        "ids": 25,
+        "ids": 24,
         "statement": "In der griechischen Mythologie …",
         "answers": [
             {"id": "A", "text": "ist Zeus der Bruder von Poseidon und Hades", "correct": true},
@@ -273,5 +262,28 @@
             {"id": "D", "text": "ist Aphrodite mit Ares verheiratet", "correct": false},
             {"id": "E", "text": "ist der Olymp ein erfundener Berg", "correct": false}
         ]
+    },
+     {
+        "ids": 25,
+        "statement": "Hamburg...",
+        "answers": [
+            {"id": "A", "text": "hat weniger Einwohner als München", "correct": false},
+            {"id": "B", "text": "hat mehr Einwohner als Mecklenburg-Vorpommern", "correct": true},
+            {"id": "C", "text": "hat über doppelt so viele Einwohner wie Frankfurt am Main", "correct": true},
+            {"id": "D", "text": "hat mehr Brücken als Amsterdam", "correct": true},
+            {"id": "E", "text": "ist flächenmäßig kleiner als Bremen", "correct": false}
+        ]
+    },
+     {
+        "ids": 26,
+        "statement": "In Afrika...",
+        "answers": [
+            {"id": "A", "text": "lebt die jüngste Bevölkerung aller Kontinente", "correct": true},
+            {"id": "B", "text": "gibt es über 40 Millionenstädte", "correct": true},
+            {"id": "C", "text": "leben über 1,5 Milliarden Menschen", "correct": true},
+            {"id": "D", "text": "wird der Äquator von genau sechs Staaten durchquert", "correct": true},
+            {"id": "E", "text": "ist Madagaskar flächenmäßig größer als Deutschland", "correct": true}
+        ]
     }
 ]
+
