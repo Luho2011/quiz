@@ -29,7 +29,7 @@
             {"id": "B", "text": "hat seinen höchsten Punkt direkt an der Grenze zu Österreich", "correct": true},
             {"id": "C", "text": "hat den höchsten Altersdurchschnitt Europas", "correct": false},
             {"id": "D", "text": "hat mehr Einwohner als Italien und Niederlande zusammen", "correct": false},
-            {"id": "E", "text": "Deutschland hat als erstes Land die Sommerzeit eingeführt", "correct": true}
+            {"id": "E", "text": "hat als erstes Land die Sommerzeit eingeführt", "correct": true}
         ]
     },
     {
