@@ -146,7 +146,7 @@ function Belong() {
                          <button className='belong__play_button' onClick={() => setFetchData(!fetchData)}>Next</button>
                          <button className='belong__play_button' onClick={() => setShowSolution(!showSolution)}>Solution</button>
                     </div>
-                <div className="zoom__words">
+                <div className="zoom__wordsBelong">
                   {wordsTest.map((item, index) => (
                     <Draggable
                       draggableId={(item.id || index).toString()}
