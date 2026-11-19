@@ -4,17 +4,17 @@
     {"ids": 3, "question": "Wo wurde LEGO gegründet?", "answer": "Billund (Dänemark)", "name": "Billund", "lat": 55.7305, "lon": 9.1176},
     {"ids": 4, "question": "Wo saß Nelson Mandela 18 Jahre lang im Gefängnis?", "answer": "Robben Island", "name": "Robben Island", "lat": -33.8067, "lon": 18.3667},
     {"ids": 5, "question": "Wo wurde das Attentat verübt, das den Ersten Weltkrieg auslöste?", "answer": "Sarajevo (Attentat auf Franz Ferdinand, 1914)", "name": "Sarajevo", "lat": 43.8580, "lon": 18.4295},
-    {"ids": 6, "question": "Wo liegt der Felsen La Quebrada?", "answer": "Acapulco, Mexiko (Klippenspringer)", "name": "La Quebrada", "lat": 16.8456, "lon": -99.9124},
+    {"ids": 6, "question": "Wo steht der Cristo Redentor?", "answer": "Rio de Janeiro (auf dem Corcovado)", "name": "Cristo Redentor", "lat": -22.9519, "lon": -43.2105},
     {"ids": 7, "question": "Wo ereignete sich 1986 die schwerste Reaktorkatastrophe der Geschichte?", "answer": "Tschernobyl", "name": "Tschernobyl", "lat": 51.2763, "lon": 30.2219},
     {"ids": 8, "question": "Auf welche Stadt wurde 1945 die erste Atombombe abgeworfen?", "answer": "Hiroshima", "name": "Hiroshima", "lat": 34.3853, "lon": 132.4553},
     {"ids": 9, "question": "In welcher Stadt fand das Finale der Fußball-WM 2006 statt?", "answer": "Berlin", "name": "Berlin", "lat": 52.5200, "lon": 13.4050},
-    {"ids": 10, "question": "In welcher Stadt steht das höchste Gebäude der Welt, der Burj Khalifa?", "answer": "Dubai", "name": "Dubai", "lat": 25.1972, "lon": 55.2744},
+    {"ids": 10, "question": "In welcher Stadt steht das höchste Gebäude der Welt?", "answer": "Dubai", "name": "Dubai", "lat": 25.1972, "lon": 55.2744},
     {"ids": 11, "question": "In welcher Stadt haben die Vereinten Nationen ihren Hauptsitz?", "answer": "New York", "name": "New York", "lat": 40.7489, "lon": -73.9680},
     {"ids": 12, "question": "Wo liegt das Wrack der Titanic?", "answer": "Im Nordatlantik, südöstlich von Neufundland", "name": "Wrack der Titanic", "lat": 41.7325, "lon": -49.9469},
     {"ids": 13, "question": "Wo fand die Varusschlacht vermutlich statt?", "answer": "Kalkriese bei Osnabrück (Teutoburger Wald, 9 n. Chr.)", "name": "Kalkriese", "lat": 52.4064, "lon": 8.1187},
     {"ids": 14, "question": "In welcher Stadt wird bei den Filmfestspielen die Goldene Palme verliehen?", "answer": "Cannes", "name": "Cannes", "lat": 43.5528, "lon": 7.0174},
     {"ids": 15, "question": "In welcher Stadt wurde Ludwig van Beethoven geboren?", "answer": "Bonn", "name": "Bonn", "lat": 50.7374, "lon": 7.0982},
-    {"ids": 16, "question": "Wo fand die Varusschlacht vermutlich statt?", "answer": "Kalkriese bei Osnabrück (Teutoburger Wald, 9 n. Chr.)", "name": "Kalkriese", "lat": 52.4064, "lon": 8.1187},
+    {"ids": 16, "question": "Wo liegt die riesige Salzpfanne Salar de Uyuni?", "answer": "Bolivien (Altiplano, Departamento Potosí)", "name": "Salar de Uyuni", "lat": -20.1338, "lon": -67.4891},
     {"ids": 17, "question": "In welcher Stadt verunglückte Prinzessin Diana tödlich?", "answer": "Paris", "name": "Paris", "lat": 48.8566, "lon": 2.3522},
     {"ids": 18, "question": "Wo fanden 1896 die ersten Olympischen Spiele der Neuzeit statt?", "answer": "Athen", "name": "Athen", "lat": 37.9838, "lon": 23.7275},
     {"ids": 19, "question": "In welcher Stadt sitzt offiziell das Europäische Parlament?", "answer": "Straßburg", "name": "Straßburg", "lat": 48.5734, "lon": 7.7521},
@@ -39,6 +39,8 @@
     {"ids": 38, "question": "Wo ist Napoleon gestorben?", "answer": "St. Helena (Südatlantik, 1821)", "name": "St. Helena", "lat": -15.9556, "lon": -5.6942},
     {"ids": 39, "question": "Wo liegt die Felsenstadt Petra?", "answer": "Jordanien", "name": "Petra", "lat": 30.3285, "lon": 35.4444},
     {"ids": 40, "question": "Welche Stadt war der Drehort für Königsmund in Game of Thrones?", "answer": "Dubrovnik (Kroatien)", "name": "Dubrovnik", "lat": 42.6410, "lon": 18.1100},
-    {"ids": 41, "question": "Wo fand die Schweinebucht-Invasion statt?", "answer": "Kuba", "name": "Kuba", "lat": 22.2768, "lon": -81.1991}
+    {"ids": 41, "question": "Wo fand die Schweinebucht-Invasion statt?", "answer": "Kuba", "name": "Kuba", "lat": 22.2768, "lon": -81.1991},
+    {"ids": 42, "question": "Wo befinden sich die Felsenkirchen von Lalibela?", "answer": "Lalibela, Äthiopien", "name": "Lalibela", "lat": 12.0317, "lon": 39.0411},
+    {"ids": 43, "question": "Wo steht die Basilika Notre-Dame-de-la-Paix?", "answer": "Yamoussoukro, Elfenbeinküste", "name": "Yamoussoukro", "lat": 6.8114, "lon": -5.2967}
 ]
 
