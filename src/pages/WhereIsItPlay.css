@@ -1,0 +1,120 @@
+.whereplay {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 14px 12px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    --team: #6d3df5;
+    --team-soft: rgba(109, 61, 245, 0.35);
+    background:
+        radial-gradient(circle at 10% 10%, var(--team-soft), transparent 40%),
+        radial-gradient(circle at 90% 85%, var(--team-soft), transparent 40%),
+        #07122f;
+}
+
+/* Team A = blau, Team B = rot (wie am Fernseher) */
+.whereplay--A {
+    --team: #3b82f6;
+    --team-soft: rgba(59, 130, 246, 0.35);
+}
+
+.whereplay--B {
+    --team: #ef4444;
+    --team-soft: rgba(239, 68, 68, 0.35);
+}
+
+.whereplay > * {
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+}
+
+.whereplay h1,
+.whereplay__question {
+    margin: 0;
+    text-align: center;
+}
+
+.whereplay__question {
+    font-size: 1.4rem;
+}
+
+.whereplay__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.whereplay__team {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--team);
+}
+
+.whereplay__link {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: underline;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.whereplay__teams {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.whereplay__team-button,
+.whereplay__confirm {
+    cursor: pointer;
+    min-height: 64px;
+    border: 2px solid var(--team);
+    border-radius: 36px;
+    background: var(--team);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.whereplay__confirm {
+    max-width: 500px;
+}
+
+.whereplay__confirm:disabled {
+    cursor: default;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.whereplay__team-button--A {
+    --team: #3b82f6;
+}
+
+.whereplay__team-button--B {
+    --team: #ef4444;
+}
+
+.whereplay__message {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.whereplay__hint {
+    margin: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.whereplay__error {
+    margin: 0;
+    color: #ff8a8a;
+    font-size: 0.9rem;
+}

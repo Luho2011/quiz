@@ -25,6 +25,9 @@ function Content() {
         <Link to='/celeb' target="_blank">
           <button className='game_button'><h2>Wahr oder falsch?</h2><img className='questionmark_logo' src={questionmark} alt="" onClick={""}/></button>
         </Link>
+        <Link to='/whereIsIt' target="_blank">
+          <button className='game_button'><h2>Wo ist es?</h2><img className='sort_logo' src={Globe} alt="" /></button>
+        </Link>
         <Link to='/music' target="_blank">
           <button className='game_button'><h2>Musik back</h2><img className='rewind_logo' src={rewindlogo} alt="" onClick={""}/></button>
         </Link>

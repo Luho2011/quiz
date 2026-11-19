@@ -5,6 +5,8 @@ import axios from 'axios';
 import HomeScreen from './HomeScreen';
 import Celeb from './pages/Celeb';
 import CelebPlay from './pages/CelebPlay';
+import WhereIsIt from './pages/WhereIsIt';
+import WhereIsItPlay from './pages/WhereIsItPlay';
 import Music from './pages/Music';
 import Belong from './pages/Belong';
 import Zoom from './pages/Zoom';
@@ -36,6 +38,9 @@ function App() {
             <Route path='/celeb' element={<Celeb />} />
             <Route path='/celeb/play' element={<CelebPlay />} />
             <Route path='/celeb/play/:team' element={<CelebPlay />} />
+            <Route path='/whereIsIt' element={<WhereIsIt />} />
+            <Route path='/whereIsIt/play' element={<WhereIsItPlay />} />
+            <Route path='/whereIsIt/play/:team' element={<WhereIsItPlay />} />
             <Route path='/music'element={<Music />} />
             <Route path='/belong' element={<Belong />} />
             <Route path='/zoom' element={<Zoom />} />

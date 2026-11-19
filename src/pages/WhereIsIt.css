@@ -1,0 +1,207 @@
+.whereisit {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(90, 60, 255, 0.20), transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(0, 200, 255, 0.12), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(120, 40, 255, 0.12), transparent 40%),
+        #07122f;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 6px;
+    box-sizing: border-box;
+    position: relative;
+    color: white;
+    --team-a: #3b82f6;
+    --team-b: #ef4444;
+}
+
+.whereisit__counter {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    z-index: 2;
+}
+
+.whereisit__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 28px;
+}
+
+.whereisit__header > h1 {
+    margin: 0;
+    color: white;
+    font-size: 30px;
+}
+
+.whereisit__header > p {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.whereisit__hint {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.whereisit__reset {
+    background: none;
+    border: none;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.whereisit__reset:hover {
+    color: white;
+}
+
+.whereisit__buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.whereisit__button {
+    cursor: pointer;
+    height: 42px;
+    min-width: 95px;
+    padding: 0 20px;
+    border: 1px solid rgba(130, 100, 255, 0.55);
+    border-radius: 22px;
+    background: linear-gradient(135deg, #6d3df5, #3867ff);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(80, 60, 255, 0.3);
+    transition: box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.whereisit__button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(90, 70, 255, 0.45);
+}
+
+.whereisit__button:disabled {
+    cursor: default;
+    filter: grayscale(0.8) brightness(0.7);
+    box-shadow: none;
+}
+
+.whereisit__stage {
+    width: 100%;
+    max-width: 1900px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid rgba(100, 140, 220, 0.35);
+    border-radius: 18px;
+    background: rgba(10, 25, 55, 0.72);
+    box-shadow: 0 0 6px rgba(0, 243, 255, 0.3), 0 0 12px rgba(0, 243, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.whereisit__question {
+    margin: 0;
+    font-size: 1.6rem;
+    text-align: center;
+    animation: whereisitFadeIn 1s;
+}
+
+.whereisit__status {
+    margin: 0;
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.whereisit__status-team {
+    font-weight: 700;
+}
+
+.whereisit__status-team--A {
+    color: var(--team-a);
+}
+
+.whereisit__status-team--B {
+    color: var(--team-b);
+}
+
+.whereisit__answer {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #facc15;
+    animation: whereisitFadeIn 0.8s;
+}
+
+.whereisit__error {
+    margin: 0;
+    color: #ff8a8a;
+}
+
+.whereisit__results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    animation: whereisitFadeIn 0.8s;
+}
+
+.whereisit__result {
+    --team: var(--team-a);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 22px;
+    border: 2px solid var(--team);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 1.5rem;
+}
+
+.whereisit__result--B {
+    --team: var(--team-b);
+}
+
+.whereisit__result-team {
+    font-weight: 800;
+    color: var(--team);
+}
+
+.whereisit__result-km {
+    font-weight: 700;
+}
+
+.whereisit__result--winner {
+    background: var(--team);
+    box-shadow: 0 0 20px var(--team);
+}
+
+.whereisit__result--winner .whereisit__result-team {
+    color: white;
+}
+
+.whereisit__result-badge {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.whereisit__tie {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #facc15;
+}
+
+@keyframes whereisitFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+}
