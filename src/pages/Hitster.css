@@ -242,7 +242,7 @@
     }
 
     .musicDate {
-        font-size: min(28px, 30cqi);  /* 28px, schrumpft erst bei sehr schmalen Karten */
+        font-size: min(38px, 30cqi);  /* 28px, schrumpft erst bei sehr schmalen Karten */
         letter-spacing: -1px;
     }
 
