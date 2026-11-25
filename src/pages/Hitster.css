@@ -5,6 +5,10 @@
     gap: 20px;
     background-color: #ece5d8;
     height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
+    overflow-x: hidden;
 }
 
 .topContainer {
@@ -14,6 +18,7 @@
     background-size: 400% 400%;
     width: 100%;
     max-width: 1885px;
+    box-sizing: border-box;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
@@ -43,20 +48,34 @@
         flex-shrink: 1;    /* darf schrumpfen */
     }
 
-    .musicDate {
-        font-size: 32px;
-    }
-
-    .musicInterpret {
-        font-size: 14px;
-        white-space: normal;        /* Zeilenumbruch erlauben */
-        word-wrap: break-word;      /* sehr lange Namen umbrechen */
-    }
-
     .musicSong {
-        font-size: 12px;
-        white-space: normal; /* Zeilenumbruch erlauben */
-        word-wrap: break-word; /* bei langen Wörtern umbrechen */
+        top: 150px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .qrNext {
+        transform: translateY(-50%) scale(0.75);
+        transform-origin: right center;
+    }
+}
+
+@media (max-width: 900px) {
+    .qrNext {
+        flex-direction: column;
+        gap: 10px;
+        width: auto;
+    }
+}
+
+/* Sehr schmale Karten: Jahreszahl untereinander (19 / 95) */
+@container (max-width: 80px) {
+    .musicDate span {
+        display: block;
+    }
+
+    .musicDate {
+        font-size: clamp(14px, 45cqi, 40px);
     }
 }
 
@@ -73,7 +92,10 @@
 }
 
 .centerContainer {
-    width: 1885px;
+    width: 100%;
+    max-width: 1885px;
+    box-sizing: border-box;
+    position: relative;
     height: 270px;
     display: flex;
     justify-content: center;
@@ -87,6 +109,7 @@
     background-size: 400% 400%;
     width: 100%;
     max-width: 1885px;
+    box-sizing: border-box;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
@@ -104,8 +127,10 @@
     justify-content: center;
     align-items: center;
     gap: 35px;
-    margin-left: -450px;
-    width: 450px;
+    position: absolute;
+    right: calc(50% + 100px);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .qrCodeContainer {
@@ -163,32 +188,57 @@
     background-color: #70ef63;
     border-radius: 4px;
     position: relative;
+    box-sizing: border-box;
+    min-width: 0;
+    overflow: hidden;
+    container-type: inline-size;
 }
 
 .musicInterpret {
     text-align: center;
-    font-size: 20px;
+    font-size: clamp(9px, 13cqi, 20px);
     position: absolute;
     top: 25px;
-    white-space: normal;    
-    word-wrap: break-word; 
+    left: 4px;
+    right: 4px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.musicInterpret p,
+.musicSong p {
+    margin: 0;
 }
 
 .musicDate {
     text-align: center;
     font-weight: bolder;
-    font-size: 50px;
+    font-size: clamp(14px, 34cqi, 50px);
+    line-height: 1;
     position: absolute;
+    margin: 0;
 }
 
 .musicSong {
     text-align: center;
     font-style: italic;
-    font-size: 17px;
+    font-size: clamp(8px, 11cqi, 17px);
     position: absolute;
     top: 175px;
+    left: 4px;
+    right: 4px;
     white-space: normal;
-    word-wrap: break-word; 
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .qrCodeContainer {
@@ -246,8 +296,10 @@
 }
 
 .editYearInput {
-    width: 90px;
-    font-size: 40px;
+    width: 100%;
+    max-width: 90px;
+    box-sizing: border-box;
+    font-size: clamp(14px, 26cqi, 40px);
     font-weight: bold;
     text-align: center;
     border: 2px solid #000;

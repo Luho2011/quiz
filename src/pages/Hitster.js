@@ -170,6 +170,16 @@ function Hitster() {
     setEditingSongId(null);
 };
 
+    // Jahreszahl in zwei Teile splitten, damit sie bei schmalen Karten untereinander stehen kann
+    const renderYear = (year) => {
+        const y = String(year);
+        return (
+            <>
+                <span>{y.slice(0, 2)}</span><span>{y.slice(2)}</span>
+            </>
+        );
+    };
+
     return (
         <div className='musicTriviaGame'>
             <DragDropContext onDragEnd={onDragEnd}>
@@ -217,7 +227,7 @@ function Hitster() {
         className="musicDate"
         onDoubleClick={() => setEditingSongId(song.id)}
     >
-        {song.customYear ?? song.album.release_date.slice(0, 4)}
+        {renderYear(song.customYear ?? song.album.release_date.slice(0, 4))}
     </p>
 )}
 
@@ -280,7 +290,7 @@ function Hitster() {
                                                 {showSolution ? (
                                                     <>
                                                         <p className='musicInterpret'>{currentSong.artists[0].name}</p>
-                                                        <p className='musicDate'>{currentSong.album.release_date.slice(0, 4)}</p>
+                                                        <p className='musicDate'>{renderYear(currentSong.album.release_date.slice(0, 4))}</p>
                                                         <p className='musicSong'>{currentSong.name}</p>
                                                     </>
                                                 ) : (
@@ -343,11 +353,11 @@ function Hitster() {
         className="musicDate"
         onDoubleClick={() => setEditingSongId(song.id)}
     >
-        {song.customYear ?? song.album.release_date.slice(0, 4)}
+        {renderYear(song.customYear ?? song.album.release_date.slice(0, 4))}
     </p>
 )}
 
-                                                  
+
                                                 <div className='musicSong'>
                                                   <p>{song.name}</p>
                                                 </div>    
