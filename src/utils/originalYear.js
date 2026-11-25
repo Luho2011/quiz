@@ -3,7 +3,7 @@
 
 const MB_BASE = 'https://musicbrainz.org/ws/2';
 const WD_ENDPOINT = 'https://query.wikidata.org/sparql';
-const CACHE_PREFIX = 'origYear_v3_';
+const CACHE_PREFIX = 'origYear_v4_';
 const MB_DELAY_MS = 1100; // MusicBrainz erlaubt ca. 1 Anfrage pro Sekunde
 const RETRY_DELAY_MS = 2000;
 
@@ -95,7 +95,7 @@ const sameArtist = (a, b) => {
 // Wikidata: Veröffentlichungsdatum (P577) von Songs/Singles mit passendem Interpreten (P175)
 const wikidataYear = async (title, artist) => {
     const query = `
-        SELECT ?date ?perfLabel WHERE {
+        SELECT ?item ?date ?perf ?perfLabel ?born ?formed ?isSingle WHERE {
           SERVICE wikibase:mwapi {
             bd:serviceParam wikibase:endpoint "www.wikidata.org";
                             wikibase:api "EntitySearch";
@@ -107,18 +107,64 @@ const wikidataYear = async (title, artist) => {
                 wdt:P175 ?perf.
           ?perf rdfs:label ?perfLabel.
           FILTER(LANG(?perfLabel) = "en")
-        } LIMIT 50`;
+          OPTIONAL { ?perf wdt:P569 ?born. }
+          OPTIONAL { ?perf wdt:P571 ?formed. }
+          BIND(EXISTS { ?item wdt:P31 wd:Q134556 } AS ?isSingle)
+        } LIMIT 200`;
     const url = `${WD_ENDPOINT}?format=json&query=${encodeURIComponent(query)}`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`Wikidata ${res.status}`);
     const data = await res.json();
 
-    let min = null;
+    const yearOf = (v) => parseInt((v || '').slice(0, 4), 10) || null;
+
+    // Zeilen pro Item gruppieren
+    const items = {};
     for (const row of data.results?.bindings || []) {
-        if (!sameArtist(row.perfLabel?.value, artist)) continue;
-        const year = parseInt((row.date?.value || '').slice(0, 4), 10);
-        if (year && (min === null || year < min)) min = year;
+        const id = row.item?.value;
+        if (!id) continue;
+        if (!items[id]) {
+            items[id] = {
+                year: yearOf(row.date?.value),
+                isSingle: row.isSingle?.value === 'true',
+                performers: new Set(),
+                matches: [], // Zeilen, deren Interpret zum gesuchten passt
+            };
+        }
+        items[id].performers.add(row.perf?.value);
+        if (sameArtist(row.perfLabel?.value, artist)) {
+            items[id].matches.push({
+                born: yearOf(row.born?.value),
+                formed: yearOf(row.formed?.value),
+            });
+        }
     }
+
+    let min = null;
+    let discarded = 0;
+    for (const item of Object.values(items)) {
+        if (!item.year || item.matches.length === 0) continue;
+
+        // Komposition mit vielen Interpreten (Coverversionen) – nicht die Aufnahme dieses Interpreten
+        if (item.performers.size > 2 && !item.isSingle) {
+            discarded++;
+            continue;
+        }
+
+        // Plausibilität: Jahr muss nach Geburt (+12) bzw. Bandgründung des Interpreten liegen
+        const plausible = item.matches.some(
+            (m) =>
+                (m.born === null || item.year >= m.born + 12) &&
+                (m.formed === null || item.year >= m.formed)
+        );
+        if (!plausible) {
+            discarded++;
+            continue;
+        }
+
+        if (min === null || item.year < min) min = item.year;
+    }
+    if (discarded) console.info('[Jahr] Wikidata: verworfene Items:', discarded);
     return min;
 };
 
