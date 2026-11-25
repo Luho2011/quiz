@@ -2,7 +2,8 @@
 // Spotify liefert nur das Album-Datum (bei Remastern/Best-ofs also oft ein zu spätes Jahr).
 
 const MB_BASE = 'https://musicbrainz.org/ws/2';
-const CACHE_PREFIX = 'origYear_v2_';
+const WD_ENDPOINT = 'https://query.wikidata.org/sparql';
+const CACHE_PREFIX = 'origYear_v3_';
 const MB_DELAY_MS = 1100; // MusicBrainz erlaubt ca. 1 Anfrage pro Sekunde
 const RETRY_DELAY_MS = 2000;
 
@@ -77,6 +78,50 @@ const earliestYear = (items, minScore = 0) => {
     return min;
 };
 
+// Interpretennamen vergleichbar machen: "Danny & the Juniors" ~ "Danny and the Juniors"
+const normalizeArtist = (name) =>
+    (name || '')
+        .toLowerCase()
+        .replace(/&/g, ' and ')
+        .replace(/^\s*the\s+/, '')
+        .replace(/[^a-z0-9]/g, '');
+
+const sameArtist = (a, b) => {
+    const x = normalizeArtist(a);
+    const y = normalizeArtist(b);
+    return !!x && !!y && (x.includes(y) || y.includes(x));
+};
+
+// Wikidata: Veröffentlichungsdatum (P577) von Songs/Singles mit passendem Interpreten (P175)
+const wikidataYear = async (title, artist) => {
+    const query = `
+        SELECT ?date ?perfLabel WHERE {
+          SERVICE wikibase:mwapi {
+            bd:serviceParam wikibase:endpoint "www.wikidata.org";
+                            wikibase:api "EntitySearch";
+                            mwapi:search "${title}";
+                            mwapi:language "en".
+            ?item wikibase:apiOutputItem mwapi:item.
+          }
+          ?item wdt:P577 ?date;
+                wdt:P175 ?perf.
+          ?perf rdfs:label ?perfLabel.
+          FILTER(LANG(?perfLabel) = "en")
+        } LIMIT 50`;
+    const url = `${WD_ENDPOINT}?format=json&query=${encodeURIComponent(query)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Wikidata ${res.status}`);
+    const data = await res.json();
+
+    let min = null;
+    for (const row of data.results?.bindings || []) {
+        if (!sameArtist(row.perfLabel?.value, artist)) continue;
+        const year = parseInt((row.date?.value || '').slice(0, 4), 10);
+        if (year && (min === null || year < min)) min = year;
+    }
+    return min;
+};
+
 // Eine einzelne Abfrage; Fehler werden geschluckt (null), damit die anderen Quellen weiterlaufen
 const safeLookup = async (fn) => {
     try {
@@ -109,6 +154,9 @@ async function lookup(track) {
     const artist = lucene(track.artists?.[0]?.name || '');
     const isrc = track.external_ids?.isrc;
 
+    // Wikidata läuft parallel zur MusicBrainz-Queue (anderer Dienst, eigenes Rate-Limit)
+    const wikidataPromise = safeLookup(() => wikidataYear(title, artist));
+
     // a) ISRC-Lookup
     const byIsrc = isrc
         ? await safeLookup(async () => {
@@ -135,9 +183,15 @@ async function lookup(track) {
         return earliestYear(data.recordings, 90);
     });
 
-    const candidates = [spotifyYear, byIsrc.year, bySingle.year, byRecording.year].filter(
-        (y) => y !== null
-    );
+    const byWikidata = await wikidataPromise;
+
+    const candidates = [
+        spotifyYear,
+        byIsrc.year,
+        bySingle.year,
+        byRecording.year,
+        byWikidata.year,
+    ].filter((y) => y !== null);
     const result = String(Math.min(...candidates));
 
     console.info('[Jahr]', track.name, {
@@ -145,11 +199,12 @@ async function lookup(track) {
         isrc: byIsrc.year,
         single: bySingle.year,
         recording: byRecording.year,
+        wikidata: byWikidata.year,
         result,
     });
 
     // Nur cachen, wenn mindestens eine Abfrage erfolgreich war
-    if (byIsrc.ok || bySingle.ok || byRecording.ok) {
+    if (byIsrc.ok || bySingle.ok || byRecording.ok || byWikidata.ok) {
         writeCache(track.id, result);
     }
     return result;
