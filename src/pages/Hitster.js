@@ -4,6 +4,7 @@ import axios from 'axios';
 import { QRCodeCanvas } from 'qrcode.react';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { getOriginalYear } from '../utils/originalYear';
 
 function Hitster() {
     const location = useLocation();
@@ -15,6 +16,23 @@ function Hitster() {
     const [bottomContainer, setBottomContainer] = useState([]);
     const [songDropped, setSongDropped] = useState(false);
     const [editingSongId, setEditingSongId] = useState(null);
+    const [originalYears, setOriginalYears] = useState({}); // Ursprungsjahr pro Song-ID (MusicBrainz)
+
+    // Priorität: manuell bearbeitet > MusicBrainz > Spotify-Albumdatum
+    const getYear = (song) =>
+        song.customYear ?? originalYears[song.id] ?? song.album.release_date.slice(0, 4);
+
+    // Ursprungsjahr für den aktuellen Song nachladen
+    useEffect(() => {
+        if (!currentSong) return;
+        let cancelled = false;
+        getOriginalYear(currentSong).then((year) => {
+            if (!cancelled) {
+                setOriginalYears((prev) => ({ ...prev, [currentSong.id]: year }));
+            }
+        });
+        return () => { cancelled = true; };
+    }, [currentSong]);
 
     useEffect(() => {
         const loadSongs = async () => {
@@ -201,7 +219,7 @@ function Hitster() {
     <input
         type="number"
         className="editYearInput"
-        defaultValue={song.customYear ?? song.album.release_date.slice(0, 4)}
+        defaultValue={getYear(song)}
         autoFocus
         onBlur={(e) =>
             saveYear(song, e.target.value, topContainer, setTopContainer)
@@ -217,7 +235,7 @@ function Hitster() {
         className="musicDate"
         onDoubleClick={() => setEditingSongId(song.id)}
     >
-        {song.customYear ?? song.album.release_date.slice(0, 4)}
+        {getYear(song)}
     </p>
 )}
 
@@ -280,7 +298,7 @@ function Hitster() {
                                                 {showSolution ? (
                                                     <>
                                                         <p className='musicInterpret'>{currentSong.artists[0].name}</p>
-                                                        <p className='musicDate'>{currentSong.album.release_date.slice(0, 4)}</p>
+                                                        <p className='musicDate'>{getYear(currentSong)}</p>
                                                         <p className='musicSong'>{currentSong.name}</p>
                                                     </>
                                                 ) : (
@@ -327,7 +345,7 @@ function Hitster() {
     <input
         type="number"
         className="editYearInput"
-        defaultValue={song.customYear ?? song.album.release_date.slice(0, 4)}
+        defaultValue={getYear(song)}
         autoFocus
         onBlur={(e) =>
             saveYear(song, e.target.value, bottomContainer, setBottomContainer)
@@ -343,7 +361,7 @@ function Hitster() {
         className="musicDate"
         onDoubleClick={() => setEditingSongId(song.id)}
     >
-        {song.customYear ?? song.album.release_date.slice(0, 4)}
+        {getYear(song)}
     </p>
 )}
 
