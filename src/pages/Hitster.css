@@ -48,8 +48,16 @@
         flex-shrink: 1;    /* darf schrumpfen */
     }
 
+    .musicInterpret {
+        font-size: 14px;
+        white-space: normal;        /* Zeilenumbruch erlauben */
+        word-wrap: break-word;      /* sehr lange Namen umbrechen */
+    }
+
     .musicSong {
-        top: 150px;
+        font-size: 12px;
+        white-space: normal; /* Zeilenumbruch erlauben */
+        word-wrap: break-word; /* bei langen Wörtern umbrechen */
     }
 }
 
@@ -65,17 +73,6 @@
         flex-direction: column;
         gap: 10px;
         width: auto;
-    }
-}
-
-/* Sehr schmale Karten: Jahreszahl untereinander (19 / 95) */
-@container (max-width: 80px) {
-    .musicDate span {
-        display: block;
-    }
-
-    .musicDate {
-        font-size: clamp(14px, 45cqi, 40px);
     }
 }
 
@@ -188,57 +185,33 @@
     background-color: #70ef63;
     border-radius: 4px;
     position: relative;
-    box-sizing: border-box;
-    min-width: 0;
-    overflow: hidden;
     container-type: inline-size;
 }
 
 .musicInterpret {
     text-align: center;
-    font-size: clamp(9px, 13cqi, 20px);
+    font-size: 20px;
     position: absolute;
     top: 25px;
-    left: 4px;
-    right: 4px;
     white-space: normal;
-    overflow-wrap: anywhere;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.musicInterpret p,
-.musicSong p {
-    margin: 0;
+    word-wrap: break-word;
 }
 
 .musicDate {
     text-align: center;
-    font-weight: bolder;
-    font-size: clamp(14px, 34cqi, 50px);
-    line-height: 1;
+    font-weight: normal;
+    font-size: clamp(16px, 26cqi, 38px);
     position: absolute;
-    margin: 0;
 }
 
 .musicSong {
     text-align: center;
     font-style: italic;
-    font-size: clamp(8px, 11cqi, 17px);
+    font-size: 17px;
     position: absolute;
     top: 175px;
-    left: 4px;
-    right: 4px;
     white-space: normal;
-    overflow-wrap: anywhere;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .qrCodeContainer {
@@ -296,10 +269,8 @@
 }
 
 .editYearInput {
-    width: 100%;
-    max-width: 90px;
-    box-sizing: border-box;
-    font-size: clamp(14px, 26cqi, 40px);
+    width: 90px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
     border: 2px solid #000;
