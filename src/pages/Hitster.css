@@ -242,7 +242,7 @@
     }
 
     .musicDate {
-        font-size: min(38px, 30cqi);  /* 28px, schrumpft erst bei sehr schmalen Karten */
+        font-size: clamp(26px, 45cqi, 40px);  /* etwas kleiner als Desktop (50px), nie unter 26px */
         letter-spacing: -1px;
     }
 
@@ -250,7 +250,7 @@
         width: 100%;
         max-width: 90px;
         box-sizing: border-box;
-        font-size: min(28px, 30cqi);
+        font-size: clamp(26px, 45cqi, 40px);
     }
 
     .musicInterpret {
